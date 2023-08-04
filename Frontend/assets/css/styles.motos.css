@@ -5,12 +5,13 @@ body{
 
 #ordenes-motoristas{
     height: 100vh;
-    /* background-image: url(../img/background-img.png);
+    background-color: #f3ede7;
+    background-image: url(../img/background-img.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
     background-position: center center;
     background-attachment: fixed;
-    margin: 0; */
+    margin: 0;
 }
 
 /* La etiqueta padre lleva el height vh */
@@ -24,7 +25,7 @@ body{
 }
 
 .ordenes{
-    border: 2px red solid;
+    /* border: 2px red solid; */
     margin-top: 5%;
     display: flex;
     flex-direction: column;
@@ -32,7 +33,7 @@ body{
 }
 
 .contenedor-orden{
-    border: 2px green solid;
+    /* border: 2px green solid; */
     width: 80%;
     height: 45px;
     background-color: #9CBFDE;
@@ -44,6 +45,6 @@ body{
 }
 
 #contenedor-img-ordenes{
-    border: 2px solid palevioletred;
+    /* border: 2px solid palevioletred; */
     position: relative;
 } 
