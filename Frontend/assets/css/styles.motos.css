@@ -3,6 +3,7 @@ body{
     background-color: #f3ede7;
 }
 
+/*Estilos para ver las ordenes */
 #ordenes-motoristas{
     height: 100vh;
     background-color: #f3ede7;
@@ -12,12 +13,13 @@ body{
     background-position: center center;
     background-attachment: fixed;
     margin: 0;
+    display: none;
 }
 
 /* La etiqueta padre lleva el height vh */
 #nav-motoristas-ordenes{
     border: 2px solid black;
-    height: 10%;
+    height: 8%;
     background-color: #9CBFDE;
     display: flex;
     justify-content: center;
@@ -48,3 +50,19 @@ body{
     /* border: 2px solid palevioletred; */
     position: relative;
 } 
+
+/*Estilos para ver detalle compra*/
+
+#vista-ordenes{
+    height: 100vh;
+}
+
+#nav-motoristas-detalle-compra{
+    border: 2px solid black;
+    height: 8%;
+    background-color: #9CBFDE;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
