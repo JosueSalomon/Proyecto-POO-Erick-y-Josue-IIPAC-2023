@@ -66,3 +66,36 @@ body{
     align-items: center;
 }
 
+#Contenedor-img-productos{
+    border: 2px blueviolet solid;
+    height: 35%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#img-flecha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#contendor-puntitos{
+    border: 2px solid gold;
+    display: flex;
+    justify-content: space-evenly;
+    width: 15%;
+    /* scroll-padding-bottom: 5px; */
+    padding-bottom: 0%;
+}
+
+#flecha{
+    position: absolute;
+    right: 5%;
+}
+
+
+
