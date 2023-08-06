@@ -11,6 +11,9 @@
     <!-- Terminada -->
     <section id="ordenes-motoristas">
         <nav id="nav-motoristas-ordenes">
+            <div onclick="regrearOpcionesMotorista()" style="    position: absolute; left: 10%;">
+                <i class="fa-solid fa-arrow-left" style="color: gray; font-size: 25px;"></i>
+            </div>
             <h1 style="font-size: 35px; font-weight: bolder; color: aliceblue;">
                 Readigo
             </h1>
@@ -20,10 +23,10 @@
             <h3 style="font-size: 24px; font-weight: bold;">
                 Ordenes pendiente
             </h3>
-            <div class="contenedor-orden">
+            <div onclick="verDetalleOrden()" class="contenedor-orden">
                 Orden #59
             </div>
-            <div class="contenedor-orden">
+            <div onclick="verDetalleOrden()" class="contenedor-orden">
                 Orden #102
             </div>
         </div>
@@ -32,16 +35,16 @@
             <h3 style="    font-size: 24px; font-weight: bold;">
                 Ordenes disponibles
             </h3>
-            <div class="contenedor-orden">
+            <div onclick="verDetalleOrden()" class="contenedor-orden">
                 Orden #59
             </div>
-            <div class="contenedor-orden">
+            <div onclick="verDetalleOrden()" class="contenedor-orden">
                 Orden #102
             </div>
-            <div class="contenedor-orden">
+            <div onclick="verDetalleOrden()" class="contenedor-orden">
                 Orden #123
             </div>
-            <div class="contenedor-orden">
+            <div onclick="verDetalleOrden()" class="contenedor-orden">
                 Orden #21
             </div>
         </div>
@@ -51,8 +54,8 @@
     <!-- Terminada -->
     <section id="vista-ordenes">
         <nav id="nav-motoristas-detalle-compra">
-            <div>
-                <i class="fa-solid fa-arrow-left" style="color: gray;"></i>
+            <div onclick="regrearVerOrdenes()">
+                <i class="fa-solid fa-arrow-left" style="color: gray; font-size: 25px;"></i>
             </div>
             <div>
                 <h1 style="font-size: 35px; font-weight: bolder; color: aliceblue;">
@@ -60,7 +63,7 @@
                 </h1>
             </div>
             <div>
-                <i class="fa-solid fa-user" style="color: gray;"></i>
+                <i class="fa-solid fa-user" style="color: gray; font-size: 25px;"></i>
             </div>
         </nav>
 
@@ -138,6 +141,7 @@
     </section>
 
     <!-- Terminada -->
+    <!-- primera que se mira -->
     <section id="inicio-sesion">
         <div id="superior-inicio-sesion">
             <h2 class="titulo-iniciosesion"> 
@@ -161,7 +165,12 @@
         </div>
 
         <div id="contenedor-boton">
-            <button id="btn-inicio-sesion">Iniciar Sesión</button>
+            <button onclick="inicioSesion()" id="btn-inicio-sesion">Iniciar Sesión</button>
+        </div>
+
+        <div onclick="registrarse()" style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+            <h4 style="color: #4F8EC4; font-size: 22px; margin: 0 0 20px 0; font-weight: bolder;">Quieres registrarte como motorista?</h4>
+            <button style="font-weight: 700;border: 0; background-color: #4F8EC4; height: 40%; width: 40%; border-radius: 25px; color: aliceblue; font-size: 20px; padding: 10px;">Registrate</button>
         </div>
     </section>
 
@@ -177,10 +186,13 @@
         <div id="home_hueso">
             <div id="hueso_botones">
                 <div id="botones_2">
-                    <div id="botonhome1"><button class="homeBotones"><h2 class="h2botonesHome" >Ordenes Disponiles</h2></button></div>
-                    <div id="botonhome2"><button class="homeBotones"><h2 class="h2botonesHome">Ordenes Tomadas</h2></button></div>
+                    <div id="botonhome1"><button onclick="verOrdenes()" class="homeBotones"><h2 class="h2botonesHome" >Ordenes Disponiles</h2></button></div>
+                    <div id="botonhome2"><button onclick="verOrdenes()" class="homeBotones"><h2 class="h2botonesHome">Ordenes Tomadas</h2></button></div>
                 </div>
-                <div id="botones_1"><button class="homeBotones" style="width: 40%;"><h2 class="h2botonesHome">Perfil</h2></button></div>
+                <div id="botones_2">
+                    <div id="botonhome1"><button onclick="entrarPerfil()" class="homeBotones"><h2 class="h2botonesHome" >Perfil</h2></button></div>
+                    <div id="botonhome2"><button onclick="salirHomeMotorista()" class="homeBotones"><h2 class="h2botonesHome">Salir</h2></button></div>
+                </div>
             </div>
         </div>
     </section>
@@ -220,9 +232,53 @@
             </div>
 
             <div id="registroMBoton">
-                <button type="submit" id="BotonRegistrarM" style="width: 100%; border-radius: 15px; padding-bottom: 4px; display: flex;justify-content: center; align-items: center; border: 0; background-color: #4F8EC4;"><h2 style="margin: 0; font-size: 20px; color: rgb(240, 248, 255);">Registrarse</h2></button>
+                <button onclick="seRegistroMotorista()" type="submit" id="BotonRegistrarM" style="width: 100%; border-radius: 15px; padding-bottom: 4px; display: flex;justify-content: center; align-items: center; border: 0; background-color: #4F8EC4;"><h2 style="margin: 0; font-size: 20px; color: rgb(240, 248, 255);">Registrarse</h2></button>
             </div>
     </div>
+    </section>
+
+    <section id="Perfil-motorista">
+        <nav id="nav-motoristas-ordenes">
+            <div onclick="regrearOpcionesMotorista()" style="    position: absolute; left: 10%;">
+                <i class="fa-solid fa-arrow-left" style="color: gray; font-size: 25px;"></i>
+            </div>
+            <h1 style="font-size: 35px; font-weight: bolder; color: aliceblue;">
+                Readigo
+            </h1>
+        </nav>
+
+        <div id="info-motorista">
+            <h1 style="text-align:center; font-weight: bolder; font-size: 31px; color: #9cbfde">
+                Informacion del motorista
+            </h1>
+            <div style="display: flex; justify-content: center;">
+                <img id="img-motorista"  src="assets/img/misterio.png" alt="">
+            </div>
+            <div style="display: flex; justify-content: space-evenly;">
+                <h1>Josue</h1>
+                <h1>Salomon</h1>
+            </div>
+            <div style="display: flex;justify-content: center;">
+                <h1>
+                    Numero de telefono: 1234 5678
+                </h1>
+            </div>
+            <div style="display: flex;justify-content: center;">
+                <h1>
+                    Correo: EsteEsUnCorreo@gmail.com
+                </h1>
+            </div>
+            <div style="display: flex;justify-content: center;">
+                <h1>
+                    Direccion: Mi casa
+                </h1>
+            </div>
+            <div style="display: flex;justify-content: center;">
+                <h1>
+                    Placa: P123-S124-0019
+                </h1>
+            </div>
+        </div>
     </section>
     <script src="assets/controlodar.js"></script>
 </body>
