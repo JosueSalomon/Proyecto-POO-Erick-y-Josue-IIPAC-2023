@@ -58,7 +58,7 @@ body{
 }
 
 #nav-motoristas-detalle-compra{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     height: 8%;
     background-color: #9CBFDE;
     display: flex;
@@ -67,13 +67,14 @@ body{
 }
 
 #Contenedor-img-productos{
-    border: 2px blueviolet solid;
+    /* border: 2px blueviolet solid; */
     height: 35%;
     border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: #D9D9D9;
 }
 
 #img-flecha{
@@ -84,7 +85,7 @@ body{
 }
 
 #contendor-puntitos{
-    border: 2px solid gold;
+    /* border: 2px solid gold; */
     display: flex;
     justify-content: space-evenly;
     width: 15%;
@@ -95,6 +96,37 @@ body{
 #flecha{
     position: absolute;
     right: 5%;
+}
+
+#detalle-compra{
+    /* border: 2px solid fuchsia; */
+    margin-top: 5%;
+    height: 30%;
+    padding-left: 0%;
+    padding-top: 10%;
+}
+
+.Nombre-precio{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 1.5px;
+}
+
+#total-precio{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+.info-compra{
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    padding-bottom: 2%;
+}
+
+#detalle-compra,p{
+    color: #4F8EC4;
 }
 
 
