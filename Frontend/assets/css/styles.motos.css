@@ -19,7 +19,7 @@ body{
 
 /* La etiqueta padre lleva el height vh */
 #nav-motoristas-ordenes{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     height: 8%;
     background-color: #9CBFDE;
     display: flex;
@@ -134,7 +134,7 @@ body{
 /* Estilos para inicio sesion motorista */
 #inicio-sesion{
     height: 100vh;
-    display: none;
+    /* display: none; */
 }
 
 #superior-inicio-sesion{
@@ -344,7 +344,7 @@ body{
 #registroM{
     height: 100vh;
     background-color:#F2E5D9;
-    /* display: none; */
+    display: none;
     flex-direction: column;
     width: 100%;
     align-items: center;
@@ -406,4 +406,25 @@ body{
     height: 100%;
     object-position: center;
     border: 0;
+}
+
+#Perfil-motorista{
+    height: 100vh;
+    display: none;
+}
+
+#info-motorista{
+    height: 60%;
+    /* border: 2px solid orange; */
+}
+
+#img-motorista{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+
+#info-motorista,p{
+    color: black;
+
 }
