@@ -29,3 +29,19 @@ function RegistroSesion(){
     document.getElementById('Registro').style.display='flex'
 
 }
+
+function accederTienda(){
+    document.getElementById('clientes1').style.display ="none";
+    document.getElementById('clientes2').style.display ="flex";
+}
+
+function accederLocales(){
+    document.getElementById('clientes1').style.display ="flex";
+    document.getElementById('clientes2').style.display ="none";
+}
+
+function mostrarProducto(){
+    document.getElementById('clientes1').style.display ="none";
+    document.getElementById('clientes2').style.display ="none";
+    document.getElementById('detallesCompra').style.display ="block";
+}

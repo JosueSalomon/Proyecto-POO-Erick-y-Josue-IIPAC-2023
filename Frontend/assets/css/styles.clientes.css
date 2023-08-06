@@ -1,0 +1,351 @@
+body{
+    margin: 0;
+    background-color: #F2E5D9;
+}
+
+#clientes1{
+    background-color: #F2E5D9;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.clientes_header{
+    height: 7%;
+    display: flex;
+    justify-content: space-between;
+}
+.header_map{
+    display: flex;
+}
+.header_carrito{
+    display: flex;
+}
+#clientes_titulo{
+    height: 10%;
+    display: flex;
+}
+
+.clientes_nav{
+    height: 9%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clientes_search{
+    width: 85%;
+    height: 78%;
+    border: none;
+    margin-bottom: 30px;
+    z-index: 10;
+}
+#clientes_search1{
+    height: 50px;
+}
+#tiendas{
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 65%;
+    width: 95%;
+    margin: 0 auto;
+    grid-column-gap: 19px;
+    grid-row-gap: 19px;
+    overflow-y: scroll
+}
+
+.tiendax{
+    height: 190px;
+    background-color: #9CBFDE;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.img_tienda{
+    width: 70%;
+    height: 95%;
+    object-fit: cover;
+    margin: 0 auto 0 23px;
+}
+
+.tiendax_img{
+    height: 80%;
+    display: flex;
+
+
+}
+
+
+#header_map{
+    width: 40%;
+}
+
+#header_carrito{
+    width: 20%;
+}
+
+#clientes2{
+    background-color:#F2E5D9;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    display: none;
+}
+
+#clientes2_titulo{
+    height: 5%;
+    display: flex;
+}
+
+#clientes_search2{
+    width: 90%;
+    height: 140%;
+    border: none;
+
+    margin-top: 25px;
+}
+
+#nav2{
+    height: 26px;
+    z-index: 100;;
+}
+
+#clientes2_categorias{
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+
+    width: 90%;
+    margin: 50px auto 60px auto;
+}
+
+.clientes2_subtitulo{
+    height: 10%;
+}
+
+#categorias{
+
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: 1fr 1fr;
+grid-column-gap: 14px; 
+grid-row-gap: 13px; 
+
+
+}
+
+.categoriax{
+    height: 128.5px;
+    display: flex;
+    flex-direction: column;
+    background-color: #9cbfdebe;
+    border-radius: 25px;
+    box-shadow: 3px 7px 4px rgb(156, 156, 156);
+}
+
+.categoriax_img{
+    width: 80%;
+    height: 78%;
+    margin-left: auto;
+    margin-right: auto;
+    mix-blend-mode: multiply;
+
+}
+
+.categoriax_nombre{
+    height: 22%;
+    display: flex;
+    justify-content: center;
+}
+
+.img_categoria{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-position: top;
+
+    
+}
+
+#populares{
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.popularx{
+    display: flex;
+    height: 60px;
+    background-color: #9cbfde92;
+    border-radius: 20px;
+    margin: 6px;
+    box-shadow: -2px 2px 4px grey;
+}
+
+.popularx_img{
+width: 20%;
+display: flex;
+}
+
+.img_popularx{
+    width: 60%;
+    height: 40px;
+    margin: auto;
+}
+
+.popularx_nombre{
+    width: 60%;
+}
+
+.popularx_precio{
+width: 20%;
+display: flex;
+}
+
+#clientes2_info{
+    height: 200px;
+    display: flex;
+
+}
+
+#info_publicidad{
+    height: 100%;
+    width: 63%;
+}
+
+#info_logo{
+width: 37%;
+height: 88%;
+}
+
+#logo_info{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: multiply;
+}
+
+#imgLibro{
+    width: 200px;
+    height: 155px;
+    right: 82px;
+}
+
+#padreIMG{
+    display: flex;
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    height: 290px;
+}
+
+#info-libro{
+    background-color: white;
+    border-radius: 25px 25px 0px 0px;
+    width: 375px;
+    height: 506px;
+}
+
+#Nombre-Review{
+    display: flex;
+    justify-content: space-around;
+}
+
+#Review{
+    display: flex;
+    padding-top: 16.5px;
+}
+
+#precio-agregar{
+    display: flex;
+    justify-content: space-around;
+}
+
+#sumaLibro{
+    display: flex;
+    padding-top: 25px;
+}
+
+.botonAgrega{
+    height: 32px;
+    width: 32px;
+    border: 0px;
+    border-radius: 100%;
+    background-color: #9CBFDE;
+    font-size: 25px
+}
+
+#detallesCompra{
+    display: none;
+}
+
+#nav-pago{
+    display: flex;
+    justify-content: space-around;
+    background-color: #E6E6E6;
+}
+
+#flecha{
+    padding-top: 15px;
+    position: absolute;
+    padding-right: 315px;
+    font-size: 24px;
+}
+
+#Metodo-pago{
+    font-size: 20px;
+    font-weight: bold;
+    color: #00234A;
+}
+
+#tarjeta{
+    display: flex;
+    justify-content: center;
+    padding-top: 55px;
+}
+
+#contenedor-tarjeta{
+    width: 316px;
+    height: 161px;
+    background-color: #004FA8;
+    border-radius: 20px;
+}
+
+#info-tarjeta{
+    text-align: center;
+    padding-top: 45px;
+    padding-bottom: 25px;
+}
+
+.inputs-tarjetas{
+    width: 282.5px;
+    height: 49px;
+    border: 0px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.contenedor-input{
+    padding-bottom: 20px;
+}
+
+#fin-compra{
+    width: 282px;
+    height: 41px;
+    border: 0;
+    border-radius: 20px;
+    background-color: #9CBFDE;
+}
+
+#confirmarCompra{
+    display: none;
+}
