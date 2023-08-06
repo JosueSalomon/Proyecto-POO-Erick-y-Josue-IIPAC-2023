@@ -1,6 +1,7 @@
 body{
     margin: 0;
     background-color: #f3ede7;
+    
 }
 
 /*Estilos para ver las ordenes */
@@ -55,6 +56,7 @@ body{
 
 #vista-ordenes{
     height: 100vh;
+    display: none;
 }
 
 #nav-motoristas-detalle-compra{
@@ -129,5 +131,85 @@ body{
     color: #4F8EC4;
 }
 
+/* Estilos para inicio sesion motorista */
+#inicio-sesion{
+    height: 100vh;
+}
+
+#superior-inicio-sesion{
+    /* border: 2px solid orange; */
+    background-color: #9CBFDE;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo-iniciosesion{
+    font-size: 35px;
+    color: aliceblue;
+    margin: 0px;
+}
+
+#titulo-inicioSesion{
+    /* border: 2px solid palegreen; */
+    margin-top: 2%;
+}
+
+#formulario{
+    /* border: 2px solid palevioletred; */
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 25%;
+    padding-top: 3%;
+}
 
 
+.contenedor-inputs{
+    /* width: 80%;
+    height: 45px;
+    background-color: #9CBFDE;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; */
+    width: 90%;
+}
+.inputs{
+    width: 90%;
+    height: 55px;
+    background-color: #9CBFDE;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    border: 0px;
+    text-align: center;
+}
+
+#contenedor-boton{
+    /* border: 2px solid violet; */
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-inicio-sesion{
+    border: 0;
+    padding: 0;
+    background-color: 4F8EC4;
+    background-color: #4F8EC4;
+    height: 40%;
+    width: 40%;
+    border-radius: 25px;
+    color: aliceblue;
+    font-size: 19px;
+    font-weight: 700;
+    margin-top: 3%;
+}
