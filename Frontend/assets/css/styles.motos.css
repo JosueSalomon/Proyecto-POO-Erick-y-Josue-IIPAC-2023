@@ -134,6 +134,7 @@ body{
 /* Estilos para inicio sesion motorista */
 #inicio-sesion{
     height: 100vh;
+    display: none;
 }
 
 #superior-inicio-sesion{
@@ -212,4 +213,197 @@ body{
     font-size: 19px;
     font-weight: 700;
     margin-top: 3%;
+}
+
+/*Estilos para formulario para inico de sesion */
+
+#homeM{
+    background-color: #9cbfde;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+
+#home_azul{
+    background-color: #9CBFDE;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+}
+#home_titulo{
+    /* border: 2px solid red; */
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#home_logo{
+    background-color: #f2e5d9b8;
+    height: 40%;
+    width: 42%;
+    margin: 0 auto;
+    border-radius: 100% 100% 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 4px grey;
+    animation-name: logoanime2;
+    animation-duration: 3s;
+
+}
+#logoImg_home{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    animation-name: logoanime;
+    animation-duration: 3.5s;
+
+}
+
+@keyframes logoanime {
+    from{
+        margin-right: 170px;
+    }
+    to{
+        margin-right: 0;
+    }    
+}
+@keyframes logoanime2 {
+    from{
+        box-shadow: none;
+    }
+    to{
+        box-shadow: 5px 5px 4px grey;
+    }    
+}
+
+
+#home_hueso{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 38% 32% 0px 0px;
+    background-color: #f2e5d9
+}
+
+#hueso_botones{
+    /* border: 2px solid green; */
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+#botones_2{
+    /* border: 2px solid blue; */
+    height: 50%;
+    display: flex;
+
+}
+
+#botones_1{
+    /* border: 2px solid cadetblue; */
+    height: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+#botonhome1{
+    /* border: 2px solid brown; */
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+#botonhome2{
+    /* border: 2px solid brown; */
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.homeBotones{
+    background-color: #4F8EC4;
+    border: none; 
+    width: 80%;
+    height: 90%;
+    border-radius: 60px;
+}
+
+.h2botonesHome{
+    font-size: 22px;
+    text-align: center;
+    margin: 0;
+    color: rgba(240, 248, 255, 0.972);
+}
+
+/* Estilos de registro de motorista */
+
+#registroM{
+    height: 100vh;
+    background-color:#F2E5D9;
+    /* display: none; */
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    position: fixed;
+}
+
+#registroMBack{
+    /* border: 2px solid blue; */
+    height: 4%;
+}
+#registroMImg{
+    /* border: 2px solid red; */
+    height: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
+
+#registroMTitulo{
+    /* border: 2px solid salmon; */
+    height: 6%;
+    text-align: center;
+}
+
+.registroMInput{
+    /* border: 2px solid orange; */
+    height: 8%;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.inputMRegistro{
+    width: 100%;
+    height: 75%;
+    background-color: #9cbfde59;
+    border: none;
+    border-radius: 20px;
+}
+
+#registroMBoton{
+    /* border: 2px solid green; */
+    height: 18%;
+    width: 40%;
+    margin-left: 30%;
+}
+
+#Img_Circulo{
+    /* border: 4px solid cadetblue; */
+    border-radius: 270% 157% 191% 100%;
+    width: 75%;
+    background-color:#9cbfde;
+    overflow: hidden;
+}
+
+
+#img_motorista{
+    object-fit: cover;
+    width: 140%;
+    height: 100%;
+    object-position: center;
+    border: 0;
 }
