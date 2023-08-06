@@ -5,8 +5,551 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administradores</title>
     <link rel="stylesheet" href="assets/css/styles.admin.css">
+    <script src="https://kit.fontawesome.com/18d8db3f65.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+    <div id="adminIndex" style="display: flex; background-color: rgb(242, 229, 217,0.5);">
+
+        <section id="Barra-izquierda">
+            <div style="display: flex; justify-content: center;">
+                <div><img id="img-logo" src="assets/img/background-img.png" alt=""></div>
+            </div>
+
+            <div id="opciones-lado">
+                <div style="width: 269px; height: 40px; font-size: 18px; color: white; padding-left: 15px; ">ReadigoT</div>
+            </div>
+
+            <i style="top: 167px; position: absolute; padding-left: 8px;" class="fa-solid fa-house"></i>
+            <div id="Menu">
+                <div style="width: 268px; height: 40px;">
+                    <p style="padding-left: 16px;" class="texto">
+                        Menu
+                    </p>
+                </div>
+                <div style="width: 268px; height: 45px;">
+                    <p style="padding-left: 16px;" class="texto">
+                        Perfil
+                    </p>
+                </div>
+                <div style="width: 268px; height: 40px;">
+                    <p style="padding-left: 16px;" class="texto">
+                        Ordenes
+                    </p>
+                </div>
+                <div onclick="mostrarMotoristasAdmin()" style="width: 268px; height: 40px; background-color: #9CBFDE; border-radius: 8px;">
+                    <p style="padding-left: 16px;" class="texto">
+                        Motoristas
+                    </p>
+                </div>
+                <div onclick="mostrarProductosAdmin()" style="width: 268px; height: 40px;">
+                    <p style="padding-left: 16px;" class="texto">
+                        Productos
+                    </p>
+                </div>
+                <div id="crud-productos">
+                    <ul>
+                        <div>
+                            <li class="texto">Actualizar</li>
+                        </div>
+                    </ul>
+                    <ul>
+                        <div>
+                            <li class="texto">Agregar</li>
+                        </div>
+                    </ul>
+                    <ul>
+                        <div>
+                            <li class="texto">Eliminar</li>
+                        </div>
+                    </ul>
+                    <ul>
+                        <div>
+                            <li class="texto">Mostrar</li>
+                        </div>
+                    </ul>
+                </div>
+                <div onclick="mostrarEmpresas()" style="width: 268px; height: 40px;">
+                    <p style="padding-left: 16px;" class="texto">
+                        Empresas
+                    </p>
+                </div>
+                <div id="crud-empresas">
+                    <ul>
+                        <div>
+                            <li class="texto">Actualizar</li>
+                        </div>
+                    </ul>
+                    <ul>
+                        <div>
+                            <li class="texto">Agregar</li>
+                        </div>
+                    </ul>
+                    <ul>
+                        <div>
+                            <li class="texto">Eliminar</li>
+                        </div>
+                    </ul>
+                    <ul>
+                        <div>
+                            <li class="texto">Mostrar</li>
+                        </div>
+                    </ul>
+                </div>
+                <div style="width: 268px; height: 40px;">
+                    <button style="    border: 0px; width: 80px; background-color: #9CBFDE; border-radius: 15px">Salir</button>
+                </div>
+                
+            </div>
+            
+        </section>
+
+        <section id="centro">
+            <div style="position: absolute;top: 50px;left: 245px;"><input style="width: 741px; height: 48px; border-radius: 15px; border: 0; text-align: center;" type=" text" placeholder="Buscar Empresa, producto"></div>
+        
+        <div id="infoUsuario">
+            <div>
+                <img class="imgPerfil" src="assets/img/El admin.jpg" alt="">
+                
+            </div>
+            <div>
+                <p style="font-size: 24px; font-weight: bold;">Erick Perejil</p>
+            </div>
+        </div>
+
+        <div>
+            <p style="padding-left: 25px; font-weight: bold; font-size: 32px; color: #4F8EC4;">Todos los motoristas</p>
+        </div>
+
+
+        <div style="padding-left: 10px;" id="contenedor-motoristas">
+            <div id="barrita">
+                <div>
+                    <p>Motorista</p>
+                </div>
+                <div>
+                    <p>Estado</p>
+                </div>
+                <div>
+                    <p>Procentaje de entregas</p>
+                </div>
+                <div>
+                    <p>Matricula</p>
+                </div>
+                <div>
+                    <p>Ganancia</p>
+                </div>
+            </div>
+
+            <div id="infoMotorista">
+                
+                    <div>
+                        <img class="imgPerfil" src="assets/img/Motoristaxd.jpeg" alt="">
+                        <p>Josue</p>
+                    </div>
+                    <div>
+                        <p>Aprobado</p>
+                    </div>
+                    <div>
+                        <div style="width: 100%; height: 100%; position: relative">
+                            <div style="width: 148.45px; height: 6.69px; left: 0px; top: 0px; position: absolute; background: #F2F2F2; border-radius: 4px"></div>
+                            <div style="width: 59.38px; height: 6.69px; left: 0px; top: 25px; position: absolute; background: #4F8EC4; border-radius: 4px"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <p>003112Asd</p>
+                    </div>
+                    <div>
+                        <p>Lps. 900</p>
+                    </div>
+                
+                
+            </div>
+            
+
+
+        </div>
+        </section>
+    </div>
+
+    <section id="administradores">
+        <div id="admin_menu">
+                <div style="display: flex; justify-content: center; height: 20%;">
+                    <div><img id="img-logo" src="assets/img/motoristaowo.png" alt=""></div>
+                </div>
+        
+                <div id="opciones-lado" style="height: 5%;">
+                    <div style="width: 260px; font-size: 18px; color: white; padding-left: 15px; ">ReadigoT</div>
+                </div>
+        
+                
+                <div id="Menu" style="height: 75%;">
+                    <div style="width: 260px; display: flex;">
+                        <i style="top: 167px;" class="fa-solid fa-house"></i>
+                        <p class="texto">
+                            Menu
+                        </p>
+                    </div>
+                    <div style="width: 268px;">
+                        <p style="padding-left: 16px;" class="texto">
+                            Perfil
+                        </p>
+                    </div>
+                    <div style="width: 268px;">
+                        <p style="padding-left: 16px;" class="texto">
+                            Ordenes
+                        </p>
+                    </div>
+                    <div onclick="mostrarMotoristasAdmin()" style="width: 268px;">
+                        <p style="padding-left: 16px;" class="texto">
+                            Motoristas
+                        </p>
+                    </div>
+                    <div style="width: 268px;">
+                        <p onclick="mostrarProductosAdmin()" style="padding-left: 16px;" class="texto">
+                            Productos
+                        </p>
+                    </div>
+                    <div id="crud-productos">
+                        <ul class="ulAdmin">
+                            <div>
+                                <li class="texto"><h5 class="h5Lista">Actualizar</h5></li>
+                            </div>
+                        </ul>
+                        <ul class="ulAdmin">
+                            <div>
+                                <li class="texto"><h5 class="h5Lista">Agregar</h5></li>
+                            </div>
+                        </ul>
+                        <ul class="ulAdmin">
+                            <div>
+                                <li class="texto"><h5 class="h5Lista">Eliminar</h5></li>
+                            </div>
+                        </ul>
+                        <ul class="ulAdmin">
+                            <div>
+                                <li class="texto"><h5 class="h5Lista">Mostrar</h5></li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div  style="width: 268px;">
+                        <p style="padding-left: 16px;" class="texto">
+                            Empresas
+                        </p>
+                    </div>
+                    <div onclick="mostrarEmpresas()" id="crud-empresas">
+                        <ul class="ulAdmin">
+                            <div>
+                                <li class="texto"><h5 class="h5Lista">Actualizar</h5></li>
+                            </div>
+                        </ul>
+                        <ul class="ulAdmin">
+                            <div>
+                                <li class="texto"><h5 class="h5Lista">Agregar</h5></li>
+                            </div>
+                        </ul>
+                        <ul class="ulAdmin">
+                            <div>
+                                <li class="texto"><h5 class="h5Lista">Eliminar</h5></li>
+                            </div>
+                        </ul>
+                        <ul class="ulAdmin">
+                            <div>
+                                <li class="texto"><h5 class="h5Lista">Mostrar</h5></li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div style="width: 268px;">
+                        <button style="    border: 0px; width: 80px; background-color: #9CBFDE; border-radius: 15px">Salir</button>
+                    </div>
+                    
+                </div>
+        </div>
+        <div id="admin_form">
+            <nav id="adminform_nav">
+                <div id="navForm">
+                    <input type="text" placeholder="Search" id="navForm_search" class="administradores_inputs" >
+                </div>
+                <div id="navUser">
+                    <div id="userA_foto">
+                        <div id="foto_contenedor">
+                            <img src="assets/img/adminJosue.jpg" alt="Josue" id="adminJosue">
+                        </div>
+                    </div>
+                    <div id="userA_nombre">
+                        <div id="nombreA_nombre" style="display: flex; justify-content: center; align-items: center;">
+                            <h4 style="margin-top: 40%; font-size: 15px; color: #06283d">Josue Salomon</h4>
+                        </div>
+                        <div id="nombreA_asignacion" style="display: flex; justify-content: center;">
+                            <h4 style="margin: 0; font-size: 12px; color: #06283d">Admin</h4>
+                        </div>
+                    </div>
+                    <div id="user_notif" style="display: flex; justify-content: center;align-items: center;">
+                        <i class="fa-regular fa-bell" style="font-size: 25px;"></i>
+                    </div>
+                </div>
+            </nav>
+
+            <div id="formAdmin">
+                <div id="adminform_titulo">
+                    <h3 style="margin: 0; color: #06283D; letter-spacing: -1px;">Introduzca los datos para agregar la empresa</h3>
+                </div>
+    
+                <div class="adminform_row">
+                    <label for="admin_nombreEmpresa"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Nombre de la empresa</h4></label>
+                    <input type="text" id="admin_nombreEmpresa" class="administradores_inputs">
+                </div>
+    
+                <div class="adminform_row">
+                    <label for="admin_serviciosEmpresa"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Servicios que ofrece la compañia</h4></label>
+                    <input type="text" id="admin_serviciosEmpresa" class="administradores_inputs">
+                </div>
+    
+                <div class="adminform_row">
+                    <label for="admin_paginaEmpresa"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Pagina Web</h4></label>
+                    <input type="text" id="admin_paginaEmpresa" class="administradores_inputs">
+                </div>
+    
+    
+                <div class="adminform_row adminform_column">
+                    <div class="column">
+                        <label for="admin_telefonoEmpresa"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Telefono de Empresa</h4></label>
+                        <input style="width: 60%;" type="text" id="admin_telefonoEmpresa" class="administradores_inputs">
+                    </div>
+                    <div class="column">
+                        <label for="admin_emailEmpresa"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Email de la empresa</h4></label>
+                        <input style="width: 60%;" type="text" id="admin_emailEmpresa" class="administradores_inputs">
+                    </div>
+                </div>
+                <div class="adminform_row adminform_column" style="flex-direction: column;">
+                    <h4 style="margin: 0; font-size: 12px; color: #06283dd9">Nombre del Representante</h4>
+                    <div style="display: flex; width: 100%; height: 90%;">
+                        <div class="column">
+                            <input style="width: 60%;" type="text" id="" class="administradores_inputs" placeholder="Nombre">
+                        </div>
+                        <div class="column">
+                            <input style="width: 60%;" type="text" id="" class="administradores_inputs" placeholder="Apellido">
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="adminform_row adminform_column" style="flex-direction: column;">
+                    <h4 style="margin: 0; font-size: 12px; color: #06283dd9">Direccion de la Empresa</h4>
+                    <div style="display: flex; width: 100%; height: 90%;">
+                        <div class="column">
+                            <input style="width: 60%;" type="text" id="admin_paisEmpresa" class="administradores_inputs" placeholder="Pais">
+                        </div>
+                        <div class="column">
+                            <input style="width: 60%;" type="text" id="admin_regionEmpresa" class="administradores_inputs" placeholder="Region/Provincia/Estado">
+                        </div>
+                    </div>
+    
+                </div>
+                
+                <div class="adminform_row adminform_column">
+                    <div class="column">
+                        <label for=""></label>
+                        <input style="width: 60%;" type="text" id="admin_ciudadEmpresa" class="administradores_inputs" placeholder="Ciudad">         
+                    </div>
+                    <div class="column">
+                        <label for=""></label>
+                        <input style="width: 60%;" type="text" id="admin_postalEmpresa" class="administradores_inputs" placeholder="Codigo Postal">         
+                    </div>                
+                </div>
+    
+                <div class="adminform_row adminform_row2">
+                <div class="column2" style="display: flex; flex-direction: column; justify-content: flex-start;">
+                    <label for="admin_codigoEmpresa"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Codigo de la empresa</h4></label>
+                        <input style="width: 70%; ;" type="text" id="codigo_emailEmpresa" class="administradores_inputs">
+                </div>
+                <div class="column2" style="margin-right: 55px;">
+                    <button class="homeBotones" style="border-radius: 15px;"><h2 class="h2botonesHome">Agregar</h2></button>
+                </div>
+                </div>
+            </div>
+
+            </div>
+            
+    </section>
+    
+    <section id="administradores_productos">
+        <div id="admin_menu">
+            <div style="display: flex; justify-content: center; height: 20%;">
+                <div><img id="img-logo" src="assets/img/motoristaowo.png" alt=""></div>
+            </div>
+    
+            <div id="opciones-lado" style="height: 5%;">
+                <div style="width: 260px; font-size: 18px; color: white; padding-left: 15px; ">ReadigoT</div>
+            </div>
+    
+            
+            <div id="Menu" style="height: 75%;">
+                <div style="width: 260px; display: flex;">
+                    <i style="top: 167px;" class="fa-solid fa-house"></i>
+                    <p class="texto">
+                        Menu
+                    </p>
+                </div>
+                <div style="width: 268px;">
+                    <p style="padding-left: 16px;" class="texto">
+                        Perfil
+                    </p>
+                </div>
+                <div style="width: 268px;">
+                    <p style="padding-left: 16px;" class="texto">
+                        Ordenes
+                    </p>
+                </div>
+                <div onclick="mostrarMotoristasAdmin()" style="width: 268px;">
+                    <p style="padding-left: 16px;" class="texto">
+                        Motoristas
+                    </p>
+                </div>
+                <div  style="width: 268px;">
+                    <p style="padding-left: 16px;" class="texto">
+                        Productos
+                    </p>
+                </div>
+                <div onclick="mostrarProductosAdmin()" id="crud-productos">
+                    <ul class="ulAdmin">
+                        <div>
+                            <li class="texto"><h5 class="h5Lista">Actualizar</h5></li>
+                        </div>
+                    </ul>
+                    <ul class="ulAdmin">
+                        <div>
+                            <li class="texto"><h5 class="h5Lista">Agregar</h5></li>
+                        </div>
+                    </ul>
+                    <ul class="ulAdmin">
+                        <div>
+                            <li class="texto"><h5 class="h5Lista">Eliminar</h5></li>
+                        </div>
+                    </ul>
+                    <ul class="ulAdmin">
+                        <div>
+                            <li class="texto"><h5 class="h5Lista">Mostrar</h5></li>
+                        </div>
+                    </ul>
+                </div>
+                <div onclick="mostrarEmpresas()" style="width: 268px;">
+                    <p style="padding-left: 16px;" class="texto">
+                        Empresas
+                    </p>
+                </div>
+                <div id="crud-empresas">
+                    <ul class="ulAdmin">
+                        <div>
+                            <li class="texto"><h5 class="h5Lista">Actualizar</h5></li>
+                        </div>
+                    </ul>
+                    <ul class="ulAdmin">
+                        <div>
+                            <li class="texto"><h5 class="h5Lista">Agregar</h5></li>
+                        </div>
+                    </ul>
+                    <ul class="ulAdmin">
+                        <div>
+                            <li class="texto"><h5 class="h5Lista">Eliminar</h5></li>
+                        </div>
+                    </ul>
+                    <ul class="ulAdmin">
+                        <div>
+                            <li class="texto"><h5 class="h5Lista">Mostrar</h5></li>
+                        </div>
+                    </ul>
+                </div>
+                <div style="width: 268px;">
+                    <button style="    border: 0px; width: 80px; background-color: #9CBFDE; border-radius: 15px">Salir</button>
+                </div>
+                
+            </div>
+    </div>
+    <div id="admin_form">
+        <nav id="adminform_nav">
+            <div id="navForm">
+                <input type="text" placeholder="Search" id="navForm_search" class="administradores_inputs" >
+            </div>
+            <div id="navUser">
+                <div id="userA_foto">
+                    <div id="foto_contenedor">
+                        <img src="assets/img/adminJosue.jpg" alt="Josue" id="adminJosue">
+                    </div>
+                </div>
+                <div id="userA_nombre">
+                    <div id="nombreA_nombre" style="display: flex; justify-content: center; align-items: center;">
+                        <h4 style="margin-top: 40%; font-size: 15px; color: #06283d">Josue Salomon</h4>
+                    </div>
+                    <div id="nombreA_asignacion" style="display: flex; justify-content: center;">
+                        <h4 style="margin: 0; font-size: 12px; color: #06283d">Admin</h4>
+                    </div>
+                </div>
+                <div id="user_notif" style="display: flex; justify-content: center;align-items: center;">
+                    <i class="fa-regular fa-bell" style="font-size: 25px;"></i>
+                </div>
+            </div>
+        </nav>
+
+        <div id="formAdmin">
+            <div id="adminform_titulo">
+                <h3 style="margin: 0; color: #06283D; letter-spacing: -1px;">Introduzca los datos para agregar un nuevo producto</h3>
+            </div>
+
+            <div class="adminform_row">
+                <label for="admin_nombreEmpresaProducto"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Nombre de la empresa</h4></label>
+                <input type="text" id="admin_nombreEmpresaProducto" class="administradores_inputs">
+            </div>
+
+            <div class="adminform_row">
+                <label for="admin_descripcionProducto"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Descripcion del producto</h4></label>
+                <input type="text" id="admin_descripcionProducto" class="administradores_inputs">
+            </div>
+
+            <div class="adminform_row">
+                <label for="admin_nombreProducto"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Nombre del producto</h4></label>
+                <input type="text" id="admin_nombreProducto" class="administradores_inputs">
+            </div>
+
+
+            <div class="adminform_row adminform_column">
+                <div class="column">
+                    <label for="admin_PrecioProduco"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Precio</h4></label>
+                    <input style="width: 60%;" type="text" id="admin_PrecioProduco" class="administradores_inputs">
+                </div>
+                <div class="column">
+                    <label for="admin_tipoProducto"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Tipo de Producto</h4></label>
+                    <input style="width: 60%;" type="text" id="admin_tipoProducto" class="administradores_inputs">
+                </div>
+            </div>
+            <div class="adminform_row adminform_column">
+                <div class="column">
+                    <label for="admin_codigoEmpresaProducto"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Codigo de la Empresa</h4></label>
+                    <input style="width: 60%;" type="text" id="admin_codigoEmpresaProducto" class="administradores_inputs">
+                </div>
+                <div class="column">
+                    <label for="admin_codigoProducto"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Codigo del Producto</h4></label>
+                    <input style="width: 60%;" type="text" id="admin_codigoProducto" class="administradores_inputs">
+                </div>
+
+            </div>
+
+            
+
+            <div class="adminform_row adminform_row2">
+            <div class="column2" style="display: flex; flex-direction: column; justify-content: flex-start;">
+                <label for="admin_codigoEmpresa"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Codigo de la empresa</h4></label>
+                    <input style="width: 70%; ;" type="text" id="codigo_emailEmpresa" class="administradores_inputs">
+            </div>
+            <div class="column2" style="margin-right: 55px;">
+                <button class="homeBotones" style="border-radius: 15px;"><h2 class="h2botonesHome">Agregar</h2></button>
+            </div>
+            </div>
+        </div>
+
+        </div>
+        
+
+    </section>
     <script src="assets/controlodar.js"></script>
 </body>
 </html>
