@@ -7,7 +7,153 @@
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <body>
+    <div id="InicioSesion">
+
+    <nav id="barra-superio">
+        <div onclick="regresoLanding()" style="    position: absolute;
+        left: 15px;
+        top: 12px;
+        font-size: 22px;"><i class="fa-solid fa-arrow-left"></i></div>
+    </nav>
+    
+    <div id="informacion">
+        <div><img id="img-libro" style="padding-top: 45px" src="assets/img/libroKagai.jpg" alt="Imagen libro kawai"></div>
+        <div><p id="bienvenido">Bienvenido</p></div>
+        <div style="margin: -30px;"><p id="parrafo">Por favor inicia sesion para continuar</p></div>
+    </div>
+
+    <div id="formulario">
+        <div class="separacion">
+            <p class="texo">
+                Email
+            </p>
+            <input class="input" type="text">
+        </div>
+        <div class="separacion">
+            
+            <p class="texo">
+                Contraseña
+            </p>
+            <input class="input" type="password">
+        </div>
+        <div>
+            <p style="font-weight: 300; margin: 0px;padding-left: 100px; padding-bottom: 15px;">Olvidaste la contraseña?</p>
+        </div>
+    </div>
+
+    <div id="boton">
+        <a href="clientes.html">
+        <div style="padding-left: 30px;"><button id="config-boton">Ingresar</button></div>
+            </a>
+    </div>
+
+    <!-- completar -->
+    <div id="linea">
+        
+    </div>
+
+    </div>
+
+    <div id="Landing-page">
+        <nav id="nav-landing-page">
+            <div >
+                <img style="width: 50px; height: 50px; border-radius: 100%; padding-top: 9px;" src="assets/img/libro.jpg" alt="logo">
+            </div>
+            <div onclick="inicioSesion()">
+                <p style="color: white; padding-top: 10px;" class="texo">Inicio sesion</p>
+            </div>
+            <div style="padding-top: 5px">
+                <p style="color: white;" class="texo">Aun no tienes cuenta</p>
+                <button onclick="RegistroSesion()" style="margin-left: 15px;" id="boton-registro">Registrate</button>
+            </div>
+        </nav>
+
+        <div style="display: flex;
+        justify-content: center; padding-top: 40px;">
+            <p class="texto-bienvenida">
+                Disfruta de una experiencia literaria sin salir de casa
+            </p>
+        </div>
+
+        <div>
+            <a href="/Frontend/Motoristas/index.html">
+            <img class="img-motorista" src="assets/img/motorista.jpg" alt="">
+            </a>
+        </div>
+
+        <div style="display: flex;
+        justify-content: center;">
+            <p class="texto-bienvenida">
+                ¡Felicitaciones! Has descubierto Readigo, la mejor opción en cuanto a servicios de delivery se refiere. No te pierdas nuestras tarifas convenientes, todo al alcance de un clic.
+            </p>
+        </div>
+
+        <div style="display: flex;
+        justify-content: center;">
+            <p class="texto-bienvenida">
+                Nos comprometemos con el envío rápido y seguro de tus libros
+            </p>
+        </div>
+
+        <div>
+            <img class="img-motorista" src="assets/img/motorista2.jpg" alt="">
+        </div>
+
+        <footer></footer>
+    </div>
+
+    <section id="Registro">
+        <div class="bloque"></div>
+        <div id="Registro_Titulo"> <h1>Registrate</h1></div>
+        <div id="Registro_Subtitulo"> <h3>Por favor ingrese sus datos para<br> poder registrarse</h3></div>
+        
+        <div id="Registro_Form">
+
+            <div id="Registro_Nombre" class="Form_div">
+                <div class="label_Registro">
+                <label for="Registro_inputNombre"><h4>Nombre</h4></label>
+                </div> 
+                <div class="Nombre_text">
+                <input id="Registro_inputNombre" class="input_Registro" type="text">
+                </div>
+            </div>
+
+            <div id="Registro_Correo" class="Form_div">
+                <div class="label_Registro">
+                    <label for="Registro_inputCorreo"><h4>Email</h4></label>
+                </div> 
+                <div class="Nombre_text">
+                    <input id="Registro_inputCorreo" class="input_Registro" type="text">
+                </div>
+            </div>
+
+            <div id="Registro_Contrasena" class="Form_div">
+                <div class="label_Registro">
+                    <label for="Registro_inputContrasena"><h4>Contraseña</h4></label>
+                </div> 
+                <div class="Nombre_text">
+                    <input id="Registro_inputContrasena" class="input_Registro" type="text">
+                </div>
+            </div>
+
+            <div id="Registro_verificacion" class="Form_div">
+                <div class="label_Registro">
+                    <label for="Registro_inputContrasena"><h4>Ingrese  nuevamente la contraseña </h4></label>
+                </div> 
+                <div class="Nombre_text">
+                    <input id="Registro_inputContrasenam" class="input_Registro" type="text">
+                </div>
+            </div>
+
+            <div id="Registro_boton">
+                <button onclick="regresoLanding()" class="boton" type="submit"><h2>Registrarse</h2></button>
+                <hr>
+            </div>
+        </div>
+
+    </section>
 
     <script src="assets/controlodar.js"></script>
+    <script src="https://kit.fontawesome.com/02ade1bbb9.js" crossorigin="anonymous"></script>
 </body>
 </html>
