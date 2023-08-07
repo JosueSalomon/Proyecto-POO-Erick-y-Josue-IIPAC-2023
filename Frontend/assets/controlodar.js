@@ -112,3 +112,31 @@ function salirHomeMotorista(){
     document.getElementById('homeM').style.display='none'
     document.getElementById('inicio-sesion-motorista').style.display='block'
 }
+
+//Parte login-registro
+function registroCliente(){
+    alert('Se ha registrado el cliente')
+    document.getElementById('RegistroCliente').style.display='none'
+    document.getElementById('InicioSesionCliente').style.display='none'
+    document.getElementById('Landing-page-clientes').style.display='block'
+}
+
+function IngresarInicioSesionClientes(){
+    document.getElementById('Landing-page-clientes').style.display='none'
+    document.getElementById('InicioSesionCliente').style.display='block'
+}
+
+function IngresarRegistroClientes(){
+    document.getElementById('Landing-page-clientes').style.display='none'
+    document.getElementById('RegistroCliente').style.display='block'
+}
+
+function regresarInicioSesion(){
+    document.getElementById('InicioSesionCliente').style.display='none'
+    document.getElementById('Landing-page-clientes').style.display='block'
+}
+
+function regresarRegistroCliente(){
+    document.getElementById('Landing-page-clientes').style.display='block'
+    document.getElementById('RegistroCliente').style.display='none'
+}
