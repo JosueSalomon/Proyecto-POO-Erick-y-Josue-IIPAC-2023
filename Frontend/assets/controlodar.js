@@ -65,9 +65,9 @@ function mostrarMotoristasAdmin(){
 }
 
 //parte de josue
-function inicioSesion(){
+function inicioSesionMotorista(){
     console.log('hola')
-    document.getElementById('inicio-sesion').style.display='none'
+    document.getElementById('inicio-sesion-motorista').style.display='none'
     document.getElementById('homeM').style.display='block'
 }
 
@@ -87,13 +87,13 @@ function regrearVerOrdenes(){
 }
 
 function registrarse(){
-    document.getElementById('inicio-sesion').style.display='none'
+    document.getElementById('inicio-sesion-motorista').style.display='none'
     document.getElementById('registroM').style.display='block'
 }
 
 function seRegistroMotorista(){
     alert('Se ha registrado el motorista')
-    document.getElementById('inicio-sesion').style.display='block'
+    document.getElementById('inicio-sesion-motorista').style.display='block'
     document.getElementById('registroM').style.display='none'
 }
 
@@ -110,5 +110,5 @@ function entrarPerfil(){
 
 function salirHomeMotorista(){
     document.getElementById('homeM').style.display='none'
-    document.getElementById('inicio-sesion').style.display='block'
+    document.getElementById('inicio-sesion-motorista').style.display='block'
 }
