@@ -44,6 +44,7 @@ body{
 
 #RegistroCliente{
     height: 100vh;
+    display: none;
 }
 
 #navRegistroClientes{
@@ -77,12 +78,14 @@ body{
 }
 
 #Landing-page-clientes{
-    height: 100vh;
-    /* display: none; */
+    height: 140vh;
+    display: flex; 
+    flex-direction: column;
 }
 
 #nav-LandingPage-clientes{
-    height: 10%;
+    height: 7%;
+    width: 100%;
     background-color: #9CBFDE;
     display: flex;
     justify-content: space-between;
@@ -99,5 +102,114 @@ body{
     border-radius: 0 10px 10px 0;
 }
 
+#bodyLandingPage{
+    /* border: 2px solid indigo; */
+    height: 93%;
+    display: flex;
+    flex-direction: column;
+    background-color:#f2e5d9;
+}
 
+
+#bodyDerecho{
+    /* border: 5px solid rgb(87, 170, 116); */
+    width: 70%;
+    height: 130%;
+    border-radius: 50% 0 0 50%;
+    position: absolute;
+    background-color: #9CBFDE;
+    right: 0;
+
+}
+.bodyBloque{
+    /* border: 2px solid red; */
+    height: 25%;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.BloqueTexto{
+    /* border: 2px solid mediumvioletred; */
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+}
+
+h4{
+    color: #06283D;
+    font-size: 20px;
+    font-weight: 100;
+    font-family: Georgia , 'Times New Roman', Times, serif;
+}
+
+.BloqueImg{
+    /* border: 2px solid rgb(199, 175, 21); */
+    width: 60%;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+#tercerBloque{
+    /* border: 2px solid burlywood; */
+    height: 30%;
+    margin-top: 35px;
+    display: flex;
+    z-index: 1;
+    background-color: rgba(9, 10, 15, 0.312);
+
+}
+
+#tercerBloqueImg{
+    /* border: 2px solid rgb(135, 222, 145); */
+    width: 50%;
+}
+
+#tercerBloqueAplicacion{
+    /* border: 2px solid rgb(222, 135, 174); */
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#tercerBloqueAplicacion-texto{
+    /* border: 2px solid green; */
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tercerBloqueAplicacion-boton{
+    /* border: 2px solid green; */
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nav_logo{
+    /* border:  2px solid seagreen; */
+    width: 25%;
+    height: 100%;
+    background-color: #4F8EC4;
+    border-radius: 0px 15px 15px 0px;
+}
+
+#nav_iniciarSesion{
+    /* border:  2px solid seagreen; */
+    width: 25%;
+    height: 100%;
+}
+
+#nav_registrarse{
+    /* border:  2px solid seagreen; */
+    width: 25%;
+    height: 100%;
+}
 
