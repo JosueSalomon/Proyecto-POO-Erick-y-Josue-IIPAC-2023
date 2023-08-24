@@ -46,6 +46,10 @@ function mostrarProducto(){
     document.getElementById('detallesCompra').style.display ="block";
 }
 
+function mostrarProductoCategorias(){
+    
+}
+
 function mostrarProductosAdmin(){
     document.getElementById('administradores_productos').style.display ="flex";
     document.getElementById('administradores').style.display ="none";
