@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import { Database } from './utils/database';
 import usuarioRouter from './routers/usuario.router'
+import administradorRouter from './routers/administrador.router'
 
 
 dotenv.config();
@@ -16,6 +17,7 @@ app.use(express.urlencoded({extended:true}));
 
 
 app.use('/usuarios',usuarioRouter);
+app.use('/administradores',administradorRouter)
 
 
 app.get('/', (req: Request, res: Response) => {
