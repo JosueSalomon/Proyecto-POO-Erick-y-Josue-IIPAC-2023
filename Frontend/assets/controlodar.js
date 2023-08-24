@@ -33,21 +33,26 @@ function RegistroSesion(){
 function accederTienda(){
     document.getElementById('clientes1').style.display ="none";
     document.getElementById('clientes2').style.display ="flex";
+    document.getElementById('clientes2_productos').style.display ="none";
 }
 
 function accederLocales(){
     document.getElementById('clientes1').style.display ="flex";
     document.getElementById('clientes2').style.display ="none";
+    document.getElementById('clientes2_productos').style.display ="none";
 }
 
 function mostrarProducto(){
     document.getElementById('clientes1').style.display ="none";
     document.getElementById('clientes2').style.display ="none";
+    document.getElementById('clientes2_productos').style.display ="none";
     document.getElementById('detallesCompra').style.display ="block";
 }
 
 function mostrarProductoCategorias(){
-    
+    document.getElementById('clientes1').style.display ="none";
+    document.getElementById('clientes2').style.display ="none";
+    document.getElementById('clientes2_productos').style.display ="flex";
 }
 
 function mostrarProductosAdmin(){
