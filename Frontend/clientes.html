@@ -85,35 +85,36 @@
             <input id="clientes_search2" class="clientes_search" type="search" placeholder="Search" style="margin-bottom: 0;">
         </nav>
 
-        <div id="clientes2_categorias">
+        <div id="clientes2_categorias" class="grillaProductos">
             <div class="clientes2_subtitulo"> <h2 style="color: #4F8EC4; margin: 0 0 5px 2px;">Categorias</h2></div>
             <div id="categorias">
                 <div class="categoriax" onclick="mostrarProductoCategorias()">
                     <div class="categoriax_img"> <img class="img_categoria" src="assets/img/hockey.png" alt="terror"></div>
-                    <div class="categoriax_nombre"><h4 style="color: aliceblue; margin: 0; font-size: 20px; text-shadow: 3px 4px 4px grey">Terror</h4></div>
+                    <div class="categoriax_nombre" style="justify-content: center;"><h4 style="color: aliceblue; margin: 0; font-size: 20px; text-shadow: 3px 4px 4px grey">Terror</h4></div>
                 </div>
  
                 <div class="categoriax" onclick="mostrarProductoCategorias()">
                     <div class="categoriax_img"> <img class="img_categoria" src="assets/img/mago.png" alt="mago"></div>
-                    <div class="categoriax_nombre"><h4 style="color: aliceblue; margin: 0; font-size: 20px; text-shadow: 3px 6px 6px grey">Fantasia</h4></div>
+                    <div class="categoriax_nombre" style="justify-content: center;"><h4 style="color: aliceblue; margin: 0; font-size: 20px; text-shadow: 3px 6px 6px grey">Fantasia</h4></div>
                 </div>
                 <div class="categoriax" onclick="mostrarProductoCategorias()">
                     <div class="categoriax_img"> <img class="img_categoria" src="assets/img/pareja.png" alt="romance"></div>
-                    <div class="categoriax_nombre"><h4 style="color: aliceblue; margin: 0; font-size: 20px; text-shadow: 3px 6px 6px grey">Romance</h4></div>
+                    <div class="categoriax_nombre" style="justify-content: center;"><h4 style="color: aliceblue; margin: 0; font-size: 20px; text-shadow: 3px 6px 6px grey">Romance</h4></div>
                 </div>
                 <div class="categoriax" onclick="mostrarProductoCategorias()">
                     <div class="categoriax_img"> <img class="img_categoria" src="assets/img/detective.png" alt="misterio"></div>
-                    <div class="categoriax_nombre"><h4 style="color: aliceblue; margin: 0; font-size: 20px; text-shadow: 3px 6px 6px grey">Misterio</h4></div>
+                    <div class="categoriax_nombre" style="justify-content: center;"><h4 style="color: aliceblue; margin: 0; font-size: 20px; text-shadow: 3px 6px 6px grey">Misterio</h4></div>
                 </div>
                 <div class="categoriax" onclick="mostrarProductoCategorias()">
                     <div class="categoriax_img"> <img class="img_categoria" src="assets/img/aventurero.png" alt="aventura"></div>
-                    <div class="categoriax_nombre"><h4 style="color: aliceblue; margin: 0; font-size: 20px; text-shadow: 3px 6px 6px grey">Aventura</h4></div>
+                    <div class="categoriax_nombre" style="justify-content: center;"><h4 style="color: aliceblue; margin: 0; font-size: 20px; text-shadow: 3px 6px 6px grey">Aventura</h4></div>
                 </div>
                 <div class="categoriax" onclick="mostrarProductoCategorias()">
                     <div class="categoriax_img"> <img class="img_categoria" src="assets/img/emo.png" alt="adolescente"></div>
-                    <div class="categoriax_nombre"><h4 style="color: aliceblue; margin: 0; font-size: 20px; text-shadow: 3px 6px 6px grey">Juvenil</h4></div>
+                    <div class="categoriax_nombre" style="justify-content: center;"><h4 style="color: aliceblue; margin: 0; font-size: 20px; text-shadow: 3px 6px 6px grey">Juvenil</h4></div>
                 </div>
 
+                
 
             </div>
         </div>
@@ -182,6 +183,161 @@
 
     </section>
 
+    <section id="clientes2_productos">
+        <header class="clientes_header" style="margin-bottom: 15px;">
+            <div class="header_map" onclick="accederTienda()">
+                <i class="fa-solid fa-location-dot" style="color: #4F8EC4; font-size: 25px; margin: auto 0 ;"></i>
+                <h3 style="margin: auto;">Tegucigalpa</h3>
+
+            </div>
+            <div class="header_carrito">
+                <i class="fa-solid fa-cart-shopping" style="color: #4F8EC4; font-size: 28px; margin: 10px 15px 0 auto;"></i>
+            </div>
+        </header>
+
+        <div id="clientes2_titulo"><h3 style="font-size: 18px; margin: 0 0 5px 5px;">Productos libreria x</h3></div>
+
+        <nav class="clientes_nav" id="nav2">
+            <input id="clientes_search2" class="clientes_search" type="search" placeholder="Search" style="margin-bottom: 0;">
+        </nav>
+
+        <div id="clientes2_categorias" class="grillaProductos">
+            <div class="clientes2_subtitulo"> <h2 style="color: #4F8EC4; margin: 0 0 5px 2px;">Nombre Categoria</h2></div>
+            <div id="categorias">
+                <div class="categoriax" onclick="mostrarProducto()">
+                    <div class="categoriax_img"> <img class="img_categoria" src="assets/img/libro.png" alt="terror"></div>
+                    <div class="categoriax_nombre">
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 4px 4px grey">Libro</h4>
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 6px 6px grey">0.00$</h4>
+                    </div>
+                </div>
+ 
+                <div class="categoriax" onclick="mostrarProducto()">
+                    <div class="categoriax_img"> <img class="img_categoria" src="assets/img/libro.png"></div>
+                    <div class="categoriax_nombre">
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 6px 6px grey">Libro</h4>
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 6px 6px grey">0.00$</h4>                    
+                    </div>
+                </div>
+                <div class="categoriax" onclick="mostrarProducto()">
+                    <div class="categoriax_img"> <img class="img_categoria" src="assets/img/libro.png" alt="romance"></div>
+                    <div class="categoriax_nombre">
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 6px 6px grey">Libro</h4>
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 6px 6px grey">0.00$</h4>
+                    </div>
+                </div>
+                <div class="categoriax" onclick="mostrarProducto()">
+                    <div class="categoriax_img"> <img class="img_categoria" src="assets/img/libro.png" alt="misterio"></div>
+                    <div class="categoriax_nombre">
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 6px 6px grey">Libro</h4>
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 6px 6px grey">0.00$</h4>
+                    </div>
+                </div>
+                <div class="categoriax" onclick="mostrarProducto()">
+                    <div class="categoriax_img"> <img class="img_categoria" src="assets/img/libro.png" alt="aventura"></div>
+                    <div class="categoriax_nombre">
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 6px 6px grey">Libro</h4>
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 6px 6px grey">0.00$</h4>                   
+                    </div>
+                </div>
+                <div class="categoriax" onclick="mostrarProducto()">
+                    <div class="categoriax_img"> <img class="img_categoria" src="assets/img/libro.png"></div>
+                    <div class="categoriax_nombre">
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 6px 6px grey">Libro</h4>
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 6px 6px grey">0.00$</h4>                   
+                    </div>
+                </div>
+                <div class="categoriax" onclick="mostrarProducto()">
+                    <div class="categoriax_img"> <img class="img_categoria" src="assets/img/libro.png"></div>
+                    <div class="categoriax_nombre">
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 6px 6px grey">Libro</h4>
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 6px 6px grey">0.00$</h4>                   
+                    </div>
+                </div>
+                <div class="categoriax" onclick="mostrarProducto()">
+                    <div class="categoriax_img"> <img class="img_categoria" src="assets/img/libro.png"></div>
+                    <div class="categoriax_nombre">
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 6px 6px grey">Libro</h4>
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 6px 6px grey">0.00$</h4>                   
+                    </div>
+                </div>
+                <div class="categoriax" onclick="mostrarProducto()">
+                    <div class="categoriax_img"> <img class="img_categoria" src="assets/img/libro.png"></div>
+                    <div class="categoriax_nombre">
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 6px 6px grey">Libro</h4>
+                        <h4 style="color: rgb(4, 26, 44); margin: 0; font-size: 15px; text-shadow: 3px 6px 6px grey">0.00$</h4>                   
+                    </div>
+                </div>
+                
+
+
+            </div>
+        </div>
+
+        <div id="clientes2_populares">
+            <div class="clientes2_subtitulo"> <h2 style="color: #4F8EC4; margin: 0 0 5px 2px;">Más Populares</h2></div>
+            <div id="populares">
+
+                <div onclick="mostrarProducto()" class="popularx">
+                    <div class="popularx_img">
+                        <img src="assets/img/libro.png" class="img_popularx" alt="libro">
+                    </div>
+                    <div class="popularx_nombre"> <h4 style="color: #4F8EC4; margin-left: 5px;">ProductoX</h4></div>
+                    <div class="popularx_precio"> <h4 style="color: aliceblue; margin-left: 5px; margin-top: auto; margin-bottom: 0;">$Precio </h4></div>
+                </div>
+
+                <div onclick="mostrarProducto()" class="popularx">
+                    <div class="popularx_img">
+                        <img src="assets/img/libro.png" class="img_popularx" alt="libro">
+                    </div>
+                    <div class="popularx_nombre"> <h4 style="color: #4F8EC4; margin-left: 5px;">ProductoX</h4></div>
+                    <div class="popularx_precio"> <h4 style="color: aliceblue; margin-left: 5px; margin-top: auto; margin-bottom: 0;">$Precio </h4></div>
+                </div>
+                <div onclick="mostrarProducto()" class="popularx">
+                    <div class="popularx_img">
+                        <img src="assets/img/libro.png" class="img_popularx" alt="libro">
+                    </div>
+                    <div class="popularx_nombre"> <h4 style="color: #4F8EC4; margin-left: 5px;">ProductoX</h4></div>
+                    <div class="popularx_precio"> <h4 style="color: aliceblue; margin-left: 5px; margin-top: auto; margin-bottom: 0;">$Precio </h4></div>
+                </div>
+                <div onclick="mostrarProducto()" class="popularx">
+                    <div class="popularx_img">
+                        <img src="assets/img/libro.png" class="img_popularx" alt="libro">
+                    </div>
+                    <div class="popularx_nombre"> <h4 style="color: #4F8EC4; margin-left: 5px;">ProductoX</h4></div>
+                    <div class="popularx_precio"> <h4 style="color: aliceblue; margin-left: 5px; margin-top: auto; margin-bottom: 0;">$Precio </h4></div>
+                </div>
+                <div onclick="mostrarProducto()" class="popularx">
+                    <div class="popularx_img">
+                        <img src="assets/img/libro.png" class="img_popularx" alt="libro">
+                    </div>
+                    <div class="popularx_nombre"> <h4 style="color: #4F8EC4; margin-left: 5px;">ProductoX</h4></div>
+                    <div class="popularx_precio"> <h4 style="color: aliceblue; margin-left: 5px; margin-top: auto; margin-bottom: 0;">$Precio </h4></div>
+                </div>
+                <div onclick="mostrarProducto()" class="popularx">
+                    <div class="popularx_img">
+                        <img src="assets/img/libro.png" class="img_popularx" alt="libro">
+                    </div>
+                    <div class="popularx_nombre"> <h4 style="color: #4F8EC4; margin-left: 5px;">ProductoX</h4></div>
+                    <div class="popularx_precio"> <h4 style="color: aliceblue; margin-left: 5px; margin-top: auto; margin-bottom: 0;">$Precio </h4></div>
+                </div>
+                
+                
+                
+                
+                
+            </div>
+
+        </div>
+
+        <div id="clientes2_info">
+            <div id="info_publicidad"><h1 style="font-size: 30px; padding-left: 5px;">Ordena tus libros de forma fácil y rápida</h1></div>
+            <div id="info_logo"><img src="assets/img/6982750_3333446.svg" alt="delivery" id="logo_info"></div>
+        </div>
+
+
+
+    </section>
     <!-- Erick quiere trabajar en esta, trabajo en proceso -->
     <section id="detallesCompra">
 
