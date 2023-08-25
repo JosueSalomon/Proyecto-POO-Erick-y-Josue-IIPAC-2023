@@ -8,4 +8,5 @@ const administrador_controller_1 = require("../controllers/administrador.control
 const router = express_1.default.Router();
 router.post('/login', administrador_controller_1.loginAdmin);
 router.post('/nuevaEmpresa', administrador_controller_1.crearEmpresa);
+router.post('/:id/nuevoProducto', administrador_controller_1.crarNuevoProducto);
 exports.default = router;
