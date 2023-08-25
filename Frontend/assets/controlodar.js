@@ -35,6 +35,7 @@ function accederTienda(){
     document.getElementById('clientes2').style.display ="flex";
     document.getElementById('clientes2_productos').style.display ="none";
     document.getElementById('detallesCompra').style.display ="none";
+    document.getElementById('Factura').style.display ="none";
 }
 
 function mostrarCarrito(){
@@ -64,6 +65,15 @@ function mostrarProductoCategorias(){
     document.getElementById('clientes2_productos').style.display ="flex";
 }
 
+function mostrarFactura(){
+    document.getElementById('Factura').style.display ="flex";
+    document.getElementById('clientes1').style.display ="none";
+    document.getElementById('clientes2').style.display ="none";
+    document.getElementById('clientes2_productos').style.display ="none";
+    document.getElementById('detallesCompra').style.display ="none";
+    document.getElementById('carritoDeCompras').style.display ="none";
+
+}
 function mostrarProductosAdmin(){
     document.getElementById('administradores_productos').style.display ="flex";
     document.getElementById('administradores').style.display ="none";

@@ -397,7 +397,7 @@ height: 88%;
     top: 0;
     right: 0;
     background-color: #4F8EC4;
-    z-index: 100;
+    z-index: 10000;
 }
 
 #carritoNav{
@@ -440,24 +440,31 @@ height: 88%;
 
 /* Factura */
 #Factura{
-    border: 10px solid deepskyblue;
-    background-color: #F2E5D9;
-
+    background-color: #ebebeb;
     height: 100%;
     width: 100%;
     position: absolute;
     top: 0;
     z-index: 1000;
     overflow-x: scroll;
+    display: none;
+    flex-direction: column;
 }
 
 #Facturacompras{
-    border: 2px solid lawngreen;
-    height: 60%;
+    height: 50%;
     overflow-y: scroll;
+    background-color:rgb(255, 247, 246);
+    
+    border-radius: 20px;
+    box-shadow: 3px 7px 12px rgb(156, 156, 156);
 }
 
 #FacturaCuentas{
-    border: 2px solid gold;
+    background-color:rgb(255, 247, 246);
+    border-radius: 20px;
+    margin-top: 5px;
+    box-shadow: 3px 7px 12px rgb(156, 156, 156);
+
 }
 
