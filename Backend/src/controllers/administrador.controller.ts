@@ -32,10 +32,10 @@ export const crarNuevoProducto = (req:Request, res:Response)=>{
         await EmpresaSchema.updateOne({_id: new mongoose.Types.ObjectId(req.params.id) },{
                 $push: {
                     Libros:{
-                        productoNuevo: resultado._id,
-                        nombre: resultado.nombre,
+                        _id: resultado._id,//Id mongo
+                        nombre: resultado.nombre, //nombre del libro
                         imagen: resultado.imagen,
-                        precio: resultado.precio,
+                        precio: resultado.precio, //Precio
                         categoria: resultado.categoria,
                         descripcion: resultado.descripcion
                     } 
