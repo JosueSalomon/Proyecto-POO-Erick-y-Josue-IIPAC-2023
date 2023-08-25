@@ -413,7 +413,7 @@ height: 88%;
     /* border: 2px solid firebrick; */
     height: 10%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .carritoProducto_Libro{
     /* border:  2px solid blue; */
