@@ -118,6 +118,7 @@ function seRegistroMotorista(){
 function regrearOpcionesMotorista(){
     document.getElementById('ordenes-motoristas').style.display='none'
     document.getElementById('homeM').style.display='block'
+    document.getElementById('Perfil-motorista').style.display='none'
 }
 
 function entrarPerfil(){

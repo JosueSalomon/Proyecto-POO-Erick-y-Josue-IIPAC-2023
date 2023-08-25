@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
+import { Libros } from "./libros.model";
 
 
-export interface Administrador{
+export interface Empresa{
     _id?:mongoose.Types.ObjectId;
     nombre: string;
-    correo: string;
-    contrasena: string;
     img: string;
-    comisiones: number;
+    Libros: Array<Libros>
 }
