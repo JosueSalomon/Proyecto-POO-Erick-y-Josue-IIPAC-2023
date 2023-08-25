@@ -38,6 +38,7 @@ const crearEmpresa = (req, res) => {
     });
 };
 exports.crearEmpresa = crearEmpresa;
+//
 const crarNuevoProducto = (req, res) => {
     const productoNuevo = new libros_schema_1.LibrioSchema(req.body);
     productoNuevo.save()
@@ -45,7 +46,7 @@ const crarNuevoProducto = (req, res) => {
         yield empresas_schema_1.EmpresaSchema.updateOne({ _id: new mongoose_1.default.Types.ObjectId(req.params.id) }, {
             $push: {
                 Libros: {
-                    productoNuevo: resultado._id,
+                    _id: resultado._id,
                     nombre: resultado.nombre,
                     imagen: resultado.imagen,
                     precio: resultado.precio,
