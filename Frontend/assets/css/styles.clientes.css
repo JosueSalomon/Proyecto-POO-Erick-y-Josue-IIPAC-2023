@@ -309,7 +309,8 @@ height: 88%;
 #nav-pago{
     display: flex;
     justify-content: space-around;
-    background-color: #E6E6E6;
+    background-color: #4F8EC4;
+    border-radius: 20px 20px 0 0;
 }
 
 #flecha{
@@ -361,11 +362,7 @@ height: 88%;
     height: 41px;
     border: 0;
     border-radius: 20px;
-    background-color: #9CBFDE;
-}
-
-#confirmarCompra{
-    display: none;
+    background-color: #4F8EC4;
 }
 
 #clientes2_productos{
@@ -466,5 +463,33 @@ height: 88%;
     margin-top: 5px;
     box-shadow: 3px 7px 12px rgb(156, 156, 156);
 
+}
+
+#confirmarCompra{
+    display: none;
+    width: 360px;
+    margin: 0 auto;
+    background-color: #f2e5d9;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 9px 11px 16px rgb(156, 156, 156);
+    animation-name: factura;
+    animation-duration: 1.5s;
+}
+
+@keyframes factura {
+    from{
+
+        top: 1000px ;
+    }
+    to{
+        top: 0;
+    }    
 }
 

@@ -2,7 +2,6 @@
 //Erick Escoto 
 
 function ConfirmarCompra(){
-    console.log('Probasodjasd')
     document.getElementById('detallesCompra').style.display='none'
     document.getElementById('confirmarCompra').style.display='block'
 }
@@ -36,6 +35,7 @@ function accederTienda(){
     document.getElementById('clientes2_productos').style.display ="none";
     document.getElementById('detallesCompra').style.display ="none";
     document.getElementById('Factura').style.display ="none";
+    document.getElementById('confirmarCompra').style.display='none'
 }
 
 function mostrarCarrito(){
@@ -72,6 +72,7 @@ function mostrarFactura(){
     document.getElementById('clientes2_productos').style.display ="none";
     document.getElementById('detallesCompra').style.display ="none";
     document.getElementById('carritoDeCompras').style.display ="none";
+    document.getElementById('confirmarCompra').style.display='none'
 
 }
 function mostrarProductosAdmin(){
