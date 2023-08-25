@@ -16,7 +16,7 @@
 
             </div>
             <div class="header_carrito">
-                <i class="fa-solid fa-cart-shopping" style="color: #4F8EC4; font-size: 28px; margin: 23px 15px 0 auto;"></i>
+                <i class="fa-solid fa-cart-shopping" onclick="mostrarCarrito()" style="color: #4F8EC4; font-size: 28px; margin: 23px 15px 0 auto;"></i>
             </div>
         </header>
 
@@ -75,7 +75,7 @@
 
             </div>
             <div class="header_carrito">
-                <i class="fa-solid fa-cart-shopping" style="color: #4F8EC4; font-size: 28px; margin: 10px 15px 0 auto;"></i>
+                <i class="fa-solid fa-cart-shopping" onclick="mostrarCarrito()" style="color: #4F8EC4; font-size: 28px; margin: 10px 15px 0 auto;"></i>
             </div>
         </header>
 
@@ -191,7 +191,7 @@
 
             </div>
             <div class="header_carrito">
-                <i class="fa-solid fa-cart-shopping" style="color: #4F8EC4; font-size: 28px; margin: 10px 15px 0 auto;"></i>
+                <i class="fa-solid fa-cart-shopping" onclick="mostrarCarrito()" style="color: #4F8EC4; font-size: 28px; margin: 10px 15px 0 auto;"></i>
             </div>
         </header>
 
@@ -341,21 +341,21 @@
     <!-- Erick quiere trabajar en esta, trabajo en proceso -->
     <section id="detallesCompra" style="border: 2px solid rgb(0, 34, 85);">
 
-        <header class="clientes_header" style="margin-bottom: 15px; border: 2px solid rgb(72, 255, 0);">
+        <header class="clientes_header" style="margin-bottom: 15px; ">
             <div class="header_map" onclick="accederTienda()">
                 <i class="fa-solid fa-location-dot" style="color: #4F8EC4; font-size: 25px; margin: auto 0 ;"></i>
                 <h3 style="margin: auto;">Tegucigalpa</h3>
 
             </div>
             <div class="header_carrito">
-                <i class="fa-solid fa-cart-shopping" style="color: #4F8EC4; font-size: 28px; margin: 10px 15px 0 auto;"></i>
+                <i class="fa-solid fa-cart-shopping" onclick="mostrarCarrito()" style="color: #4F8EC4; font-size: 28px; margin: 10px 15px 0 auto;"></i>
             </div>
         </header>
-        <div id="imagenLibroCompra" style="border: 2px solid blue;">
+        <div id="imagenLibroCompra" >
             <img id="imgLibro" src="assets/img/LibroVenta.jpeg" alt="">
         </div>
     
-        <div id="info-libro" style="border: 2px solid rgb(255, 0, 0);">
+        <div id="info-libro">
             <div id="Nombre-Review">
                 <div>
                     <p style="color: #4F8EC4; font-size: 24px; font-weight: bold;">Nombre libro</p>
@@ -411,8 +411,39 @@
     
 
     </section>
+
+    <section id="carritoDeCompras">
+        <div id="carritoNav" onclick="escondercarrito()">
+            <i class="fa-solid fa-cart-shopping" style="color: rgb(0, 34, 85); font-size: 28px; margin: 10px 15px 0 auto;"></i>
+        </div>
+        <div id="carritoListaProductos">
+            <div class="carritoProducto">
+                <div class="carritoProducto_Libro">
+                    <div style="width: 44px; height: 100%;">
+                        <img src="assets/img/libro.png" alt="libro" class="imagenCarritoLibro">
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <h5 style="color: aliceblue;">Nombre de libro</h5>
+                    </div>
+
+                </div>
+                <div class="carritoProducto_Precio">
+                    <h5 style="color: aliceblue;">111.11$</h5>
+                </div>
+            </div>      
+        </div>
+
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <button class="botonCompra" style="background-color:#9CBFDE; font-family: Georgia; font-size: 20px;">
+                COMPRAR
+            </button>
+        </div>
+
+    </section>
         
     <section id="confirmarCompra">
+
+
     
         <div id="Pago">
             <nav id="nav-pago">

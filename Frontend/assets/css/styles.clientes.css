@@ -384,7 +384,56 @@ height: 88%;
 #productos_search{
     display: flex;
     height: 10%;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
-#productos_main{}
+#carritoDeCompras{
+    /* border: 2px solid brown; */
+    width: 60%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #4F8EC4;
+    z-index: 100;
+}
+
+#carritoNav{
+    /* border: 2px solid red; */
+    height: 7%;
+}
+
+#carritoListaProductos{
+    /* border: 2px solid green; */
+    height: 83%;
+    overflow-y: scroll;
+}
+
+
+.carritoProducto{
+    /* border: 2px solid firebrick; */
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+.carritoProducto_Libro{
+    /* border:  2px solid blue; */
+    width: 58%;
+    display: flex;
+}
+
+.carritoProducto_Precio{
+    /* border:  2px solid blue; */
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagenCarritoLibro{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}

@@ -37,6 +37,14 @@ function accederTienda(){
     document.getElementById('detallesCompra').style.display ="none";
 }
 
+function mostrarCarrito(){
+    document.getElementById('carritoDeCompras').style.display ="flex";
+}
+
+function escondercarrito(){
+    document.getElementById('carritoDeCompras').style.display ="none";
+}
+
 function accederLocales(){
     document.getElementById('clientes1').style.display ="flex";
     document.getElementById('clientes2').style.display ="none";
