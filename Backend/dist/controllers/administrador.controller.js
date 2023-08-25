@@ -9,8 +9,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.loginAdmin = void 0;
+exports.crearEmpresa = exports.loginAdmin = void 0;
 const administradores_schema_1 = require("../models/administradores.schema");
+const empresas_schema_1 = require("../models/empresas.schema");
 const loginAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const usuario = yield administradores_schema_1.AdministradorSchema.findOne({ correo: req.body.correo, contresana: req.body.contresana }, { contrasena: false });
     if (usuario) {
@@ -21,3 +22,14 @@ const loginAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     res.end();
 });
 exports.loginAdmin = loginAdmin;
+const crearEmpresa = (req, res) => {
+    const usuarioNuevo = new empresas_schema_1.EmpresaSchema(req.body);
+    usuarioNuevo.save().then((usuarioNuevo) => {
+        res.send({ message: 'Se agrego la nueva empresa', usuarioNuevo });
+        res.end();
+    }).catch((error) => {
+        res.send({ message: 'Hubo un error al guardar la empresa', error });
+        res.end();
+    });
+};
+exports.crearEmpresa = crearEmpresa;

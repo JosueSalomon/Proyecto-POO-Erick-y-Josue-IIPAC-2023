@@ -6,5 +6,6 @@ export interface Empresa{
     _id?:mongoose.Types.ObjectId;
     nombre: string;
     img: string;
-    Libros: Array<Libros>
+    Libros: Array<Libros>;
+    review: number;
 }

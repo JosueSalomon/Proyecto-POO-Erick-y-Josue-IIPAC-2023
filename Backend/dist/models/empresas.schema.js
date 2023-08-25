@@ -8,6 +8,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const schema = new mongoose_1.default.Schema({
     nombre: String,
     img: String,
-    Libros: (Array)
+    Libros: (Array),
+    review: Number
 });
 exports.EmpresaSchema = mongoose_1.default.model('empresas', schema);
