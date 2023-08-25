@@ -24,7 +24,7 @@ export const crearEmpresa = (req: Request, res: Response) =>{
         res.end();
     })
 }
-
+//
 export const crarNuevoProducto = (req:Request, res:Response)=>{
     const productoNuevo = new LibrioSchema(req.body);
     productoNuevo.save()
