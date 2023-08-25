@@ -339,15 +339,23 @@
 
     </section>
     <!-- Erick quiere trabajar en esta, trabajo en proceso -->
-    <section id="detallesCompra">
+    <section id="detallesCompra" style="border: 2px solid rgb(0, 34, 85);">
 
-        <div id="venta-libro">
-                <div id="padreIMG">
-                    <div><img id="imgLibro" src="assets/img/LibroVenta.jpeg" alt=""></div>
-                </div>
+        <header class="clientes_header" style="margin-bottom: 15px; border: 2px solid rgb(72, 255, 0);">
+            <div class="header_map" onclick="accederTienda()">
+                <i class="fa-solid fa-location-dot" style="color: #4F8EC4; font-size: 25px; margin: auto 0 ;"></i>
+                <h3 style="margin: auto;">Tegucigalpa</h3>
+
+            </div>
+            <div class="header_carrito">
+                <i class="fa-solid fa-cart-shopping" style="color: #4F8EC4; font-size: 28px; margin: 10px 15px 0 auto;"></i>
+            </div>
+        </header>
+        <div id="imagenLibroCompra" style="border: 2px solid blue;">
+            <img id="imgLibro" src="assets/img/LibroVenta.jpeg" alt="">
         </div>
     
-        <div id="info-libro">
+        <div id="info-libro" style="border: 2px solid rgb(255, 0, 0);">
             <div id="Nombre-Review">
                 <div>
                     <p style="color: #4F8EC4; font-size: 24px; font-weight: bold;">Nombre libro</p>
@@ -379,25 +387,29 @@
             </div>
     
             <div id="Descripcion">
-                <div>
-                    <p style="color: #4F8EC4; font-size: 18px; font-weight: bold; padding-left: 50px;">
-                        Descripción
-                    </p>
-                </div>
+
     
-                <div>
-                    <p style="text-align: center;">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit aperiam earum expedita quod unde aliquam.
-                    </p>
+                <div style="display: flex; justify-content: space-around;">
+                    <div style="display: flex; flex-direction: column;">
+                        <p style="color: #4F8EC4; font-size: 18px; font-weight: bold;">
+                            Descripción
+                        </p>
+                        <p >
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit aperiam earum expedita quod unde aliquam.
+                        </p>
+                    </div>
+
+
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <button class="botonCompra"><h3 style="margin: 0; font-family: Georgia; font-size: 15px;">Comprar</h3></button>
+                    </div>
                 </div>
             </div>
+
+
         </div>
     
-        <div onclick="ConfirmarCompra()" style="position: absolute;top: 670px;right: 80px;">
-        <div style="width: 100%; height: 100%; padding: 16px; background: #9CBFDE; border-radius: 15px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-            <div style="color: white; font-size: 23px; font-family: Roboto; font-weight: 800; word-wrap: break-word">Agregar a la orden</div>
-            </div>
-        </div>
+
     </section>
         
     <section id="confirmarCompra">

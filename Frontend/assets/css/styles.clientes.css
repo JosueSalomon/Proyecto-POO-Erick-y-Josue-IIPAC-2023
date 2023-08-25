@@ -228,31 +228,45 @@ height: 88%;
 #logo_info{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     mix-blend-mode: multiply;
 }
 
 #imgLibro{
-    width: 200px;
-    height: 155px;
-    right: 82px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 #padreIMG{
-    display: flex;
-    justify-content: center;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
     height: 290px;
+
+}
+
+#imagenLibroCompra{
+    width: 100%;
+    height: 30%;
+    object-fit: contain;
+
 }
 
 #info-libro{
     background-color: white;
     border-radius: 25px 25px 0px 0px;
-    width: 375px;
-    height: 506px;
+    width: 100%;
+    height: 63%;
+}
+
+.botonCompra{
+    color: aliceblue;
+    background-color: #9CBFDE;
+    height: 40px;
+    width: 120px;
+    border: none;
+    margin-top: 15px;
+    border-radius: 10px;
 }
 
 #Nombre-Review{
@@ -286,6 +300,10 @@ height: 88%;
 
 #detallesCompra{
     display: none;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+
 }
 
 #nav-pago{
