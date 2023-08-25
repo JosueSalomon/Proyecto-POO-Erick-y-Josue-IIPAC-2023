@@ -434,11 +434,57 @@
         </div>
 
         <div style="display: flex; justify-content: center; align-items: center;">
-            <button class="botonCompra" style="background-color:#9CBFDE; font-family: Georgia; font-size: 20px;">
+            <button onclick="mostrarFactura()" class="botonCompra" style="background-color:#9CBFDE; font-family: Georgia; font-size: 20px;">
                 COMPRAR
             </button>
         </div>
 
+    </section>
+
+    <section id="Factura">
+        <header class="clientes_header" style="margin-bottom: 15px; ">
+            <div class="header_map" onclick="accederTienda()">
+                <i class="fa-solid fa-location-dot" style="color: #4F8EC4; font-size: 25px; margin: auto 0 ;"></i>
+                <h3 style="margin: auto;">Tegucigalpa</h3>
+
+            </div>
+            <div class="header_carrito">
+                <i class="fa-solid fa-cart-shopping" onclick="mostrarCarrito()" style="color: #4F8EC4; font-size: 28px; margin: 10px 15px 0 auto;"></i>
+            </div>
+        </header>
+
+        <div id="Facturacompras">
+            <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+                <h3>Detalles de Compras</h3>
+            </div>
+            <div>
+                <div id="carritoListaProductos">
+                    <div class="carritoProducto">
+                        <div class="carritoProducto_Libro">
+                            <div style="width: 44px; height: 100%;">
+                                <img src="assets/img/libro.png" alt="libro" class="imagenCarritoLibro">
+                            </div>
+                            <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
+                                <h5 style="color: aliceblue;">Nombre de libro</h5>
+                            </div>
+        
+                        </div>
+                        <div class="carritoProducto_Precio">
+                            <h5 style="color: aliceblue;">111.11$</h5>
+                        </div>
+                    </div>      
+                </div>
+            </div>
+
+
+        </div>
+        
+        <div id="FacturaCuentas">
+                inserte cuentas
+        </div>
+        <div>
+            inserte boton
+        </div>
     </section>
         
     <section id="confirmarCompra">
