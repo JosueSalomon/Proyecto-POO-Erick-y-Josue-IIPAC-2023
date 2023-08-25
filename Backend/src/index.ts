@@ -28,7 +28,7 @@ app.use('/empresa',empresaRouter)
 app.use('/libro',libroRouter)
 app.use('/motorista',motoristaRouter)
 app.use('/pedido',pedidoRouter)
-app.use('/usuarios',usuarioRouter);
+app.use('/usuario',usuarioRouter);
 
 
 app.get('/', (req: Request, res: Response) => {

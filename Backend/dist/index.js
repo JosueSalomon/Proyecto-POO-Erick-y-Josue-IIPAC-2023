@@ -25,7 +25,7 @@ app.use('/empresa', empresa_router_1.default);
 app.use('/libro', libro_router_1.default);
 app.use('/motorista', motorista_router_1.default);
 app.use('/pedido', pedido_router_1.default);
-app.use('/usuarios', usuario_router_1.default);
+app.use('/usuario', usuario_router_1.default);
 app.get('/', (req, res) => {
     res.send('Servidor raiz, hola');
 });

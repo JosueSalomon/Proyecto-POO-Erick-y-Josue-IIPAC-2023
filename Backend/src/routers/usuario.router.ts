@@ -1,11 +1,12 @@
 import express from 'express';
-import { login, obtenerUsuario, obtenerUsuarios } from '../controllers/usuario.controller';
+import { loginUsuario, obtenerUsuario, obtenerUsuarios, registrarUsuario } from '../controllers/usuario.controller';
 
 
 const router = express.Router();
 
-router.post('/login',login) //Cheqye
+router.post('/login',loginUsuario) //Cheqye
 
+router.post('/registo',registrarUsuario)
 
 //Obtener todos los usuairos
 router.get('/',obtenerUsuarios) //Chque
