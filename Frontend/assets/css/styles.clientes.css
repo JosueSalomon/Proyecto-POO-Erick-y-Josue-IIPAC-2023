@@ -437,3 +437,27 @@ height: 88%;
     width: 100%;
     object-fit: contain;
 }
+
+/* Factura */
+#Factura{
+    border: 10px solid deepskyblue;
+    background-color: #F2E5D9;
+
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    overflow-x: scroll;
+}
+
+#Facturacompras{
+    border: 2px solid lawngreen;
+    height: 60%;
+    overflow-y: scroll;
+}
+
+#FacturaCuentas{
+    border: 2px solid gold;
+}
+
