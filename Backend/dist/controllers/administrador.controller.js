@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.motoristaAprobar = exports.actualizarLibro = exports.borrarLibroDeEmpresa = exports.borrarEmpresa = exports.crarNuevoProducto = exports.crearEmpresa = exports.loginAdmin = void 0;
+exports.motoristaDesAprobado = exports.motoristaAprobar = exports.actualizarLibro = exports.borrarLibroDeEmpresa = exports.borrarEmpresa = exports.crarNuevoProducto = exports.crearEmpresa = exports.loginAdmin = void 0;
 const administradores_schema_1 = require("../models/administradores.schema");
 const empresas_schema_1 = require("../models/empresas.schema");
 const mongoose_1 = __importDefault(require("mongoose"));
@@ -139,3 +139,21 @@ const motoristaAprobar = (req, res) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 exports.motoristaAprobar = motoristaAprobar;
+const motoristaDesAprobado = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const motoristaId = req.params.id;
+        // Verifica si el motorista existe antes de realizar la actualización
+        const motorista = yield motoristas_schema_1.MotoristaSchema.findOne({ _id: motoristaId });
+        if (!motorista) {
+            return res.status(404).send({ status: false, message: "Motorista no encontrado" });
+        }
+        // Cambia el estado de false a true
+        motorista.estado = false;
+        yield motorista.save();
+        res.status(200).send({ status: true, message: "Estado del motorista cambiado a false con éxito" });
+    }
+    catch (error) {
+        res.status(500).send({ status: false, message: "Error al cambiar el estado del motorista", error });
+    }
+});
+exports.motoristaDesAprobado = motoristaDesAprobado;

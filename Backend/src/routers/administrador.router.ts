@@ -1,5 +1,5 @@
 import express from 'express';
-import { actualizarLibro, borrarEmpresa,  borrarLibroDeEmpresa,  crarNuevoProducto, crearEmpresa, loginAdmin, motoristaAprobar } from '../controllers/administrador.controller';
+import { actualizarLibro, borrarEmpresa,  borrarLibroDeEmpresa,  crarNuevoProducto, crearEmpresa, loginAdmin, motoristaAprobar, motoristaDesAprobado } from '../controllers/administrador.controller';
 
 const router = express.Router();
 
@@ -16,5 +16,7 @@ router.put('/:id/borrarLibroDeEmpresa',borrarLibroDeEmpresa)
 router.put('/:id/libroActualizarEmpresa',actualizarLibro)
 
 router.put('/:id/motoristaAprobar',motoristaAprobar)
+
+router.put('/:id/motoristaDesAprobar',motoristaDesAprobado)
 
 export default router;

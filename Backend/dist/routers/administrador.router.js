@@ -13,4 +13,5 @@ router.delete('/:id/borrarEmpresa', administrador_controller_1.borrarEmpresa);
 router.put('/:id/borrarLibroDeEmpresa', administrador_controller_1.borrarLibroDeEmpresa);
 router.put('/:id/libroActualizarEmpresa', administrador_controller_1.actualizarLibro);
 router.put('/:id/motoristaAprobar', administrador_controller_1.motoristaAprobar);
+router.put('/:id/motoristaDesAprobar', administrador_controller_1.motoristaDesAprobado);
 exports.default = router;

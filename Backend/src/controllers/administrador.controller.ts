@@ -141,6 +141,26 @@ export const motoristaAprobar = async (req: Request, res: Response) => {
     }
 };
 
+export const motoristaDesAprobado = async (req: Request, res: Response) => {
+    try {
+        const motoristaId = req.params.id;
+
+        // Verifica si el motorista existe antes de realizar la actualización
+        const motorista = await MotoristaSchema.findOne({ _id: motoristaId });
+
+        if (!motorista) {
+            return res.status(404).send({ status: false, message: "Motorista no encontrado" });
+        }
+
+        // Cambia el estado de false a true
+        motorista.estado = false;
+        await motorista.save();
+
+        res.status(200).send({ status: true, message: "Estado del motorista cambiado a false con éxito" });
+    } catch (error) {
+        res.status(500).send({ status: false, message: "Error al cambiar el estado del motorista", error });
+    }
+};
 
 
 
