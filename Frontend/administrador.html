@@ -9,298 +9,6 @@
 </head>
 <body>
 
-    <div id="adminIndex" style=" background-color: rgb(242, 229, 217,0.5);">
-
-        <section id="Barra-izquierda">
-            <div style="display: flex; justify-content: center;">
-                <div><img id="img-logo" src="assets/img/background-img.png" alt=""></div>
-            </div>
-
-            <div id="opciones-lado">
-                <div style="width: 269px; height: 40px; font-size: 18px; color: white; padding-left: 15px; ">ReadigoT</div>
-            </div>
- 
-            <i style="top: 167px; position: absolute; padding-left: 8px;" class="fa-solid fa-house"></i>
-            <div class="Menu">
-                <div style="width: 268px; height: 40px;">
-                    <p style="padding-left: 16px;" class="texto">
-                        Menu
-                    </p>
-                </div>
-                <div style="width: 268px; height: 45px;">
-                    <p style="padding-left: 16px;" class="texto">
-                        Perfil
-                    </p>
-                </div>
-                <div style="width: 268px; height: 40px;">
-                    <p style="padding-left: 16px;" class="texto">
-                        Ordenes
-                    </p>
-                </div>
-                <div onclick="mostrarMotoristasAdmin()" style="width: 268px; height: 40px; background-color: #9CBFDE; border-radius: 8px;">
-                    <p style="padding-left: 16px;" class="texto">
-                        Motoristas
-                    </p>
-                </div>
-                <div onclick="mostrarProductosAdmin()" style="width: 268px; height: 40px;">
-                    <p style="padding-left: 16px;" class="texto">
-                        Productos
-                    </p>
-                </div>
-                <div id="crud-productos">
-                    <ul>
-                        <div>
-                            <li class="texto">Actualizar</li>
-                        </div>
-                    </ul>
-                    <ul>
-                        <div>
-                            <li class="texto">Agregar</li>
-                        </div>
-                    </ul>
-                    <ul>
-                        <div>
-                            <li class="texto">Eliminar</li>
-                        </div>
-                    </ul>
-                    <ul>
-                        <div>
-                            <li class="texto">Mostrar</li>
-                        </div>
-                    </ul>
-                </div>
-                <div onclick="mostrarEmpresas()" style="width: 268px; height: 40px;">
-                    <p style="padding-left: 16px;" class="texto">
-                        Empresas
-                    </p>
-                </div>
-                <div id="crud-empresas">
-                    <ul>
-                        <div>
-                            <li class="texto">Actualizar</li>
-                        </div>
-                    </ul>
-                    <ul>
-                        <div>
-                            <li class="texto">Agregar</li>
-                        </div>
-                    </ul>
-                    <ul>
-                        <div>
-                            <li class="texto">Eliminar</li>
-                        </div>
-                    </ul>
-                    <ul>
-                        <div>
-                            <li class="texto">Mostrar</li>
-                        </div>
-                    </ul>
-                </div>
-                <div style="width: 268px; height: 40px;">
-                    <button style="    border: 0px; width: 80px; background-color: #9CBFDE; border-radius: 15px">Salir</button>
-                </div>
-                
-            </div>
-            
-        </section>
-
-        <section id="centro">
-            <div style="position: absolute;top: 50px;left: 245px;"><input style="width: 741px; height: 48px; border-radius: 15px; border: 0; text-align: center;" type=" text" placeholder="Buscar Empresa, producto"></div>
-        
-        <div id="infoUsuario">
-            <div>
-                <img class="imgPerfil" src="assets/img/El admin.jpg" alt="">
-                
-            </div>
-            <div>
-                <p style="font-size: 24px; font-weight: bold;">Erick Perejil</p>
-            </div>
-        </div>
-
-        <div>
-            <p style="padding-left: 25px; font-weight: bold; font-size: 32px; color: #4F8EC4;">Todos los motoristas</p>
-        </div>
-
-
-        <div style="padding-left: 10px;" id="contenedor-motoristas">
-            <div id="barrita">
-                <div>
-                    <p>Motorista</p>
-                </div>
-                <div>
-                    <p>Estado</p>
-                </div>
-                <div>
-                    <p>Procentaje de entregas</p>
-                </div>
-                <div>
-                    <p>Matricula</p>
-                </div>
-                <div>
-                    <p>Ganancia</p>
-                </div>
-            </div>
-
-            <div id="infoMotorista">
-                
-                    <div>
-                        <img class="imgPerfil" src="assets/img/Motoristaxd.jpeg" alt="">
-                        <p>Josue</p>
-                    </div>
-                    <div>
-                        <p>Aprobado</p>
-                    </div>
-                    <div>
-                        <div style="width: 100%; height: 100%; position: relative">
-                            <div style="width: 148.45px; height: 6.69px; left: 0px; top: 0px; position: absolute; background: #F2F2F2; border-radius: 4px"></div>
-                            <div style="width: 59.38px; height: 6.69px; left: 0px; top: 25px; position: absolute; background: #4F8EC4; border-radius: 4px"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p>003112Asd</p>
-                    </div>
-                    <div>
-                        <p>Lps. 900</p>
-                    </div>
-                
-                
-            </div>
-            
-
-
-        </div>
-        </section>
-    </div>
-
-    <section id="administradores">
-        <div class="admin_menu">
-            <div style="display: flex; justify-content: center; height: 20%;">
-                <div><img id="img-logo" src="assets/img/motoristaowo.png" alt=""></div>
-            </div>
-    
-            <div id="opciones-lado" style="height: 5%; width: 100%; ">
-                <div style="width: 100%; font-size: 18px; padding-left: 15px; display: flex; ">
-                    <i style="margin-right: 10px;" class="fa-solid fa-house"></i>
-                    <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px; margin: 0;">Readigo</h3>
-
-                </div>
-            </div>
-    
-            
-            <div class="Menu" style="height: 75%;">
-                <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Perfil</h3>
-                <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Empresas</h3>
-                <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Motoristas</h3>
-                <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Ordenes</h3>
-                <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Productos</h3>
-            </div>
-        </div>
-        <div id="admin_form">
-            <nav id="adminform_nav">
-                <div id="navForm">
-                    <input type="text" placeholder="Search" id="navForm_search" class="administradores_inputs" >
-                </div>
-                <div id="navUser">
-                    <div id="userA_foto">
-                        <div id="foto_contenedor">
-                            <img src="assets/img/adminJosue.jpg" alt="Josue" id="adminJosue">
-                        </div>
-                    </div>
-                    <div id="userA_nombre">
-                        <div id="nombreA_nombre" style="display: flex; justify-content: center; align-items: center;">
-                            <h4 style="margin-top: 40%; font-size: 15px; color: #06283d">Josue Salomon</h4>
-                        </div>
-                        <div id="nombreA_asignacion" style="display: flex; justify-content: center;">
-                            <h4 style="margin: 0; font-size: 12px; color: #06283d">Admin</h4>
-                        </div>
-                    </div>
-                    <div id="user_notif" style="display: flex; justify-content: center;align-items: center;">
-                        <i class="fa-regular fa-bell" style="font-size: 25px;"></i>
-                    </div>
-                </div>
-            </nav>
-
-            <div id="formAdmin">
-                <div id="adminform_titulo">
-                    <h3 style="margin: 0; color: #06283D; letter-spacing: -1px;">Introduzca los datos para agregar la empresa</h3>
-                </div>
-    
-                <div class="adminform_row">
-                    <label for="admin_nombreEmpresa"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Nombre de la empresa</h4></label>
-                    <input type="text" id="admin_nombreEmpresa" class="administradores_inputs">
-                </div>
-    
-                <div class="adminform_row">
-                    <label for="admin_serviciosEmpresa"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Servicios que ofrece la compañia</h4></label>
-                    <input type="text" id="admin_serviciosEmpresa" class="administradores_inputs">
-                </div>
-    
-                <div class="adminform_row">
-                    <label for="admin_paginaEmpresa"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Pagina Web</h4></label>
-                    <input type="text" id="admin_paginaEmpresa" class="administradores_inputs">
-                </div>
-    
-    
-                <div class="adminform_row adminform_column">
-                    <div class="column">
-                        <label for="admin_telefonoEmpresa"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Telefono de Empresa</h4></label>
-                        <input style="width: 60%;" type="text" id="admin_telefonoEmpresa" class="administradores_inputs">
-                    </div>
-                    <div class="column">
-                        <label for="admin_emailEmpresa"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Email de la empresa</h4></label>
-                        <input style="width: 60%;" type="text" id="admin_emailEmpresa" class="administradores_inputs">
-                    </div>
-                </div>
-                <div class="adminform_row adminform_column" style="flex-direction: column;">
-                    <h4 style="margin: 0; font-size: 12px; color: #06283dd9">Nombre del Representante</h4>
-                    <div style="display: flex; width: 100%; height: 90%;">
-                        <div class="column">
-                            <input style="width: 60%;" type="text" id="" class="administradores_inputs" placeholder="Nombre">
-                        </div>
-                        <div class="column">
-                            <input style="width: 60%;" type="text" id="" class="administradores_inputs" placeholder="Apellido">
-                        </div>
-                    </div>
-    
-                </div>
-                <div class="adminform_row adminform_column" style="flex-direction: column;">
-                    <h4 style="margin: 0; font-size: 12px; color: #06283dd9">Direccion de la Empresa</h4>
-                    <div style="display: flex; width: 100%; height: 90%;">
-                        <div class="column">
-                            <input style="width: 60%;" type="text" id="admin_paisEmpresa" class="administradores_inputs" placeholder="Pais">
-                        </div>
-                        <div class="column">
-                            <input style="width: 60%;" type="text" id="admin_regionEmpresa" class="administradores_inputs" placeholder="Region/Provincia/Estado">
-                        </div>
-                    </div>
-    
-                </div>
-                
-                <div class="adminform_row adminform_column">
-                    <div class="column">
-                        <label for=""></label>
-                        <input style="width: 60%;" type="text" id="admin_ciudadEmpresa" class="administradores_inputs" placeholder="Ciudad">         
-                    </div>
-                    <div class="column">
-                        <label for=""></label>
-                        <input style="width: 60%;" type="text" id="admin_postalEmpresa" class="administradores_inputs" placeholder="Codigo Postal">         
-                    </div>                
-                </div>
-    
-                <div class="adminform_row adminform_row2">
-                <div class="column2" style="display: flex; flex-direction: column; justify-content: flex-start;">
-                    <label for="admin_codigoEmpresa"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Codigo de la empresa</h4></label>
-                        <input style="width: 70%; ;" type="text" id="codigo_emailEmpresa" class="administradores_inputs">
-                </div>
-                <div class="column2" style="margin-right: 55px;">
-                    <button class="homeBotones" style="border-radius: 15px;"><h2 class="h2botonesHome">Agregar</h2></button>
-                </div>
-                </div>
-            </div>
-
-        </div>
-            
-    </section>
 
     <section id="indexAdministradores">
         <div class="admin_menu">
@@ -319,10 +27,9 @@
                 
                 <div class="Menu" style="height: 75%;">
                     <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Perfil</h3>
-                    <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Empresas</h3>
-                    <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Motoristas</h3>
-                    <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Ordenes</h3>
-                    <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Productos</h3>
+                    <h3 onclick="mostrarEmpresas()" style="color: white; font-size: 20px; letter-spacing: 1.6px;">Empresas</h3>
+                    <h3 onclick="mostrarMotoristas()" style="color: white; font-size: 20px; letter-spacing: 1.6px;">Motoristas</h3>
+                    <h3 onclick="mostrarOrdenes()" style="color: white; font-size: 20px; letter-spacing: 1.6px;">Ordenes</h3>
                 </div>
         </div>
         
@@ -349,16 +56,16 @@
             </nav>
 
             <div style=" width: 80%; height: 80%; display: flex; justify-content: space-around;  margin-top: 25px;">
-                <div class="bloqueAdminIndex">
+                <div class="bloqueAdminIndex" onclick="mostrarEmpresas()">
                     <div style="width: 100%; height:60%;"><img src="/Frontend/assets/img/libreria.png" alt="" style="width: 100%; height: 100%; object-fit: contain;"></div>
                     <div style="display: flex; justify-content: center;"><h4 style="font-size: 30px; color:#06283D;">Empresas</h4></div>
                 </div>
-                <div class="bloqueAdminIndex">
+                <div class="bloqueAdminIndex" onclick="mostrarMotoristas()">
                     <div style="width: 100%; height:60%;"><img src="/Frontend/assets/img/motoristaowo.png" alt="" style="width: 100%; height: 100%; object-fit: contain;"></div>
                     <div style="display: flex; justify-content: center;"><h4 style="font-size: 30px; color:#06283D;">Motoristas</h4></div>
                 </div>
 
-                <div class="bloqueAdminIndex">
+                <div class="bloqueAdminIndex" onclick="mostrarOrdenes()">
                     <div style="width: 100%; height:60%;"><img src="/Frontend/assets/img/libro.png" alt="" style="width: 100%; height: 100%; object-fit: contain;"></div>
                     <div style="display: flex; justify-content: center;"><h4 style="font-size: 30px; color:#06283D;">Pedidos</h4></div>
                 </div>
@@ -377,7 +84,7 @@
             </div>
     
             <div id="opciones-lado" style="height: 5%; width: 100%; ">
-                <div style="width: 100%; font-size: 18px; padding-left: 15px; display: flex; ">
+                <div onclick="mostrarIndexAdmin()" style="width: 100%; font-size: 18px; padding-left: 15px; display: flex; ">
                     <i style="margin-right: 10px;" class="fa-solid fa-house"></i>
                     <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px; margin: 0;">Readigo</h3>
 
@@ -387,10 +94,9 @@
             
             <div class="Menu" style="height: 75%;">
                 <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Perfil</h3>
-                <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Empresas</h3>
-                <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Motoristas</h3>
-                <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Ordenes</h3>
-                <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Productos</h3>
+                <h3 onclick="mostrarEmpresas()" style="color: white; font-size: 20px; letter-spacing: 1.6px;">Empresas</h3>
+                <h3 onclick="mostrarMotoristas()" style="color: white; font-size: 20px; letter-spacing: 1.6px;">Motoristas</h3>
+                <h3 onclick="mostrarOrdenes()" style="color: white; font-size: 20px; letter-spacing: 1.6px;">Ordenes</h3>
             </div>
         </div>
 
@@ -420,23 +126,41 @@
                 </div>
             </nav>
 
-            <div class="containerAdmin">
-                
+            <div class="containerAdmin" id="empresasModelo">
+                    <div class="tiendax" onclick="mostrarProductos()">
+                        <div class="tiendax_img" ><img src="assets/img/libreria.png" alt="tiendax" class="img_tienda"></div>
+                        <div class="tiendax_nombre"><h3 style="margin: 0; color: aliceblue;">Empresa X</h3></div>        
+                    </div>
+                    <div class="tiendax" onclick="mostrarProductos()">
+                        <div class="tiendax_img" ><img src="assets/img/libreria.png" alt="tiendax" class="img_tienda"></div>
+                        <div class="tiendax_nombre"><h3 style="margin: 0; color: aliceblue;">Empresa X</h3></div>        
+                    </div>
+                    <div class="tiendax" onclick="mostrarProductos()">
+                        <div class="tiendax_img" ><img src="assets/img/libreria.png" alt="tiendax" class="img_tienda"></div>
+                        <div class="tiendax_nombre"><h3 style="margin: 0; color: aliceblue;">Empresa X</h3></div>        
+                    </div>
+                    <div class="tiendax" onclick="mostrarProductos()">
+                        <div class="tiendax_img" ><img src="assets/img/libreria.png" alt="tiendax" class="img_tienda"></div>
+                        <div class="tiendax_nombre"><h3 style="margin: 0; color: aliceblue;">Empresa X</h3></div>        
+                    </div>
+                    <div class="tiendax" onclick="mostrarProductos()">
+                        <div class="tiendax_img" ><img src="assets/img/libreria.png" alt="tiendax" class="img_tienda"></div>
+                        <div class="tiendax_nombre"><h3 style="margin: 0; color: aliceblue;">Empresa X</h3></div>        
+                    </div>
             </div>
         </div>
         
 
     </section>
-    
-    
-    <section id="administradores_productos">
+
+    <section id="productosAdministradores">
         <div class="admin_menu">
             <div style="display: flex; justify-content: center; height: 20%;">
                 <div><img id="img-logo" src="assets/img/motoristaowo.png" alt=""></div>
             </div>
     
             <div id="opciones-lado" style="height: 5%; width: 100%; ">
-                <div style="width: 100%; font-size: 18px; padding-left: 15px; display: flex; ">
+                <div onclick="mostrarIndexAdmin()" style="width: 100%; font-size: 18px; padding-left: 15px; display: flex; ">
                     <i style="margin-right: 10px;" class="fa-solid fa-house"></i>
                     <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px; margin: 0;">Readigo</h3>
 
@@ -446,101 +170,288 @@
             
             <div class="Menu" style="height: 75%;">
                 <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Perfil</h3>
-                <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Empresas</h3>
-                <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Motoristas</h3>
-                <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Ordenes</h3>
-                <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Productos</h3>
+                <h3 onclick="mostrarEmpresas()" style="color: white; font-size: 20px; letter-spacing: 1.6px;">Empresas</h3>
+                <h3 onclick="mostrarMotoristas()" style="color: white; font-size: 20px; letter-spacing: 1.6px;">Motoristas</h3>
+                <h3 onclick="mostrarOrdenes()" style="color: white; font-size: 20px; letter-spacing: 1.6px;">Ordenes</h3>
             </div>
         </div>
+
+    
         <div id="admin_form">
-        <nav id="adminform_nav">
-            <div id="navForm">
-                <input type="text" placeholder="Search" id="navForm_search" class="administradores_inputs" >
-            </div>
-            <div id="navUser">
-                <div id="userA_foto">
-                    <div id="foto_contenedor">
-                        <img src="assets/img/adminJosue.jpg" alt="Josue" id="adminJosue">
+            <nav id="adminform_nav">
+                <div id="navForm">
+                    <input type="text" placeholder="Search" id="navForm_search" class="administradores_inputs" >
+                </div>
+                <div id="navUser">
+                    <div id="userA_foto">
+                        <div id="foto_contenedor">
+                            <img src="assets/img/adminJosue.jpg" alt="Josue" id="adminJosue">
+                        </div>
+                    </div>
+                    <div id="userA_nombre">
+                        <div id="nombreA_nombre" style="display: flex; justify-content: center; align-items: center;">
+                            <h4 style="margin-top: 40%; font-size: 15px; color: #06283d">Josue Salomon</h4>
+                        </div>
+                        <div id="nombreA_asignacion" style="display: flex; justify-content: center;">
+                            <h4 style="margin: 0; font-size: 12px; color: #06283d">Admin</h4>
+                        </div>
+                    </div>
+                    <div id="user_notif" style="display: flex; justify-content: center;align-items: center;">
+                        <i class="fa-regular fa-bell" style="font-size: 25px;"></i>
                     </div>
                 </div>
-                <div id="userA_nombre">
-                    <div id="nombreA_nombre" style="display: flex; justify-content: center; align-items: center;">
-                        <h4 style="margin-top: 40%; font-size: 15px; color: #06283d">Josue Salomon</h4>
+            </nav>
+
+            <div><h4>Productos Empresa X</h4></div>
+            <div class="containerAdmin" style="  overflow-y: scroll;  display: flex;flex-direction: column;align-items: center;">
+                <div class="divHistorialEntrega" >
+                    <div style=" width: 7%;" ><img style="height: 100%; object-fit: contain;" src="/Frontend/assets/img/libro.png" alt=""></div>
+                    <div style=" width: 25%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 2px;">NombreLibro</h4></div>
+                    <div style="width: 25%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Categoria</h4></div>
+                    <div style="width: 18%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Precio$</h4></div>
+                    <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"></div>
+                    <div style="width: 7%;; margin-right: 4px; display: flex; justify-content: space-around; align-items: center;">
+                        <i class="fa-solid fa-pen" style="color:#06283D; font-size: 15px;"></i>
+                        <i class="fa-solid fa-trash" style="color:#06283D; font-size: 15px;"></i>
                     </div>
-                    <div id="nombreA_asignacion" style="display: flex; justify-content: center;">
-                        <h4 style="margin: 0; font-size: 12px; color: #06283d">Admin</h4>
+                </div>
+                <div class="divHistorialEntrega" >
+                    <div style=" width: 7%;" ><img style="height: 100%; object-fit: contain;" src="/Frontend/assets/img/libro.png" alt=""></div>
+                    <div style=" width: 25%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 2px;">NombreLibro</h4></div>
+                    <div style="width: 25%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Categoria</h4></div>
+                    <div style="width: 18%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Precio$</h4></div>
+                    <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"></div>
+                    <div style="width: 7%;; margin-right: 4px; display: flex; justify-content: space-around; align-items: center;">
+                        <i class="fa-solid fa-pen" style="color:#06283D; font-size: 15px;"></i>
+                        <i class="fa-solid fa-trash" style="color:#06283D; font-size: 15px;"></i>
                     </div>
                 </div>
-                <div id="user_notif" style="display: flex; justify-content: center;align-items: center;">
-                    <i class="fa-regular fa-bell" style="font-size: 25px;"></i>
-                </div>
             </div>
-        </nav>
-
-        <div id="formAdmin">
-            <div id="adminform_titulo">
-                <h3 style="margin: 0; color: #06283D; letter-spacing: -1px;">Introduzca los datos para agregar un nuevo producto</h3>
-            </div>
-
-            <div class="adminform_row">
-                <label for="admin_nombreEmpresaProducto"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Nombre de la empresa</h4></label>
-                <input type="text" id="admin_nombreEmpresaProducto" class="administradores_inputs">
-            </div>
-
-            <div class="adminform_row">
-                <label for="admin_descripcionProducto"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Descripcion del producto</h4></label>
-                <input type="text" id="admin_descripcionProducto" class="administradores_inputs">
-            </div>
-
-            <div class="adminform_row">
-                <label for="admin_nombreProducto"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Nombre del producto</h4></label>
-                <input type="text" id="admin_nombreProducto" class="administradores_inputs">
-            </div>
-
-
-            <div class="adminform_row adminform_column">
-                <div class="column">
-                    <label for="admin_PrecioProduco"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Precio</h4></label>
-                    <input style="width: 60%;" type="text" id="admin_PrecioProduco" class="administradores_inputs">
-                </div>
-                <div class="column">
-                    <label for="admin_tipoProducto"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Tipo de Producto</h4></label>
-                    <input style="width: 60%;" type="text" id="admin_tipoProducto" class="administradores_inputs">
-                </div>
-            </div>
-            <div class="adminform_row adminform_column">
-                <div class="column">
-                    <label for="admin_codigoEmpresaProducto"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Codigo de la Empresa</h4></label>
-                    <input style="width: 60%;" type="text" id="admin_codigoEmpresaProducto" class="administradores_inputs">
-                </div>
-                <div class="column">
-                    <label for="admin_codigoProducto"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Codigo del Producto</h4></label>
-                    <input style="width: 60%;" type="text" id="admin_codigoProducto" class="administradores_inputs">
-                </div>
-
-            </div>
-
-            
-
-            <div class="adminform_row adminform_row2">
-            <div class="column2" style="display: flex; flex-direction: column; justify-content: flex-start;">
-                <label for="admin_codigoEmpresa"><h4 style="margin: 0; font-size: 12px; color: #06283dd9">Codigo de la empresa</h4></label>
-                    <input style="width: 70%; ;" type="text" id="codigo_emailEmpresa" class="administradores_inputs">
-            </div>
-            <div class="column2" style="margin-right: 55px;">
-                <button class="homeBotones" style="border-radius: 15px;"><h2 class="h2botonesHome">Agregar</h2></button>
-            </div>
-            </div>
-        </div>
-
-        </div>
-
-        <div class="containerAdmin">
 
         </div>
         
 
     </section>
+    
+    <section id="motoristasAdministradores">
+
+        <div class="admin_menu">
+            <div style="display: flex; justify-content: center; height: 20%;">
+                <div><img id="img-logo" src="assets/img/motoristaowo.png" alt=""></div>
+            </div>
+    
+            <div id="opciones-lado" style="height: 5%; width: 100%; ">
+                <div onclick="mostrarIndexAdmin()" style="width: 100%; font-size: 18px; padding-left: 15px; display: flex; ">
+                    <i style="margin-right: 10px;" class="fa-solid fa-house"></i>
+                    <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px; margin: 0;">Readigo</h3>
+
+                </div>
+            </div>
+    
+            
+            <div class="Menu" style="height: 75%;">
+                <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Perfil</h3>
+                <h3 onclick="mostrarEmpresas()" style="color: white; font-size: 20px; letter-spacing: 1.6px;">Empresas</h3>
+                <h3 onclick="mostrarMotoristas()" style="color: white; font-size: 20px; letter-spacing: 1.6px;">Motoristas</h3>
+                <h3 onclick="mostrarOrdenes()" style="color: white; font-size: 20px; letter-spacing: 1.6px;">Ordenes</h3>
+            </div>
+        </div>
+
+    
+        <div id="admin_form">
+            <nav id="adminform_nav">
+                <div id="navForm">
+                    <input type="text" placeholder="Search" id="navForm_search" class="administradores_inputs" >
+                </div>
+                <div id="navUser">
+                    <div id="userA_foto">
+                        <div id="foto_contenedor">
+                            <img src="assets/img/adminJosue.jpg" alt="Josue" id="adminJosue">
+                        </div>
+                    </div>
+                    <div id="userA_nombre">
+                        <div id="nombreA_nombre" style="display: flex; justify-content: center; align-items: center;">
+                            <h4 style="margin-top: 40%; font-size: 15px; color: #06283d">Josue Salomon</h4>
+                        </div>
+                        <div id="nombreA_asignacion" style="display: flex; justify-content: center;">
+                            <h4 style="margin: 0; font-size: 12px; color: #06283d">Admin</h4>
+                        </div>
+                    </div>
+                    <div id="user_notif" style="display: flex; justify-content: center;align-items: center;">
+                        <i class="fa-regular fa-bell" style="font-size: 25px;"></i>
+                    </div>
+                </div>
+            </nav>
+
+            <div><h4>MOTORISTAS</h4></div>
+            <div class="divHistorialEntrega" style="width: 85.5%; height: 86px; justify-content: left; background-color: #4F8EC4;" >
+                <div style=" width: 32%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 2px; color: #06283D;">Nombre</h4></div>
+                <div style="width: 18%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4 style="color: #06283D;">PLACA</h4></div>
+                <div style="width: 21%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4 style="color: #06283D;">Entregas realizadas</h4></div>
+                <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"><h4 style="color: #06283D;">Estado</h4></div>
+                <div style="width: 11%;"> </div>
+            </div>
+            <div class="containerAdmin" style="  overflow-y: scroll;  display: flex;flex-direction: column;align-items: center;">
+                <div class="divHistorialEntrega"  style="justify-content: left;">
+                    <div style=" width: 7%; display: inline-block; border-radius: 50%; overflow: hidden;" ><img style="height: 100%; object-fit: contain;" src="/Frontend/assets/img/adminJosue.jpg" alt=""></div>
+                    <div style=" width: 25%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 2px;">Josue Isac Salomon Landa</h4></div>
+                    <div style="width: 18%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>AAA-0101</h4></div>
+                    <div style="width: 21%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>65</h4></div>
+                    <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"><h4>Aprobado</h4></div>
+                    <div style="width: 11%;; margin-right: 4px; display: flex; justify-content: space-evenly; align-items: center;">
+                        <i class="fa-solid fa-pen" style="color:#06283D; font-size: 15px;"></i>
+                        <i class="fa-solid fa-trash" style="color:#06283D; font-size: 15px;"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+    </section>
+    
+    <section id="ordenesAdministradores">
+        <div class="admin_menu">
+            <div style="display: flex; justify-content: center; height: 20%;">
+                <div><img id="img-logo" src="assets/img/motoristaowo.png" alt=""></div>
+            </div>
+    
+            <div id="opciones-lado" style="height: 5%; width: 100%; ">
+                <div onclick="mostrarIndexAdmin()" style="width: 100%; font-size: 18px; padding-left: 15px; display: flex; ">
+                    <i style="margin-right: 10px;" class="fa-solid fa-house"></i>
+                    <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px; margin: 0;">Readigo</h3>
+
+                </div>
+            </div>
+    
+            
+            <div class="Menu" style="height: 75%;">
+                <h3 style="color: white; font-size: 20px; letter-spacing: 1.6px;">Perfil</h3>
+                <h3 onclick="mostrarEmpresas()" style="color: white; font-size: 20px; letter-spacing: 1.6px;">Empresas</h3>
+                <h3 onclick="mostrarMotoristas()" style="color: white; font-size: 20px; letter-spacing: 1.6px;">Motoristas</h3>
+                <h3 onclick="mostrarOrdenes()" style="color: white; font-size: 20px; letter-spacing: 1.6px;">Ordenes</h3>
+            </div>
+        </div>
+
+    
+        <div id="admin_form">
+            <nav id="adminform_nav">
+                <div id="navForm">
+                    <input type="text" placeholder="Search" id="navForm_search" class="administradores_inputs" >
+                </div>
+                <div id="navUser">
+                    <div id="userA_foto">
+                        <div id="foto_contenedor">
+                            <img src="assets/img/adminJosue.jpg" alt="Josue" id="adminJosue">
+                        </div>
+                    </div>
+                    <div id="userA_nombre">
+                        <div id="nombreA_nombre" style="display: flex; justify-content: center; align-items: center;">
+                            <h4 style="margin-top: 40%; font-size: 15px; color: #06283d">Josue Salomon</h4>
+                        </div>
+                        <div id="nombreA_asignacion" style="display: flex; justify-content: center;">
+                            <h4 style="margin: 0; font-size: 12px; color: #06283d">Admin</h4>
+                        </div>
+                    </div>
+                    <div id="user_notif" style="display: flex; justify-content: center;align-items: center;">
+                        <i class="fa-regular fa-bell" style="font-size: 25px;"></i>
+                    </div>
+                </div>
+            </nav>
+
+            <div><h4>Ordenes</h4></div>
+            <div class="containerAdmin" style="  overflow-y: scroll;  display: flex;flex-direction: column;align-items: center;">
+             
+                <div class="ordenAdminModel" onclick="mostrarInfoPedidoAdmin('inserteIDMongo')">
+                    <div class="divHistorialEntrega" style="width: 100%; box-shadow: none;">
+                        <div style=" width: 32%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 0 0 15px;">Direccion</h4></div>
+                        <div style="width: 25%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Cliente</h4></div>
+                        <div style="width: 18%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Precio$</h4></div>
+                        <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"><h4>Fecha</h4></div>
+                        <div style="width: 7%;; margin-right: 4px; display: flex; justify-content: space-around; align-items: center;">
+                            <i class="fa-solid fa-pen" style="color:#06283D; font-size: 15px;"></i>
+                        </div>
+
+
+                    </div>
+                
+                    <div class="infoPedidoAdmin" id="inserteIDMongo" style="width: 100%; display: none;">
+                        <div style="padding-left: 10px ;"><h4 style="margin: 0 20px;">Telefono: 3100-0032</h4></div>
+                        <div style="padding-left: 10px ;"><h4 style="margin: 0 0 10px 20px;">Pedido:</h4></div>
+                        <div style="display: flex;">
+                            <div style="width: 80%;"><h4 style="margin: 0 70px;">Producto</h4></div>
+                            <div style="width: 20%; display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+                        </div>
+                        <div style="display: flex;">
+                            <div style="width: 80%;"><h4 style="margin: 0 70px;">Producto2</h4></div>
+                            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+                        </div>
+                        <div style="display: flex;">
+                            <div style="width: 80%;"><h4 style="margin: 10px 70px 0 70px;">Total Productos</h4></div>
+                            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+                        </div>
+                        <div style="display: flex;">
+                            <div style="width: 80%;"><h4 style="margin: 0 70px;">ISV</h4></div>
+                            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+                        </div>
+                        <div style="display: flex;">
+                            <div style="width: 80%;"><h4 style="margin: 0 70px;">Comisiones</h4></div>
+                            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+                        </div>
+                        <div style="display: flex;">
+                            <div style="width: 80%;"><h4 style="margin: 10px 70px;">Total a Pagar</h4></div>
+                            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="ordenAdminModel" onclick="mostrarInfoPedidoAdmin('inserteIDMongo2')">
+                    <div class="divHistorialEntrega" style="width: 100%; box-shadow: none;">
+                        <div style=" width: 32%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 0 0 15px;">Direccion</h4></div>
+                        <div style="width: 25%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Cliente</h4></div>
+                        <div style="width: 18%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Precio$</h4></div>
+                        <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"><h4>Fecha</h4></div>
+                        <div style="width: 7%;; margin-right: 4px; display: flex; justify-content: space-around; align-items: center;">
+                            <i class="fa-solid fa-pen" style="color:#06283D; font-size: 15px;"></i>
+                        </div>
+
+
+                    </div>
+                
+                    <div class="infoPedidoAdmin" id="inserteIDMongo2" style="width: 100%; display: none;">
+                        <div style="padding-left: 10px ;"><h4 style="margin: 0 20px;">Telefono: 3100-0032</h4></div>
+                        <div style="padding-left: 10px ;"><h4 style="margin: 0 0 10px 20px;">Pedido:</h4></div>
+                        <div style="display: flex;">
+                            <div style="width: 80%;"><h4 style="margin: 0 70px;">Producto</h4></div>
+                            <div style="width: 20%; display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+                        </div>
+                        <div style="display: flex;">
+                            <div style="width: 80%;"><h4 style="margin: 0 70px;">Producto2</h4></div>
+                            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+                        </div>
+                        <div style="display: flex;">
+                            <div style="width: 80%;"><h4 style="margin: 10px 70px 0 70px;">Total Productos</h4></div>
+                            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+                        </div>
+                        <div style="display: flex;">
+                            <div style="width: 80%;"><h4 style="margin: 0 70px;">ISV</h4></div>
+                            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+                        </div>
+                        <div style="display: flex;">
+                            <div style="width: 80%;"><h4 style="margin: 0 70px;">Comisiones</h4></div>
+                            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+                        </div>
+                        <div style="display: flex;">
+                            <div style="width: 80%;"><h4 style="margin: 10px 70px;">Total a Pagar</h4></div>
+                            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+        </div>
+    </section>
+
     <script src="assets/controlodar.js"></script>
 </body>
 </html>

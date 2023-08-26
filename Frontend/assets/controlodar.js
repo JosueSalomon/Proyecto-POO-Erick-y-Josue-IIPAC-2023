@@ -75,22 +75,50 @@ function mostrarFactura(){
     document.getElementById('confirmarCompra').style.display='none'
 
 }
-function mostrarProductosAdmin(){
-    document.getElementById('administradores_productos').style.display ="flex";
-    document.getElementById('administradores').style.display ="none";
+function mostrarProductos(){
+    document.getElementById('empresasAdministradores').style.display ="none";
+    document.getElementById('ordenesAdministradores').style.display ="none";
+    document.getElementById('productosAdministradores').style.display ="flex";
     document.getElementById('indexAdministradores').style.display ="none";
+    document.getElementById('motoristasAdministradores').style.display ="none";
 }
 
-function mostrarEmpresas(){
-    document.getElementById('administradores_productos').style.display ="none";
-    document.getElementById('administradores').style.display ="flex";
-    document.getElementById('indexAdministradores').style.display ="none";
+function mostrarInfoPedidoAdmin(id){
+    if (document.getElementById(id).style.display ==`flex`) {
+        document.getElementById(id).style.display =`none`;
+    }
+    else document.getElementById(id).style.display =`flex`;
 }
 
-function mostrarMotoristasAdmin(){
-    document.getElementById('administradores_productos').style.display ="none";
-    document.getElementById('administradores').style.display ="none";
+function mostrarIndexAdmin(){
+    document.getElementById('empresasAdministradores').style.display ="none";
+    document.getElementById('ordenesAdministradores').style.display ="none";
+    document.getElementById('productosAdministradores').style.display ="none";
     document.getElementById('indexAdministradores').style.display ="flex";
+    document.getElementById('motoristasAdministradores').style.display ="none";
+}
+function mostrarEmpresas(){
+    document.getElementById('empresasAdministradores').style.display ="flex";
+    document.getElementById('ordenesAdministradores').style.display ="none";
+    document.getElementById('productosAdministradores').style.display ="none";
+    document.getElementById('indexAdministradores').style.display ="none";
+    document.getElementById('motoristasAdministradores').style.display ="none";
+}
+
+function mostrarMotoristas(){
+    document.getElementById('empresasAdministradores').style.display ="none";
+    document.getElementById('ordenesAdministradores').style.display ="none";
+    document.getElementById('productosAdministradores').style.display ="none";
+    document.getElementById('indexAdministradores').style.display ="none";
+    document.getElementById('motoristasAdministradores').style.display ="flex";
+}
+
+function mostrarOrdenes(){
+    document.getElementById('empresasAdministradores').style.display ="none";
+    document.getElementById('ordenesAdministradores').style.display ="flex";
+    document.getElementById('productosAdministradores').style.display ="none";
+    document.getElementById('indexAdministradores').style.display ="none";
+    document.getElementById('motoristasAdministradores').style.display ="none";
 }
 
 //parte de josue
