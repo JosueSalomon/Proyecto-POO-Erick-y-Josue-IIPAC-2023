@@ -7,7 +7,7 @@ router.post('/login',loginAdmin)
 
 router.post('/nuevaEmpresa',crearEmpresa)
 
-router.put('/:id/nuevoProducto',crarNuevoProducto)
+router.post('/:id/nuevoProducto',crarNuevoProducto)
 
 router.delete('/:id/borrarEmpresa',borrarEmpresa)
 

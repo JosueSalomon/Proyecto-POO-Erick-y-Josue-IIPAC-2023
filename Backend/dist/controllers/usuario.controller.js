@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.agregarCarrito = exports.obtenerUsuario = exports.obtenerUsuarios = exports.loginUsuario = exports.registrarUsuario = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 const usuarios_schema_1 = require("../models/usuarios.schema");
-const libros_schema_1 = require("../models/libros.schema");
+const empresas_schema_1 = require("../models/empresas.schema");
 const registrarUsuario = (req, res) => {
     const usuarioNuevo = new usuarios_schema_1.UsuarioSchema(req.body);
     usuarioNuevo.save().then((usuarioNuevo) => {
@@ -62,37 +62,35 @@ const obtenerUsuario = (req, res) => {
     });
 };
 exports.obtenerUsuario = obtenerUsuario;
-const agregarCarrito = (req, res) => {
+const agregarCarrito = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const userId = req.params.id;
-    const { _id: libroId } = req.body;
-    libros_schema_1.LibrioSchema.findById(libroId)
-        .then(libro => {
-        if (!libro) {
-            return res.status(404).send({ message: 'Libro no encontrado' });
+    const empresaID = req.body._idEmpresa;
+    const libroId = req.body._id;
+    try {
+        const empresa = yield empresas_schema_1.EmpresaSchema.findById(empresaID);
+        if (!empresa) {
+            return res.status(404).json({ message: 'Empresa no encontrada' });
         }
-        const { nombre, imagen, precio } = libro;
-        usuarios_schema_1.UsuarioSchema.updateOne({ _id: userId }, {
-            $push: {
-                carrito: {
-                    _id: new mongoose_1.default.Types.ObjectId(libroId),
-                    nombre,
-                    imagen,
-                    precio
-                }
-            }
-        })
-            .then(result => {
-            res.send({ message: 'Agregado al carrito', result });
-            res.end();
-        })
-            .catch(error => {
-            res.send({ message: 'Ocurrio un error para agregar al carrito', error });
-            res.end();
+        const libroEncontrado = empresa.Libros.find(libro => libro._id.toString() === libroId);
+        if (!libroEncontrado) {
+            return res.status(404).json({ message: 'Libro no encontrado en la lista de libros de la empresa' });
+        }
+        const { _id, nombre, imagen, precio } = libroEncontrado;
+        const usuario = yield usuarios_schema_1.UsuarioSchema.findById(userId);
+        if (!usuario) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+        usuario.carrito.push({
+            _id: new mongoose_1.default.Types.ObjectId(libroId),
+            nombre,
+            imagen,
+            precio
         });
-    })
-        .catch(error => {
-        res.send({ message: 'Ocurrió un error al obtener el libro', error });
-        res.end();
-    });
-};
+        yield usuario.save();
+        return res.status(200).json({ message: 'Libro agregado al carrito con éxito' });
+    }
+    catch (error) {
+        return res.status(500).json({ message: 'Error al procesar la solicitud', error });
+    }
+});
 exports.agregarCarrito = agregarCarrito;
