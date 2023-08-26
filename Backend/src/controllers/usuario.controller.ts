@@ -48,55 +48,7 @@ export const obtenerUsuario = (req: Request, res: Response) => {
             res.send({ status: false, message: "No se encontraro el usario", error });
             res.end();
         })
-}
-
-// export const agregarCarrito = (req: Request, res: Response) => {
-//     UsuarioSchema.updateOne({ _id: req.params.id },
-//         {
-//             $push: {
-//                 carrito: {
-//                     _id: new mongoose.Types.ObjectId(req.body.id),
-//                     nombre: req.body.nombre,
-//                     imagen: req.body.imagen,
-//                     precio: req.body.precio
-//                 }
-//             }
-//         }
-//     ).then(result => {
-//         res.send({ message: 'Agregado al carrito', result });
-//         res.end();
-//     }).catch(error => {
-//         res.send({ message: 'Ocurrio un error', error });
-//         res.end();
-//     })
-// };
-
-// export const agregarCarrito = (req: Request, res: Response) => {
-//     const userId = req.params.id;
-//     const { _id: libroId, nombre, imagen, precio } = req.body;
-
-//     // Validar entrada si es necesario
-
-//     UsuarioSchema.updateOne(
-//         { _id: userId },
-//         {
-//             $push: {
-//                 carrito: {
-//                     _id: new mongoose.Types.ObjectId(libroId),
-//                     nombre,
-//                     imagen,
-//                     precio
-//                 }
-//             }
-//         }
-//     ).then(result => {
-//                 res.send({ message: 'Agregado al carrito', result });
-//                 res.end();
-//             }).catch(error => {
-//                 res.send({ message: 'Ocurrio un error', error });
-//                 res.end();
-//             })
-// };
+}               
 
 export const agregarCarrito = (req: Request, res: Response) => {
     const userId = req.params.id;
@@ -123,14 +75,17 @@ export const agregarCarrito = (req: Request, res: Response) => {
                     }
                 }
             )
-            .then(() => {
-                res.status(200).send({ message: 'Agregado al carrito' });
+            .then(result =>{
+                res.send({ message: 'Agregado al carrito', result });
+                res.end();
             })
             .catch(error => {
-                res.status(500).send({ message: 'Ocurrió un error al agregar al carrito', error });
-            });
+                res.send({ message: 'Ocurrio un error para agregar al carrito', error });
+                res.end();
+            })
         })
         .catch(error => {
-            res.status(500).send({ message: 'Ocurrió un error al obtener el libro', error });
+            res.send({ message: 'Ocurrió un error al obtener el libro', error });
+            res.end();
         });
 };

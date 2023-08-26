@@ -10,6 +10,7 @@ export interface Motorista{
     direccion: string;
     contrasena: string;
     pedidos: Array<Pedidos>;
+    pedidosEntregados: Array<Pedidos>;
     img: string;
     comisiones: number;
     estado: boolean; 
