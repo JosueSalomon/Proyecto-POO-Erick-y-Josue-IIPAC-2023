@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('/Frontend/assets/fonts/Ubuntu-Medium.ttf') format('truetype'); /* Ajusta la ruta y el formato según corresponda */
+    font-weight: normal;
+    font-style: normal;
+}
+
 body{
     margin: 0px;
     background-color: #f3ede7;
@@ -86,7 +93,7 @@ body{
 #nav-LandingPage-clientes{
     height: 7%;
     width: 100%;
-    background-color: #9CBFDE;
+    background-color: #4f8ec4;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -113,12 +120,12 @@ body{
 
 #bodyDerecho{
     /* border: 5px solid rgb(87, 170, 116); */
-    width: 70%;
-    height: 130%;
-    border-radius: 50% 0 0 50%;
-    position: absolute;
-    background-color: #9CBFDE;
-    right: 0;
+    width: 100%;
+    height: 100vh;
+    border-radius: 50%;
+    position: fixed;
+    background-color:#4f8ec4;
+    right: -45%;
 
 }
 .bodyBloque{
