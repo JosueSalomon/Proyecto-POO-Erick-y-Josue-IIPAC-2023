@@ -389,11 +389,26 @@ height: 88%;
     height: 100%;
     display: none;
     flex-direction: column;
-    position: absolute;
+    position:fixed;
     top: 0;
     right: 0;
     background-color: #4F8EC4;
     z-index: 10000;
+    box-shadow: -11px 0px 9px 0px #8d8d8dcf;
+    animation-name: carrito;
+    animation-duration: 0.8s;
+}
+
+
+
+@keyframes carrito {
+from{
+
+    right: -1000px ;
+}
+to{
+    right: 0;
+}    
 }
 
 #carritoNav{
@@ -469,7 +484,7 @@ height: 88%;
     width: 360px;
     margin: 0 auto;
     background-color: #f2e5d9;
-    position: absolute;
+    position: fixed;
     margin-left: auto;
     margin-right: auto;
     right: 0;
