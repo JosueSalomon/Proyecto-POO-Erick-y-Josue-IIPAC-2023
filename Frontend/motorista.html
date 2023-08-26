@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motoristas</title>
     <link rel="stylesheet" href="assets/css/styles.motos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/18d8db3f65.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -237,8 +240,9 @@
     </div>
     </section>
 
-    <section id="Perfil-motorista">
-        <nav id="nav-motoristas-ordenes">
+
+    <section id="perfilMotorista">
+        <nav id="nav-motoristas-ordenes" style="width: 100%;">
             <div onclick="regrearOpcionesMotorista()" style="    position: absolute; left: 10%;">
                 <i class="fa-solid fa-arrow-left" style="color: gray; font-size: 25px;"></i>
             </div>
@@ -246,38 +250,53 @@
                 Readigo
             </h1>
         </nav>
+        <div style="height: 13%;">
+            <h3 style="font-family: 'Ubuntu', sans-serif; font-size: 20px;">Perfil</h3>
+        </div>
 
-        <div id="info-motorista">
-            <h1 style="text-align:center; font-weight: bolder; font-size: 31px; color: #9cbfde">
-                Informacion del motorista
+        <div class="cuadroPerfil">
+            <div id="PerfilfotoPerfil">
+                <img src="assets/img/El admin.jpg" alt="fotoperfil" id="fotoperfilimg">
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <h3 style="margin: 20px 0 3px 0; font-family: 'Ubuntu', sans-serif;">Nombre Motorista</h3>
+                <h3 style="margin-bottom: 3px; font-family: 'Ubuntu', sans-serif;">Placa: HCH-123</h3>
+                <h3 style="margin-bottom: 3px; font-family: 'Ubuntu', sans-serif;">Entregas: 25</h3>
+            </div>
+
+            <div id="divBotones" style="display: flex; justify-content: space-around; margin-top: 10%;">
+                <button onclick="mostralHistorialMoto()" style="width: 80px; height: 85%; background-color:#9cbfde; border: none; border-radius: 20px;">
+                    <h3 style="color: white; font-family: 'Ubuntu', sans-serif; margin: 0;">Historial</h3></button>
+                <button style="width: 80px; height: 85%; background-color:#9cbfde; border: none; border-radius: 20px;">
+                    <h3 style="color: white; font-family: 'Ubuntu', sans-serif; margin: 0;">Editar</h3></button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="historialMotorista">
+        <nav id="nav-motoristas-ordenes" style="width: 100%;">
+            <div onclick="entrarPerfil()" style="    position: absolute; left: 10%;">
+                <i class="fa-solid fa-arrow-left" style="color: gray; font-size: 25px;"></i>
+            </div>
+            <h1 style="font-size: 35px; font-weight: bolder; color: aliceblue;">
+                Readigo
             </h1>
-            <div style="display: flex; justify-content: center;">
-                <img id="img-motorista"  src="assets/img/misterio.png" alt="">
+        </nav>
+        <div style="height: 13%;">
+            <h3 style="font-family: 'Ubuntu', sans-serif; font-size: 20px;">Historial de entregas</h3>
+        </div>
+
+        <div class="cuadroPerfil" style="overflow-y: scroll; display: flex;">
+            <div class="divHistorialEntrega">
+                <div style="width: 33%; margin: 0 0 0 4px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin-top: 0;">Direccion</h4></div>
+                <div style="width: 33%; text-align: center;"><h4>Precio$</h4></div>
+                <div style="width: 33%; text-align: end; margin-right: 4px;"><h4>Fecha</h4></div>
             </div>
-            <div style="display: flex; justify-content: space-evenly;">
-                <h1>Josue</h1>
-                <h1>Salomon</h1>
-            </div>
-            <div style="display: flex;justify-content: center;">
-                <h1>
-                    Numero de telefono: 1234 5678
-                </h1>
-            </div>
-            <div style="display: flex;justify-content: center;">
-                <h1>
-                    Correo: EsteEsUnCorreo@gmail.com
-                </h1>
-            </div>
-            <div style="display: flex;justify-content: center;">
-                <h1>
-                    Direccion: Mi casa
-                </h1>
-            </div>
-            <div style="display: flex;justify-content: center;">
-                <h1>
-                    Placa: P123-S124-0019
-                </h1>
-            </div>
+
         </div>
     </section>
     <script src="assets/controlodar.js"></script>

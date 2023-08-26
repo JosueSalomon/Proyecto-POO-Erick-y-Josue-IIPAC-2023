@@ -126,16 +126,23 @@ function seRegistroMotorista(){
     document.getElementById('registroM').style.display='none'
 }
 
+function mostralHistorialMoto(){
+    document.getElementById('historialMotorista').style.display='flex'
+    document.getElementById('perfilMotorista').style.display='none'
+}
+
 function regrearOpcionesMotorista(){
     document.getElementById('ordenes-motoristas').style.display='none'
     document.getElementById('homeM').style.display='block'
-    document.getElementById('Perfil-motorista').style.display='none'
+    document.getElementById('perfilMotorista').style.display='none'
 }
 
 function entrarPerfil(){
-    alert('se esta haciendo la pagina del perfil del motorista')
-    document.getElementById('Perfil-motorista').style.display='block'
+    // alert('se esta haciendo la pagina del perfil del motorista')
+    document.getElementById('perfilMotorista').style.display='flex'
     document.getElementById('homeM').style.display='none'
+    document.getElementById('historialMotorista').style.display='none'
+    
 }
 
 function salirHomeMotorista(){
