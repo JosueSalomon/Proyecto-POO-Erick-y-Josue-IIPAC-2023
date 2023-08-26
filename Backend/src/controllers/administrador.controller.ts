@@ -3,6 +3,7 @@ import { AdministradorSchema } from "../models/administradores.schema";
 import { EmpresaSchema } from "../models/empresas.schema";
 import mongoose from "mongoose";
 import { LibrioSchema } from "../models/libros.schema";
+import { MotoristaSchema } from "../models/motoristas.schema";
 
 export const loginAdmin = async (req: Request, res: Response) => {
     const usuario = await AdministradorSchema.findOne({ correo: req.body.correo, contresana: req.body.contresana }, { contrasena: false });
@@ -85,13 +86,63 @@ export const borrarLibroDeEmpresa = async (req: Request, res: Response) => {
     }
 };
 
-export const actualizarLibro = (req: Request, res: Response) => {
-    LibrioSchema.updateOne({ _id: req.params.id }, req.body
-    ).then((updateResponse: any) => {
-        res.send({ message: 'Registro actualizado', updateResponse });
-        res.end();
-    }).catch((error: any) => {
-        res.send({ message: 'Hubo un error al actualizar', error }); // shorthand
-        res.end();
-    });
-}
+export const actualizarLibro = async (req: Request, res: Response) => {
+    const empresaId = req.params.id; // Obtén el _id de la empresa de los parámetros de la URL
+    const libroId = req.body._id; // Obtén el _id del libro a actualizar del cuerpo de la solicitud
+
+    try {
+        const empresa = await EmpresaSchema.findById(empresaId);
+
+        if (!empresa) {
+            return res.status(404).json({ message: 'Empresa no encontrada' });
+        }
+
+        const libroToUpdate = empresa.Libros.find(libro => libro._id.toString() === libroId);
+        console.log(libroToUpdate)
+        if (!libroToUpdate) {
+            return res.status(404).json({ message: 'Libro no encontrado en la lista de libros de la empresa' });
+        }
+
+        // Actualizar los campos del libro
+        libroToUpdate.nombre = req.body.nombre;
+        libroToUpdate.imagen = req.body.imagen;
+        libroToUpdate.precio = req.body.precio;
+        libroToUpdate.categoria = req.body.categoria;
+        libroToUpdate.descripcion = req.body.descripcion;
+        
+        empresa.markModified('Libros');
+        await empresa.save();;
+        console.log("la empresa",empresa)
+        return res.status(200).json({ message: 'Libro actualizado con éxito' });
+    } catch (error) {
+        return res.status(500).json({ message: 'Error al procesar la solicitud', error });
+    }
+};
+
+
+export const motoristaAprobar = async (req: Request, res: Response) => {
+    try {
+        const motoristaId = req.params.id;
+
+        // Verifica si el motorista existe antes de realizar la actualización
+        const motorista = await MotoristaSchema.findOne({ _id: motoristaId });
+
+        if (!motorista) {
+            return res.status(404).send({ status: false, message: "Motorista no encontrado" });
+        }
+
+        // Cambia el estado de false a true
+        motorista.estado = true;
+        await motorista.save();
+
+        res.status(200).send({ status: true, message: "Estado del motorista cambiado a true con éxito" });
+    } catch (error) {
+        res.status(500).send({ status: false, message: "Error al cambiar el estado del motorista", error });
+    }
+};
+
+
+
+
+
+
