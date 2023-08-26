@@ -12,4 +12,5 @@ router.post('/registo', usuario_controller_1.registrarUsuario);
 router.get('/', usuario_controller_1.obtenerUsuarios); //Chque
 // (collection usuarios) get usuario actual
 router.get('/:id', usuario_controller_1.obtenerUsuario); //si da
+router.put('/:id/Usuario', usuario_controller_1.agregarCarrito);
 exports.default = router;
