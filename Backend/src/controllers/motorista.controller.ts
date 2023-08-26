@@ -50,3 +50,14 @@ export const obtenerPedidos = (req: Request, res: Response) => {
         })
 }  
 
+export const obtenerPedidosEntregados = (req: Request, res: Response) => {
+    MotoristaSchema.findOne({ _id: new mongoose.Types.ObjectId(req.params.id) },{pedidosEntregados: true})
+        .then(resultado => {
+            res.send({ status: true, message: "Pedidos tomados orde", resultado });
+            res.end();
+        })
+        .catch(error => {
+            res.send({ status: false, message: "No se encontraro el usario", error });
+            res.end();
+        })
+} 

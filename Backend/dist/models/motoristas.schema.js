@@ -12,6 +12,7 @@ const schema = new mongoose_1.default.Schema({
     direccion: String,
     contrasena: String,
     pedidos: (Array),
+    pedidosEntregados: (Array),
     img: String,
     comisiones: Number,
     estado: Boolean

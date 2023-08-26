@@ -10,6 +10,7 @@ const schema = new mongoose.Schema<Motorista>({
     direccion: String,
     contrasena: String,
     pedidos: Array<Pedidos>,
+    pedidosEntregados: Array<Pedidos>,
     img: String,
     comisiones: Number,
     estado: Boolean

@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.crarNuevoProducto = exports.crearEmpresa = exports.loginAdmin = void 0;
+exports.actualizarLibro = exports.borrarLibro = exports.borrarEmpresa = exports.crarNuevoProducto = exports.crearEmpresa = exports.loginAdmin = void 0;
 const administradores_schema_1 = require("../models/administradores.schema");
 const empresas_schema_1 = require("../models/empresas.schema");
 const mongoose_1 = __importDefault(require("mongoose"));
@@ -63,3 +63,47 @@ const crarNuevoProducto = (req, res) => {
     });
 };
 exports.crarNuevoProducto = crarNuevoProducto;
+//
+const borrarEmpresa = (req, res) => {
+    empresas_schema_1.EmpresaSchema.deleteOne({ _id: req.params.id })
+        .then((removeResult) => {
+        res.send({ message: 'Registro eliminado', removeResult });
+        res.end();
+    });
+};
+exports.borrarEmpresa = borrarEmpresa;
+const borrarLibro = (req, res) => {
+    const libroId = req.params.id; // ID del libro a eliminar
+    const empresaId = req.body._id; // ID de la empresa obtenido del cuerpo de la petición
+    libros_schema_1.LibrioSchema.findByIdAndDelete(libroId)
+        .then(libroEliminado => {
+        if (!libroEliminado) {
+            return res.status(404).json({ status: false, message: "Libro no encontrado" });
+        }
+        empresas_schema_1.EmpresaSchema.updateOne({ _id: new mongoose_1.default.Types.ObjectId(empresaId) }, {
+            $pull: {
+                carrito: { _id: libroId }
+            }
+        })
+            .then(result => {
+            return res.json({ status: true, message: "Libro eliminado del carrito con éxito", result });
+        })
+            .catch(error => {
+            return res.status(500).json({ status: false, message: "Error al eliminar el libro del carrito", error });
+        });
+    })
+        .catch(error => {
+        return res.status(500).json({ status: false, message: "Error al eliminar el libro", error });
+    });
+};
+exports.borrarLibro = borrarLibro;
+const actualizarLibro = (req, res) => {
+    libros_schema_1.LibrioSchema.updateOne({ _id: req.params.id }, req.body).then((updateResponse) => {
+        res.send({ message: 'Registro actualizado', updateResponse });
+        res.end();
+    }).catch((error) => {
+        res.send({ message: 'Hubo un error al actualizar', error }); // shorthand
+        res.end();
+    });
+};
+exports.actualizarLibro = actualizarLibro;

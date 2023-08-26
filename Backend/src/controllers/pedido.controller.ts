@@ -12,3 +12,14 @@ export const nuevoPedido = (req: Request, res: Response) => {
         res.end();
     })
 }
+
+export const obtenerpedidos = (req: Request, res: Response) => {
+    PedidosSchema.find()
+        .then(resultado => {
+            res.send({ status: true, message: "Pedidos encontrados", resultado });
+            res.end();
+        })
+        .catch(error => {
+            res.send({ status: false, message: "No se encontraron pedidos", error })
+        })
+}
