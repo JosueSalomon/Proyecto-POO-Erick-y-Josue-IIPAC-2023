@@ -1,5 +1,5 @@
 import express from 'express';
-import { actualizarLibro, borrarEmpresa, borrarLibro, crarNuevoProducto, crearEmpresa, loginAdmin } from '../controllers/administrador.controller';
+import { actualizarLibro, borrarEmpresa,  borrarLibroDeEmpresa,  crarNuevoProducto, crearEmpresa, loginAdmin } from '../controllers/administrador.controller';
 
 const router = express.Router();
 
@@ -11,7 +11,7 @@ router.post('/:id/nuevoProducto',crarNuevoProducto)
 
 router.delete('/:id/borrarEmpresa',borrarEmpresa)
 
-router.delete('/:id/borrarLibro',borrarLibro)
+router.put('/:id/borrarLibroDeEmpresa',borrarLibroDeEmpresa)
 
 router.put('/:id/libroActualizar',actualizarLibro)
 

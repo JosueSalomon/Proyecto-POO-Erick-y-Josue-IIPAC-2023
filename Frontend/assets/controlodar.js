@@ -205,3 +205,4 @@ function regresarRegistroCliente(){
     document.getElementById('Landing-page-clientes').style.display='block'
     document.getElementById('RegistroCliente').style.display='none'
 }
+

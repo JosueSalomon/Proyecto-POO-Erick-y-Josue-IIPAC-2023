@@ -10,7 +10,6 @@ const schema = new mongoose_1.default.Schema({
     direccion: String,
     precio: Number,
     telefono: String,
-    estado: String,
     fecha: String
 });
 exports.PedidosSchema = mongoose_1.default.model('pedidos', schema);

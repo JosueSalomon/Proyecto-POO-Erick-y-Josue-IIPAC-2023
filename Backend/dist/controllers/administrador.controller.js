@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.actualizarLibro = exports.borrarLibro = exports.borrarEmpresa = exports.crarNuevoProducto = exports.crearEmpresa = exports.loginAdmin = void 0;
+exports.actualizarLibro = exports.borrarLibroDeEmpresa = exports.borrarEmpresa = exports.crarNuevoProducto = exports.crearEmpresa = exports.loginAdmin = void 0;
 const administradores_schema_1 = require("../models/administradores.schema");
 const empresas_schema_1 = require("../models/empresas.schema");
 const mongoose_1 = __importDefault(require("mongoose"));
@@ -40,26 +40,23 @@ const crearEmpresa = (req, res) => {
 exports.crearEmpresa = crearEmpresa;
 //
 const crarNuevoProducto = (req, res) => {
-    const productoNuevo = new libros_schema_1.LibrioSchema(req.body);
-    productoNuevo.save()
-        .then((resultado) => __awaiter(void 0, void 0, void 0, function* () {
-        yield empresas_schema_1.EmpresaSchema.updateOne({ _id: new mongoose_1.default.Types.ObjectId(req.params.id) }, {
-            $push: {
-                Libros: {
-                    _id: resultado._id,
-                    nombre: resultado.nombre,
-                    imagen: resultado.imagen,
-                    precio: resultado.precio,
-                    categoria: resultado.categoria,
-                    descripcion: resultado.descripcion
-                }
+    empresas_schema_1.EmpresaSchema.updateOne({ _id: req.params.id }, {
+        $push: {
+            Libros: {
+                _id: new mongoose_1.default.Types.ObjectId(req.body.id),
+                nombre: req.body.nombre,
+                imagen: req.body.imagen,
+                precio: req.body.precio,
+                categoria: req.body.categoria,
+                descripcion: req.body.descripcion
             }
-        });
-        res.send({ status: true, message: "Libro agregado con exito a la empresa", resultado });
+        }
+    }).then(result => {
+        res.send({ message: 'Libro agregado a la empresa', result });
         res.end();
-    }))
-        .catch(error => {
-        res.send({ status: false, message: "No se agrego el libri", error });
+    }).catch(error => {
+        res.send({ message: 'Ocurrio un error', error });
+        res.end();
     });
 };
 exports.crarNuevoProducto = crarNuevoProducto;
@@ -72,31 +69,28 @@ const borrarEmpresa = (req, res) => {
     });
 };
 exports.borrarEmpresa = borrarEmpresa;
-const borrarLibro = (req, res) => {
-    const libroId = req.params.id; // ID del libro a eliminar
-    const empresaId = req.body._id; // ID de la empresa obtenido del cuerpo de la petición
-    libros_schema_1.LibrioSchema.findByIdAndDelete(libroId)
-        .then(libroEliminado => {
-        if (!libroEliminado) {
-            return res.status(404).json({ status: false, message: "Libro no encontrado" });
+const borrarLibroDeEmpresa = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const empresaId = req.params.id; // Obtén el _id de la empresa de los parámetros de la URL
+    const libroId = req.body._id; // Obtén el _id del libro a eliminar del cuerpo de la solicitud
+    try {
+        const empresa = yield empresas_schema_1.EmpresaSchema.findById(empresaId);
+        if (!empresa) {
+            return res.status(404).json({ message: 'Empresa no encontrado' });
         }
-        empresas_schema_1.EmpresaSchema.updateOne({ _id: new mongoose_1.default.Types.ObjectId(empresaId) }, {
-            $pull: {
-                carrito: { _id: libroId }
-            }
-        })
-            .then(result => {
-            return res.json({ status: true, message: "Libro eliminado del carrito con éxito", result });
-        })
-            .catch(error => {
-            return res.status(500).json({ status: false, message: "Error al eliminar el libro del carrito", error });
-        });
-    })
-        .catch(error => {
-        return res.status(500).json({ status: false, message: "Error al eliminar el libro", error });
-    });
-};
-exports.borrarLibro = borrarLibro;
+        const libroIndex = empresa.Libros.findIndex(libro => libro._id.toString() === libroId);
+        console.log(libroIndex);
+        if (libroIndex === -1) {
+            return res.status(404).json({ message: 'libro no encontrado en la lista de libros de la empresa' });
+        }
+        const LibroBorrado = empresa.Libros.splice(libroIndex, 1)[0];
+        yield empresa.save();
+        return res.status(200).json({ message: 'Libro borrado con exito ' });
+    }
+    catch (error) {
+        return res.status(500).json({ message: 'Error al procesar la solicitud', error });
+    }
+});
+exports.borrarLibroDeEmpresa = borrarLibroDeEmpresa;
 const actualizarLibro = (req, res) => {
     libros_schema_1.LibrioSchema.updateOne({ _id: req.params.id }, req.body).then((updateResponse) => {
         res.send({ message: 'Registro actualizado', updateResponse });

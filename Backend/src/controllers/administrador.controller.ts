@@ -25,29 +25,30 @@ export const crearEmpresa = (req: Request, res: Response) => {
     })
 }
 //
+
 export const crarNuevoProducto = (req: Request, res: Response) => {
-    const productoNuevo = new LibrioSchema(req.body);
-    productoNuevo.save()
-        .then(async resultado => {
-            await EmpresaSchema.updateOne({ _id: new mongoose.Types.ObjectId(req.params.id) }, {
-                $push: {
-                    Libros: {
-                        _id: resultado._id,//Id mongo
-                        nombre: resultado.nombre, //nombre del libro
-                        imagen: resultado.imagen,
-                        precio: resultado.precio, //Precio
-                        categoria: resultado.categoria,
-                        descripcion: resultado.descripcion
-                    }
+    EmpresaSchema.updateOne({ _id: req.params.id },
+        {
+            $push: {
+                Libros: {
+                    _id: new mongoose.Types.ObjectId(req.body.id),
+                    nombre: req.body.nombre,
+                    imagen: req.body.imagen,
+                    precio: req.body.precio,
+                    categoria: req.body.categoria,
+                    descripcion: req.body.descripcion
                 }
-            })
-            res.send({ status: true, message: "Libro agregado con exito a la empresa", resultado });
-            res.end();
-        })
-        .catch(error => {
-            res.send({ status: false, message: "No se agrego el libri", error })
-        })
-}
+            }
+        }
+    ).then(result => {
+        res.send({ message: 'Libro agregado a la empresa', result });
+        res.end();
+    }).catch(error => {
+        res.send({ message: 'Ocurrio un error', error });
+        res.end();
+    })
+};
+
 //
 export const borrarEmpresa = (req: Request, res: Response) => {
     EmpresaSchema.deleteOne({ _id: req.params.id })
@@ -57,35 +58,31 @@ export const borrarEmpresa = (req: Request, res: Response) => {
         });
 }
 
+export const borrarLibroDeEmpresa = async (req: Request, res: Response) => {
+    const empresaId = req.params.id; // Obtén el _id de la empresa de los parámetros de la URL
+    const libroId = req.body._id; // Obtén el _id del libro a eliminar del cuerpo de la solicitud
 
-export const borrarLibro = (req: Request, res: Response) => {
-    const libroId = req.params.id; // ID del libro a eliminar
-    const empresaId = req.body._id; // ID de la empresa obtenido del cuerpo de la petición
+    try {
+        const empresa = await EmpresaSchema.findById(empresaId);
 
-    LibrioSchema.findByIdAndDelete(libroId)
-        .then(libroEliminado => {
-            if (!libroEliminado) {
-                return res.status(404).json({ status: false, message: "Libro no encontrado" });
-            }
+        if (!empresa) {
+            return res.status(404).json({ message: 'Empresa no encontrado' });
+        }
 
-            EmpresaSchema.updateOne(
-                { _id: new mongoose.Types.ObjectId(empresaId) },
-                {
-                    $pull: {
-                        carrito: { _id: libroId }
-                    }
-                }
-            )
-                .then(result => {
-                    return res.json({ status: true, message: "Libro eliminado del carrito con éxito", result });
-                })
-                .catch(error => {
-                    return res.status(500).json({ status: false, message: "Error al eliminar el libro del carrito", error });
-                });
-        })
-        .catch(error => {
-            return res.status(500).json({ status: false, message: "Error al eliminar el libro", error });
-        });
+        const libroIndex = empresa.Libros.findIndex(libro => libro._id.toString() === libroId);
+        console.log(libroIndex)
+        if (libroIndex === -1) {
+            return res.status(404).json({ message: 'libro no encontrado en la lista de libros de la empresa' });
+        }
+
+        const LibroBorrado = empresa.Libros.splice(libroIndex, 1)[0];
+
+        await empresa.save();
+
+        return res.status(200).json({ message: 'Libro borrado con exito ' });
+    } catch (error) {
+        return res.status(500).json({ message: 'Error al procesar la solicitud', error });
+    }
 };
 
 export const actualizarLibro = (req: Request, res: Response) => {
