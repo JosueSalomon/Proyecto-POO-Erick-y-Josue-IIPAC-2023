@@ -78,19 +78,19 @@ function mostrarFactura(){
 function mostrarProductosAdmin(){
     document.getElementById('administradores_productos').style.display ="flex";
     document.getElementById('administradores').style.display ="none";
-    document.getElementById('adminIndex').style.display ="none";
+    document.getElementById('indexAdministradores').style.display ="none";
 }
 
 function mostrarEmpresas(){
     document.getElementById('administradores_productos').style.display ="none";
     document.getElementById('administradores').style.display ="flex";
-    document.getElementById('adminIndex').style.display ="none";
+    document.getElementById('indexAdministradores').style.display ="none";
 }
 
 function mostrarMotoristasAdmin(){
     document.getElementById('administradores_productos').style.display ="none";
     document.getElementById('administradores').style.display ="none";
-    document.getElementById('adminIndex').style.display ="flex";
+    document.getElementById('indexAdministradores').style.display ="flex";
 }
 
 //parte de josue
