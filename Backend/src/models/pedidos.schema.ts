@@ -7,7 +7,6 @@ const schema = new mongoose.Schema<Pedidos>({
 	direccion: String,
 	precio: Number,
 	telefono: String, 
-	estado: String, 
 	fecha: String
 })
 

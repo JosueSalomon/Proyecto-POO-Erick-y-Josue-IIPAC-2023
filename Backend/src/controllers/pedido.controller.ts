@@ -36,7 +36,7 @@ export const agregarPedidoMotorista = (req: Request, res: Response) => {
                 return res.status(404).send({ message: 'Pedido no encontrado' });
             }
 
-            const { nombreCliente, direccion, precio, telefono,estado,fecha} = pedido;
+            const { nombreCliente, direccion, precio, telefono,fecha} = pedido;
 
             MotoristaSchema.updateOne(
                 { _id: motoristaID },
@@ -48,7 +48,6 @@ export const agregarPedidoMotorista = (req: Request, res: Response) => {
                             direccion,
                             precio,
                             telefono,
-                            estado,
                             fecha
                         }
                     }
@@ -67,4 +66,32 @@ export const agregarPedidoMotorista = (req: Request, res: Response) => {
             res.send({ message: 'Ocurrió un error al obtener el pedido', error });
             res.end();
         });
+};
+
+export const agregarPedidoEntregado = async (req: Request, res: Response) => {
+    const motoristaID = req.params.id;
+    const pedidoID = req.body._id; // Cambio en cómo se obtiene el _id del pedido
+
+    try {
+        const motorista = await MotoristaSchema.findById(motoristaID);
+
+        if (!motorista) {
+            return res.status(404).json({ message: 'Motorista no encontrado' });
+        }
+
+        const pedidoIndex = motorista.pedidos.findIndex(pedido => pedido._id.toString() === pedidoID);
+        console.log(pedidoIndex)
+        if (pedidoIndex === -1) {
+            return res.status(404).json({ message: 'Pedido no encontrado en la lista de pedidos del motorista' });
+        }
+
+        const pedidoEntregado = motorista.pedidos.splice(pedidoIndex, 1)[0];
+        motorista.pedidosEntregados.push(pedidoEntregado);
+
+        await motorista.save();
+
+        return res.status(200).json({ message: 'Pedido agregado a pedidosEntregados' });
+    } catch (error) {
+        return res.status(500).json({ message: 'Error al procesar la solicitud', error });
+    }
 };

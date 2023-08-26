@@ -7,6 +7,6 @@ export interface Pedidos{
 	direccion: string;
 	precio: number;
 	telefono: string; 
-	estado: string; 
+	
 	fecha: string; 
 }
