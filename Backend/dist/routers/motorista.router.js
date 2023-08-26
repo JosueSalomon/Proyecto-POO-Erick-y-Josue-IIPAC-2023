@@ -10,4 +10,5 @@ router.post('/login', motorista_controller_1.loginMotorista); //Cheqye
 router.post('/registo', motorista_controller_1.registrarMotorista);
 //Obtener todos los motoristas
 router.get('/', motorista_controller_1.obtenerMotoristas); //Chque
+router.get('/:id/pedidos', motorista_controller_1.obtenerPedidos);
 exports.default = router;

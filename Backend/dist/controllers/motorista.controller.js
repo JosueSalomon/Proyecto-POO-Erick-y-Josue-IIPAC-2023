@@ -8,8 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.obtenerMotoristas = exports.loginMotorista = exports.registrarMotorista = void 0;
+exports.obtenerPedidos = exports.obtenerMotoristas = exports.loginMotorista = exports.registrarMotorista = void 0;
+const mongoose_1 = __importDefault(require("mongoose"));
 const motoristas_schema_1 = require("../models/motoristas.schema");
 const registrarMotorista = (req, res) => {
     const motoristaNuevo = new motoristas_schema_1.MotoristaSchema(req.body);
@@ -44,3 +48,15 @@ const obtenerMotoristas = (req, res) => {
     });
 };
 exports.obtenerMotoristas = obtenerMotoristas;
+const obtenerPedidos = (req, res) => {
+    motoristas_schema_1.MotoristaSchema.findOne({ _id: new mongoose_1.default.Types.ObjectId(req.params.id) }, { pedidos: true })
+        .then(resultado => {
+        res.send({ status: true, message: "Pedidos tomados orde", resultado });
+        res.end();
+    })
+        .catch(error => {
+        res.send({ status: false, message: "No se encontraro el usario", error });
+        res.end();
+    });
+};
+exports.obtenerPedidos = obtenerPedidos;

@@ -5,7 +5,6 @@ import { MotoristaSchema } from "../models/motoristas.schema";
 
 
 
-
 export const registrarMotorista = (req: Request, res: Response) =>{
     const motoristaNuevo = new MotoristaSchema(req.body);
     motoristaNuevo.save().then((motoristaNuevo:any) =>{
@@ -38,3 +37,16 @@ export const obtenerMotoristas = (req:Request, res:Response)=>{
         res.send({status:false,message:"No se encontraron usarios",error})
     })
 }
+
+export const obtenerPedidos = (req: Request, res: Response) => {
+    MotoristaSchema.findOne({ _id: new mongoose.Types.ObjectId(req.params.id) },{pedidos: true})
+        .then(resultado => {
+            res.send({ status: true, message: "Pedidos tomados orde", resultado });
+            res.end();
+        })
+        .catch(error => {
+            res.send({ status: false, message: "No se encontraro el usario", error });
+            res.end();
+        })
+}  
+
