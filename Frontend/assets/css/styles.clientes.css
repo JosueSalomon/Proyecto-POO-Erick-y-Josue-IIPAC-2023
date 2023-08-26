@@ -39,7 +39,6 @@ body{
     width: 85%;
     height: 78%;
     border: none;
-    margin-bottom: 30px;
     z-index: 10;
 }
 #clientes_search1{
@@ -309,7 +308,8 @@ height: 88%;
 #nav-pago{
     display: flex;
     justify-content: space-around;
-    background-color: #E6E6E6;
+    background-color: #4F8EC4;
+    border-radius: 20px 20px 0 0;
 }
 
 #flecha{
@@ -361,11 +361,7 @@ height: 88%;
     height: 41px;
     border: 0;
     border-radius: 20px;
-    background-color: #9CBFDE;
-}
-
-#confirmarCompra{
-    display: none;
+    background-color: #4F8EC4;
 }
 
 #clientes2_productos{
@@ -393,11 +389,26 @@ height: 88%;
     height: 100%;
     display: none;
     flex-direction: column;
-    position: absolute;
+    position:fixed;
     top: 0;
     right: 0;
     background-color: #4F8EC4;
     z-index: 10000;
+    box-shadow: -11px 0px 9px 0px #8d8d8dcf;
+    animation-name: carrito;
+    animation-duration: 0.8s;
+}
+
+
+
+@keyframes carrito {
+from{
+
+    right: -1000px ;
+}
+to{
+    right: 0;
+}    
 }
 
 #carritoNav{
@@ -416,7 +427,7 @@ height: 88%;
     /* border: 2px solid firebrick; */
     height: 10%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .carritoProducto_Libro{
     /* border:  2px solid blue; */
@@ -466,5 +477,33 @@ height: 88%;
     margin-top: 5px;
     box-shadow: 3px 7px 12px rgb(156, 156, 156);
 
+}
+
+#confirmarCompra{
+    display: none;
+    width: 360px;
+    margin: 0 auto;
+    background-color: #f2e5d9;
+    position: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 9px 11px 16px rgb(156, 156, 156);
+    animation-name: factura;
+    animation-duration: 1.5s;
+}
+
+@keyframes factura {
+    from{
+
+        top: 1000px ;
+    }
+    to{
+        top: 0;
+    }    
 }
 
