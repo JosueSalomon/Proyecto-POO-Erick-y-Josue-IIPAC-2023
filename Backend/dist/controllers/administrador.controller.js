@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.actualizarLibro = exports.borrarEmpresa = exports.crarNuevoProducto = exports.crearEmpresa = exports.loginAdmin = void 0;
+exports.actualizarLibro = exports.borrarLibroDeEmpresa = exports.borrarEmpresa = exports.crarNuevoProducto = exports.crearEmpresa = exports.loginAdmin = void 0;
 const administradores_schema_1 = require("../models/administradores.schema");
 const empresas_schema_1 = require("../models/empresas.schema");
 const mongoose_1 = __importDefault(require("mongoose"));
@@ -69,45 +69,28 @@ const borrarEmpresa = (req, res) => {
     });
 };
 exports.borrarEmpresa = borrarEmpresa;
-// export const borrarLibroDeEmpresa = (req: Request, res: Response) => {
-//     const empresaID = req.params.id;
-//     const { _id: libroId } = req.body;
-//     LibrioSchema.findByIdAndDelete(libroId)
-//         .then(libro => {
-//             if (!libro) {
-//                 return res.status(404).send({ message: 'libro no encontrado' });
-//             }
-//             const { nombreCliente, direccion, precio, telefono,estado,fecha} = pedido;
-//             EmpresaSchema.updateOne(
-//                 { _id: empresaID },
-//                 {
-//                     $pull: {
-//                         pedidos: {
-//                             _id: new mongoose.Types.ObjectId(pedidoID),
-//                             nombreCliente,
-//                             direccion,
-//                             precio,
-//                             telefono,
-//                             estado,
-//                             fecha
-//                         }
-//                     }
-//                 }
-//             )
-//             .then(result =>{
-//                 res.send({ message: 'Agregado al pedido del motorista', result });
-//                 res.end();
-//             })
-//             .catch(error => {
-//                 res.send({ message: 'Ocurrio un error para agregar al motorista', error });
-//                 res.end();
-//             })
-//         })
-//         .catch(error => {
-//             res.send({ message: 'Ocurrió un error al obtener el pedido', error });
-//             res.end();
-//         });
-// };
+const borrarLibroDeEmpresa = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const empresaId = req.params.id; // Obtén el _id de la empresa de los parámetros de la URL
+    const libroId = req.body._id; // Obtén el _id del libro a eliminar del cuerpo de la solicitud
+    try {
+        const empresa = yield empresas_schema_1.EmpresaSchema.findById(empresaId);
+        if (!empresa) {
+            return res.status(404).json({ message: 'Empresa no encontrado' });
+        }
+        const libroIndex = empresa.Libros.findIndex(libro => libro._id.toString() === libroId);
+        console.log(libroIndex);
+        if (libroIndex === -1) {
+            return res.status(404).json({ message: 'libro no encontrado en la lista de libros de la empresa' });
+        }
+        const LibroBorrado = empresa.Libros.splice(libroIndex, 1)[0];
+        yield empresa.save();
+        return res.status(200).json({ message: 'Libro borrado con exito ' });
+    }
+    catch (error) {
+        return res.status(500).json({ message: 'Error al procesar la solicitud', error });
+    }
+});
+exports.borrarLibroDeEmpresa = borrarLibroDeEmpresa;
 const actualizarLibro = (req, res) => {
     libros_schema_1.LibrioSchema.updateOne({ _id: req.params.id }, req.body).then((updateResponse) => {
         res.send({ message: 'Registro actualizado', updateResponse });

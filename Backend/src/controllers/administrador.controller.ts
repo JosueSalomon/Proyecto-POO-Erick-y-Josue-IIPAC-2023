@@ -58,49 +58,32 @@ export const borrarEmpresa = (req: Request, res: Response) => {
         });
 }
 
-// export const borrarLibroDeEmpresa = (req: Request, res: Response) => {
-//     const empresaID = req.params.id;
-//     const { _id: libroId } = req.body;
+export const borrarLibroDeEmpresa = async (req: Request, res: Response) => {
+    const empresaId = req.params.id; // Obtén el _id de la empresa de los parámetros de la URL
+    const libroId = req.body._id; // Obtén el _id del libro a eliminar del cuerpo de la solicitud
 
-//     LibrioSchema.findByIdAndDelete(libroId)
-//         .then(libro => {
-//             if (!libro) {
-//                 return res.status(404).send({ message: 'libro no encontrado' });
-//             }
+    try {
+        const empresa = await EmpresaSchema.findById(empresaId);
 
-//             const { nombreCliente, direccion, precio, telefono,estado,fecha} = pedido;
+        if (!empresa) {
+            return res.status(404).json({ message: 'Empresa no encontrado' });
+        }
 
-//             EmpresaSchema.updateOne(
-//                 { _id: empresaID },
-//                 {
-//                     $pull: {
-//                         pedidos: {
-//                             _id: new mongoose.Types.ObjectId(pedidoID),
-//                             nombreCliente,
-//                             direccion,
-//                             precio,
-//                             telefono,
-//                             estado,
-//                             fecha
-//                         }
-//                     }
-//                 }
-//             )
-//             .then(result =>{
-//                 res.send({ message: 'Agregado al pedido del motorista', result });
-//                 res.end();
-//             })
-//             .catch(error => {
-//                 res.send({ message: 'Ocurrio un error para agregar al motorista', error });
-//                 res.end();
-//             })
-//         })
-//         .catch(error => {
-//             res.send({ message: 'Ocurrió un error al obtener el pedido', error });
-//             res.end();
-//         });
-// };
+        const libroIndex = empresa.Libros.findIndex(libro => libro._id.toString() === libroId);
+        console.log(libroIndex)
+        if (libroIndex === -1) {
+            return res.status(404).json({ message: 'libro no encontrado en la lista de libros de la empresa' });
+        }
 
+        const LibroBorrado = empresa.Libros.splice(libroIndex, 1)[0];
+
+        await empresa.save();
+
+        return res.status(200).json({ message: 'Libro borrado con exito ' });
+    } catch (error) {
+        return res.status(500).json({ message: 'Error al procesar la solicitud', error });
+    }
+};
 
 export const actualizarLibro = (req: Request, res: Response) => {
     LibrioSchema.updateOne({ _id: req.params.id }, req.body
