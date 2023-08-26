@@ -95,7 +95,7 @@ body{
     width: 100%;
     background-color: #4f8ec4;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -139,7 +139,7 @@ body{
 
 .BloqueTexto{
     /* border: 2px solid mediumvioletred; */
-    width: 40%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -156,7 +156,7 @@ h4{
 
 .BloqueImg{
     /* border: 2px solid rgb(199, 175, 21); */
-    width: 60%;
+    width: 50%;
     overflow: hidden;
     object-fit: cover;
 }
@@ -206,17 +206,24 @@ h4{
     height: 100%;
     background-color: #4F8EC4;
     border-radius: 0px 15px 15px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #nav_iniciarSesion{
     /* border:  2px solid seagreen; */
     width: 25%;
     height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 #nav_registrarse{
     /* border:  2px solid seagreen; */
     width: 25%;
     height: 100%;
+    display: flex;
+    align-items: center;
 }
 
