@@ -25,29 +25,30 @@ export const crearEmpresa = (req: Request, res: Response) => {
     })
 }
 //
+
 export const crarNuevoProducto = (req: Request, res: Response) => {
-    const productoNuevo = new LibrioSchema(req.body);
-    productoNuevo.save()
-        .then(async resultado => {
-            await EmpresaSchema.updateOne({ _id: new mongoose.Types.ObjectId(req.params.id) }, {
-                $push: {
-                    Libros: {
-                        _id: resultado._id,//Id mongo
-                        nombre: resultado.nombre, //nombre del libro
-                        imagen: resultado.imagen,
-                        precio: resultado.precio, //Precio
-                        categoria: resultado.categoria,
-                        descripcion: resultado.descripcion
-                    }
+    EmpresaSchema.updateOne({ _id: req.params.id },
+        {
+            $push: {
+                Libros: {
+                    _id: new mongoose.Types.ObjectId(req.body.id),
+                    nombre: req.body.nombre,
+                    imagen: req.body.imagen,
+                    precio: req.body.precio,
+                    categoria: req.body.categoria,
+                    descripcion: req.body.descripcion
                 }
-            })
-            res.send({ status: true, message: "Libro agregado con exito a la empresa", resultado });
-            res.end();
-        })
-        .catch(error => {
-            res.send({ status: false, message: "No se agrego el libri", error })
-        })
-}
+            }
+        }
+    ).then(result => {
+        res.send({ message: 'Libro agregado a la empresa', result });
+        res.end();
+    }).catch(error => {
+        res.send({ message: 'Ocurrio un error', error });
+        res.end();
+    })
+};
+
 //
 export const borrarEmpresa = (req: Request, res: Response) => {
     EmpresaSchema.deleteOne({ _id: req.params.id })
@@ -57,36 +58,49 @@ export const borrarEmpresa = (req: Request, res: Response) => {
         });
 }
 
+// export const borrarLibroDeEmpresa = (req: Request, res: Response) => {
+//     const empresaID = req.params.id;
+//     const { _id: libroId } = req.body;
 
-export const borrarLibro = (req: Request, res: Response) => {
-    const libroId = req.params.id; // ID del libro a eliminar
-    const empresaId = req.body._id; // ID de la empresa obtenido del cuerpo de la petición
+//     LibrioSchema.findByIdAndDelete(libroId)
+//         .then(libro => {
+//             if (!libro) {
+//                 return res.status(404).send({ message: 'libro no encontrado' });
+//             }
 
-    LibrioSchema.findByIdAndDelete(libroId)
-        .then(libroEliminado => {
-            if (!libroEliminado) {
-                return res.status(404).json({ status: false, message: "Libro no encontrado" });
-            }
+//             const { nombreCliente, direccion, precio, telefono,estado,fecha} = pedido;
 
-            EmpresaSchema.updateOne(
-                { _id: new mongoose.Types.ObjectId(empresaId) },
-                {
-                    $pull: {
-                        carrito: { _id: libroId }
-                    }
-                }
-            )
-                .then(result => {
-                    return res.json({ status: true, message: "Libro eliminado del carrito con éxito", result });
-                })
-                .catch(error => {
-                    return res.status(500).json({ status: false, message: "Error al eliminar el libro del carrito", error });
-                });
-        })
-        .catch(error => {
-            return res.status(500).json({ status: false, message: "Error al eliminar el libro", error });
-        });
-};
+//             EmpresaSchema.updateOne(
+//                 { _id: empresaID },
+//                 {
+//                     $pull: {
+//                         pedidos: {
+//                             _id: new mongoose.Types.ObjectId(pedidoID),
+//                             nombreCliente,
+//                             direccion,
+//                             precio,
+//                             telefono,
+//                             estado,
+//                             fecha
+//                         }
+//                     }
+//                 }
+//             )
+//             .then(result =>{
+//                 res.send({ message: 'Agregado al pedido del motorista', result });
+//                 res.end();
+//             })
+//             .catch(error => {
+//                 res.send({ message: 'Ocurrio un error para agregar al motorista', error });
+//                 res.end();
+//             })
+//         })
+//         .catch(error => {
+//             res.send({ message: 'Ocurrió un error al obtener el pedido', error });
+//             res.end();
+//         });
+// };
+
 
 export const actualizarLibro = (req: Request, res: Response) => {
     LibrioSchema.updateOne({ _id: req.params.id }, req.body
