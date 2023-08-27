@@ -116,6 +116,7 @@
             </div>
         </div>
 
+        
     
         <div id="admin_form">
             <nav id="adminform_nav">
@@ -142,7 +143,7 @@
                 </div>
             </nav>
 
-            <div class="containerAdmin" id="empresasModelo">
+            <div class="containerAdmin" id="empresasModeloAdminEmpresas">
                     <div class="tiendax" onclick="agregarEmpresaAdmin()">
                         <div class="tiendax_img" ><i onclick="" class="fa-solid fa-plus" style="color:#06283d83; font-size: 160px; width: 20%;"></i></div>      
                     </div>
@@ -288,33 +289,11 @@
             </nav>
 
 
-            <div style="display: flex; justify-content: space-around; align-items: center;">
+            <div style="display: flex; justify-content: space-around; align-items: center;" id="AccederBotonCrearLibro">
                 <h4>Productos Empresa X</h4>
-                <button onclick="crearLibro()" class="homeBotones" style="border-radius: 15px; height: 65%;"><h2 class="h2botonesHome">Agregar</h2></button>
+                <button id="botonProductosEmpresaAdmin" onclick="crearLibro()" class="homeBotones" style="border-radius: 15px; height: 65%;"><h2 class="h2botonesHome">Agregar</h2></button>
             </div>
-            <div class="containerAdmin" style="overflow-y: scroll;  display: flex;flex-direction: column;align-items: center;">
-                <div class="divHistorialEntrega" id="IDMongoProducto" >
-                    <div style=" width: 7%;" ><img style="height: 100%; object-fit: contain;" src="/Frontend/assets/img/libro.png" alt=""></div>
-                    <div style=" width: 25%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 2px;">NombreLibro</h4></div>
-                    <div style="width: 25%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Categoria</h4></div>
-                    <div style="width: 18%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Precio$</h4></div>
-                    <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"></div>
-                    <div style="width: 7%;; margin-right: 4px; display: flex; justify-content: space-around; align-items: center;">
-                        <i onclick="editarProductoAdmin('IDMongoProducto')" class="fa-solid fa-pen" style="color:#06283D; font-size: 15px;"></i>
-                        <i onclick="" class="fa-solid fa-trash" style="color:#06283D; font-size: 15px;"></i>
-                    </div>
-                </div>
-                <div class="divHistorialEntrega" >
-                    <div style=" width: 7%;" ><img style="height: 100%; object-fit: contain;" src="/Frontend/assets/img/libro.png" alt=""></div>
-                    <div style=" width: 25%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 2px;">NombreLibro</h4></div>
-                    <div style="width: 25%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Categoria</h4></div>
-                    <div style="width: 18%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Precio$</h4></div>
-                    <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"></div>
-                    <div style="width: 7%;; margin-right: 4px; display: flex; justify-content: space-around; align-items: center;">
-                        <i class="fa-solid fa-pen" style="color:#06283D; font-size: 15px;"></i>
-                        <i class="fa-solid fa-trash" style="color:#06283D; font-size: 15px;"></i>
-                    </div>
-                </div>
+            <div class="containerAdmin" id="listaProductosEmpresasAdmin" style="overflow-y: scroll;  display: flex;flex-direction: column;align-items: center;">
             </div>
 
         </div>
@@ -472,16 +451,18 @@
                 <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"><h4 style="color: #06283D;">Estado</h4></div>
                 <div style="width: 11%;"> </div>
             </div>
-            <div class="containerAdmin" style="  overflow-y: scroll;  display: flex;flex-direction: column;align-items: center;">
+            <div class="containerAdmin" id="listaMotoristasAdmin" style="  overflow-y: scroll;  display: flex;flex-direction: column;align-items: center;">
                 <div class="divHistorialEntrega" id="IdmongoMotorista" style="justify-content: left;">
                     <div style=" width: 7%; display: inline-block; border-radius: 50%; overflow: hidden;" ><img style="height: 100%; object-fit: contain;" src="/Frontend/assets/img/adminJosue.jpg" alt=""></div>
                     <div style=" width: 25%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 2px;">Josue Isac Salomon Landa</h4></div>
                     <div style="width: 18%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>AAA-0101</h4></div>
                     <div style="width: 21%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>65</h4></div>
-                    <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"><h4>Aprobado</h4></div>
-                    <div style="width: 11%;; margin-right: 4px; display: flex; justify-content: space-evenly; align-items: center;">
+                    <div id="editarEstadoMotoristaAdmin" style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;">
+                        <h4>Aprobado</h4>
+                    </div>
+                    <div id="editarIconosMotoristaAdmin" style="width: 11%;; margin-right: 4px; display: flex; justify-content: space-evenly; align-items: center;">
                         <i onclick="editarmotoristaAdmin('IdmongoMotorista')" class="fa-solid fa-pen" style="color:#06283D; font-size: 15px;"></i>
-                        <!-- <i class="fa-solid fa-trash" style="color:#06283D; font-size: 15px;"></i> -->
+                        <i class="fa-solid fa-trash" style="color:#06283D; font-size: 15px;"></i>
                     </div>
                 </div>
             </div>
@@ -540,7 +521,7 @@
             </nav>
 
             <div><h4>Ordenes</h4></div>
-            <div class="containerAdmin" style="  overflow-y: scroll;  display: flex;flex-direction: column;align-items: center;">
+            <div class="containerAdmin" id="listaOrdenesAdmin" style="  overflow-y: scroll;  display: flex;flex-direction: column;align-items: center;">
              
                 <div class="ordenAdminModel" onclick="mostrarInfoPedidoAdmin('inserteIDMongo')">
                     <div class="divHistorialEntrega" style="width: 100%; box-shadow: none;">

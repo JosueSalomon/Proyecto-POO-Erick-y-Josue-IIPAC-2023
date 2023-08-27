@@ -1,6 +1,8 @@
 //Josue Salomon
 //Erick Escoto 
 
+var imgLibro = "https://i.pinimg.com/originals/a8/c2/16/a8c216198a1658bce4c0f224ed8ca151.png"
+
 function ConfirmarCompra(){
     document.getElementById('detallesCompra').style.display='none'
     document.getElementById('confirmarCompra').style.display='block'
@@ -75,13 +77,42 @@ function mostrarFactura(){
     document.getElementById('confirmarCompra').style.display='none'
 
 }
-function mostrarProductos(){
+async function mostrarProductos(id){
     document.getElementById('empresasAdministradores').style.display ="none";
     document.getElementById('ordenesAdministradores').style.display ="none";
     document.getElementById('productosAdministradores').style.display ="flex";
     document.getElementById('indexAdministradores').style.display ="none";
     document.getElementById('motoristasAdministradores').style.display ="none";
+
+
+    localStorage.setItem('idEmpresa', id)
+    await ObtenerUnaLibreria(id);
+
+
 }
+
+function renderizadarProductosEmpresa(){
+
+    document.getElementById('listaProductosEmpresasAdmin').innerHTML=""
+    libreria.resultado.Libros.forEach(libro => {
+    document.getElementById('listaProductosEmpresasAdmin').innerHTML+=`
+    <div class="divHistorialEntrega" id="${libro._id}" >
+    <div style=" width: 7%; overflow: hidden;" ><img style="height: 100%; object-fit: contain;" src="${libro.imagen}" alt=""></div>
+    <div style=" width: 25%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 2px;">${libro.nombre}</h4></div>
+    <div style="width: 25%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>${libro.categoria}</h4></div>
+    <div style="width: 18%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>${libro.precio}$</h4></div>
+    <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"></div>
+    <div style="width: 7%;; margin-right: 4px; display: flex; justify-content: space-around; align-items: center;">
+        <i onclick="editarProductoAdmin('${libro._id}')" class="fa-solid fa-pen" style="color:#06283D; font-size: 15px;"></i>
+        <i onclick="borrarLibroAdmin('${libro._id}')" class="fa-solid fa-trash" style="color:#06283D; font-size: 15px;"></i>
+    </div>
+    </div>
+`
+    });
+
+}
+
+
 
 function mostrarInfoPedidoAdmin(id){
     if (document.getElementById(id).style.display ==`flex`) {
@@ -191,6 +222,18 @@ function confirmarEditarProductoAdmin(id){
     let Nombre = document.getElementById('LibroNIdMongo').value;
     let Categoria = document.getElementById('LibroCIdMongo').value;
     let Precio = document.getElementById('LibroPIdMongo').value;
+
+    
+    libroActualizado = {
+        _id: id,
+        nombre: document.getElementById('LibroNIdMongo').value,
+        imagen: imgLibro,
+        precio: document.getElementById('LibroPIdMongo').value,
+        categoria:document.getElementById('LibroCIdMongo').value,
+        descripcion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, qui?"
+    }
+
+    actualizarLibroFetch(libroActualizado);
     console.log(Nombre,Categoria,Precio)
 
 
@@ -336,9 +379,42 @@ const ObtenerEmpresasFetch = async () => {
 
     empresas = await respuesta.json();
     console.log("empresas obtenidas", empresas)
+    renderizarEmpresas()
 
 };
 
+ObtenerEmpresasFetch();
+
+const ObtenerUnaLibreria = async (id) => {
+
+    const respuesta = await fetch(`http://localhost:1000/administrador/${id}/librosEmpresa`, {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+
+    libreria = await respuesta.json();
+    console.log("libreria de la empresa", libreria)
+
+    renderizadarProductosEmpresa()
+
+
+};
+
+const mandarLibroFetch = async (libro) => {
+    const respuesta = await fetch(`http://localhost:1000/administrador/${localStorage.getItem('idEmpresa')}/nuevoProducto`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(libro)
+    });
+
+    libroEnviado = await respuesta.json();
+    console.log("libro enviado", libroEnviado);
+    ObtenerUnaLibreria(localStorage.getItem('idEmpresa'))
+};
 
 async function verificarLoginAdmin(){
     document.getElementById('inputlogin1').value
@@ -364,6 +440,7 @@ async function añadirEmpresaColeccion() {
     }
 
     await crearEmpresaFetch(empresa)
+    await ObtenerEmpresasFetch()
 }
 
 async function agregarEmpresaAdmin(){
@@ -378,7 +455,113 @@ async function agregarEmpresaAdmin(){
 
 }
 
+const BorrarEmpresasFetch = async (id) => {
 
+    const respuesta = await fetch(`http://localhost:1000/administrador/${id}/borrarEmpresa`, {
+        method: 'DELETE',
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+
+    empresaborrada = await respuesta.json();
+    console.log("empresas borrada", empresaborrada)
+    ObtenerEmpresasFetch();
+};
+
+const actualizarLibroFetch = async (libroNvo) => {
+    const respuesta = await fetch(`http://localhost:1000/administrador/${localStorage.getItem('idEmpresa')}/libroActualizarEmpresa`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(libroNvo)
+    });
+
+    libroActualizadoCreado = await respuesta.json();
+    ObtenerUnaLibreria(localStorage.getItem('idEmpresa'))
+
+    console.log("libro actualizado",libroActualizadoCreado);
+};
+
+const borrarLibrodeEmpresaFetch = async (libro) => {
+    const respuesta = await fetch(`http://localhost:1000/administrador/${localStorage.getItem('idEmpresa')}/borrarLibroDeEmpresa`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(libro)
+    });
+
+    libroBorrado = await respuesta.json();
+    ObtenerUnaLibreria(localStorage.getItem('idEmpresa'))
+
+    console.log("libro borrado",libroBorrado);
+};
+
+
+const ObtenerMotoristasFetch = async () => {
+
+    const respuesta = await fetch(`http://localhost:1000/motorista/`, {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+
+    motoristas = await respuesta.json();
+    console.log("motoristas", motoristas)
+
+    renderizarMotoristas()
+
+};
+
+ObtenerMotoristasFetch()
+
+const aprobarMotoristaFetch = async (id) => {
+    const respuesta = await fetch(`http://localhost:1000/administrador/${id}/motoristaAprobar`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+
+    motoristaTrue = await respuesta.json();
+    console.log("motoristaCambio",motoristaTrue);
+    ObtenerMotoristasFetch()
+
+};
+
+const desaprobarMotoristaFetch = async (id) => {
+    const respuesta = await fetch(`http://localhost:1000/administrador/${id}/motoristaDesAprobar`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+
+    motoristaFalse = await respuesta.json();
+    console.log("motoristaCambio",motoristaFalse);
+    ObtenerMotoristasFetch()
+
+};
+
+const obtenerPedidosFetch = async () => {
+    let respuesta = await fetch("http://localhost:1000/pedido/",
+    {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }
+    );
+    pedidos = await respuesta.json();
+    console.log("Estos son los usuarios",pedidos);
+    
+    renderizarPedidos()
+  }
+
+  obtenerPedidosFetch()
 
 function crearLibro(){
     document.getElementById('empresasAdministradores').style.display ="none";
@@ -393,7 +576,6 @@ function crearLibro(){
 }
 
 function mandarLibroAEmpresa(){
-    let imgLibro = "https://i.pinimg.com/originals/a8/c2/16/a8c216198a1658bce4c0f224ed8ca151.png"
 
     document.getElementById('admin_nombreEmpresa').value
     let libro = {
@@ -402,12 +584,129 @@ function mandarLibroAEmpresa(){
         precio: document.getElementById('admin_PrecioProduco').value,
         categoria: document.getElementById('admin_tipoProducto').value,
         descripcion: document.getElementById('admin_descripcionProducto').value
-}
-
+    }
+    mandarLibroFetch(libro);
 }
 
 function renderizarEmpresas(){
-    
+
+
+    console.log('entrando a la funcion de renderizado de empresas')
+
+    let moduloEmpresa = ""
+
+    empresas.resultado.forEach(empresax => {
+        moduloEmpresa +=`
+        <div class="tiendax">
+        <div class="tiendax_img" onclick="mostrarProductos('${empresax._id}')"><img src="${empresax.img}" alt="tiendax" class="img_tienda"></div>
+        <div class="tiendax_nombre" style="display: flex; width: 100%; justify-content: center;">
+            <h3 onclick="mostrarProductos('${empresax._id}')" style="margin: 0; color: aliceblue; width: 80%; margin-left: 40%;">${empresax.nombre}</h3>
+            <i onclick="borrarEmpresaAdmin('${empresax._id}')" class="fa-solid fa-trash" style="color:#06283D; font-size: 15px; width: 20%;"></i>
+        </div>        
+    </div>
+        `
+    });
+
+
+    document.getElementById('empresasModeloAdminEmpresas').innerHTML=`
+    <div class="tiendax" onclick="agregarEmpresaAdmin()">
+        <div class="tiendax_img" ><i onclick="" class="fa-solid fa-plus" style="color:#06283d83; font-size: 160px; width: 20%;"></i></div>      
+    </div>
+    ${moduloEmpresa}
+    `
 }
 
+function borrarEmpresaAdmin(id){
+    BorrarEmpresasFetch(id);
+}
 
+function borrarLibroAdmin(id){
+    let libroABorrar = {
+        _id: id
+    }
+    borrarLibrodeEmpresaFetch(libroABorrar)
+}
+
+function renderizarMotoristas(){
+
+    let estado = "En espera";
+    document.getElementById('listaMotoristasAdmin').innerHTML="";
+motoristas.resultado.forEach(motoristax => {
+    estado = "En espera";
+    if (motoristax.estado) {
+        estado="Aprobado"
+    }
+    document.getElementById('listaMotoristasAdmin').innerHTML+=`
+    <div class="divHistorialEntrega" id="${motoristax._id}" style="justify-content: left;">
+    <div style=" width: 7%; display: inline-block; border-radius: 50%; overflow: hidden;" ><img style="height: 100%; object-fit: contain;" src="${motoristax.img}" alt=""></div>
+    <div style=" width: 25%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 2px;">${motoristax.nombre}</h4></div>
+    <div style="width: 18%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>${motoristax.placa}</h4></div>
+    <div style="width: 21%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>${motoristax.pedidosEntregados.length}</h4></div>
+    <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"><h4>${estado}</h4></div>
+    <div style="width: 11%;; margin-right: 4px; display: flex; justify-content: space-evenly; align-items: center;">
+        <i onclick="aprobarMotorista('${motoristax._id}')" class="fa-solid fa-check" style="color:#06283D; font-size: 15px;"></i>
+        <i onclick="desaprobarMotorista('${motoristax._id}')" class="fa-solid fa-x" style="color:#06283D; font-size: 15px;"></i>
+    </div>
+    </div>
+`
+});
+
+}
+
+function aprobarMotorista(idMotorista){
+
+    aprobarMotoristaFetch(idMotorista)
+}
+
+function desaprobarMotorista(idMotorista){
+
+    desaprobarMotoristaFetch(idMotorista)
+}
+
+function renderizarPedidos(){
+    document.getElementById('listaOrdenesAdmin').innerHTML=`
+    <div class="ordenAdminModel" onclick="mostrarInfoPedidoAdmin('inserteIDMongo')">
+    <div class="divHistorialEntrega" style="width: 100%; box-shadow: none;">
+        <div style=" width: 32%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 0 0 15px;">Direccion</h4></div>
+        <div style="width: 25%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Cliente</h4></div>
+        <div style="width: 18%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Precio$</h4></div>
+        <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"><h4>Fecha</h4></div>
+        <div style="width: 7%;; margin-right: 4px; display: flex; justify-content: space-around; align-items: center;">
+            <i class="fa-solid fa-pen" style="color:#06283D; font-size: 15px;"></i>
+        </div>
+
+
+    </div>
+
+    <div class="infoPedidoAdmin" id="inserteIDMongo" style="width: 100%; display: none;">
+        <div style="padding-left: 10px ;"><h4 style="margin: 0 20px;">Telefono: 3100-0032</h4></div>
+        <div style="padding-left: 10px ;"><h4 style="margin: 0 0 10px 20px;">Pedido:</h4></div>
+        <div style="display: flex;">
+            <div style="width: 80%;"><h4 style="margin: 0 70px;">Producto</h4></div>
+            <div style="width: 20%; display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+        </div>
+        <div style="display: flex;">
+            <div style="width: 80%;"><h4 style="margin: 0 70px;">Producto2</h4></div>
+            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+        </div>
+        <div style="display: flex;">
+            <div style="width: 80%;"><h4 style="margin: 10px 70px 0 70px;">Total Productos</h4></div>
+            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+        </div>
+        <div style="display: flex;">
+            <div style="width: 80%;"><h4 style="margin: 0 70px;">ISV</h4></div>
+            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+        </div>
+        <div style="display: flex;">
+            <div style="width: 80%;"><h4 style="margin: 0 70px;">Comisiones</h4></div>
+            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+        </div>
+        <div style="display: flex;">
+            <div style="width: 80%;"><h4 style="margin: 10px 70px;">Total a Pagar</h4></div>
+            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
+        </div>
+    </div>
+    
+</div>
+    `
+}
