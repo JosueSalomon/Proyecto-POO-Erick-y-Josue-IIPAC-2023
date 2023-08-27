@@ -1402,7 +1402,7 @@ function renderizadarProductosEmpresaClientes(){
     libreriaClientes.resultado.Libros.forEach(function(libro){
         document.getElementById('populares').innerHTML+=
         `
-        <div onclick="mostrarProducto('${libro._id}')" class="popularx">
+        <div onclick="mostrarProducto('${libro._id}','${libro.imagen}','${libro.nombre}','${libro.precio}')" class="popularx">
         <div class="popularx_img">
             <img src="${libro.imagen}" class="img_popularx" alt="libro">
         </div>
@@ -1413,11 +1413,52 @@ function renderizadarProductosEmpresaClientes(){
     })
 }
 
-function mostrarProducto(id){
+function mostrarProducto(id,imagenlibro,nombreLibro,precioLibro){
     localStorage.setItem("IDLibroCliente",id)
+    localStorage.setItem("imagen libro",imagenlibro)
+    localStorage.setItem("nombre libro",nombreLibro)
+    localStorage.setItem("precioLibro",precioLibro)
+
     document.getElementById('clientes1').style.display ="none";
     document.getElementById('clientes2').style.display ="none";
     document.getElementById('clientes2_productos').style.display ="none";
     document.getElementById('detallesCompra').style.display ="flex";
     
+    document.getElementById('imagenLibroCompra').innerHTML=`<img id="imgLibro" src="${imagenlibro}" alt="">`
+    document.getElementById('PrecioLibroComprar').innerHTML=`<p style="font-size: 24px; font-weight: bold; color: #9CBFDE;">$ ${precioLibro}</p>`
+    document.getElementById('NombreLibroTiendaAdentro').innerHTML= `<p  style="color: #4F8EC4; font-size: 24px; font-weight: bold;">${nombreLibro}</p>`
+
+    
 }
+
+//console.log(JSON.parse(localStorage.getItem("UsuarioIngresado")).usuario._id)
+const idDelUsuario =localStorage.getItem("UsuarioIngresado").usuario.nombre
+function agregarAlCarrito(){
+    console.log(localStorage.getItem("IDLibroCliente"))
+    console.log(localStorage.getItem("IdTiendaCliente"))
+    console.log('Este es el di dels susasdiasd',idDelUsuario)
+
+    let DatosLibros = {
+        
+            "_id": localStorage.getItem("IDLibroCliente"),
+            "_idEmpresa": localStorage.getItem("IdTiendaCliente")
+    }
+
+    agregarAlCarritoDelClienteFetch(DatosLibros,idDelUsuario)
+}
+
+const agregarAlCarritoDelClienteFetch = async (DatosLibro,iduser) => {
+    const idDelUsuario =JSON.parse(localStorage.getItem("UsuarioIngresado")).usuario._id
+    const respuesta = await fetch(`http:localhost:1000/usuario/'${iduser}'/Usuario`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(DatosLibro)
+    });
+
+    carrtoActualizado = await respuesta.json();
+    
+
+    console.log("estado del carrito ",carrtoActualizado);
+};
