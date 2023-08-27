@@ -310,14 +310,17 @@ function salirHomeMotorista(){
 }
 
 //Parte login-registro
-function registroCliente(){
-    let contrasena = document.getElementById('inputContrasena').value;
+async function registroCliente(){
+    let contrasena = document.getElementById('inputContrasena1').value;
     let confirmarContrasena = document.getElementById('inputConfirmarContrasena').value;
 
+    console.log(contrasena)
+    console.log(confirmarContrasena)
     if (contrasena !== confirmarContrasena) {
-        console.log("Las contraseñas no coinciden");
-        alert('La contraseña no coincide')
-        return; 
+        // Mostrar un mensaje de error al usuario o realizar alguna acción apropiada
+        console.log("prueba");
+    
+        return; // Detener la ejecución si las contraseñas no coinciden
     }
 
     let usuario = {
@@ -1283,26 +1286,7 @@ function renderizadarAdmin(){
 //Parte de Josue
 //Parte del cliente
 
-async function mandarRegistroUsuario() {
-    let contrasena = document.getElementById('inputContrasena').value;
-    let confirmarContrasena = document.getElementById('inputConfirmarContrasena').value;
 
-    if (contrasena !== confirmarContrasena) {
-        console.log("Las contraseñas no coinciden");
-        return; 
-    }
-
-    let usuario = {
-        "nombre": document.getElementById('inputnombre').value,
-        "correo": document.getElementById('inputemail').value,
-        "contrasena": contrasena,
-        "telefono": document.getElementById('inputtelefono').value,
-        "img": "https://mx.web.img3.acsta.net/c_310_420/pictures/16/05/17/17/28/208580.jpg",
-        "carrito": []
-    };
-    
-    await registrarUsuarioFetch(usuario);
-}
 
 const registrarUsuarioFetch = async (usuario) => {
     const respuesta = await fetch(`http://localhost:1000/usuario/registo`, {
