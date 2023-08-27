@@ -1,9 +1,13 @@
 import express from 'express';
-import { actualizarLibro, borrarEmpresa,  borrarLibroDeEmpresa,  crarNuevoProducto, crearEmpresa, loginAdmin, motoristaAprobar, motoristaDesAprobado } from '../controllers/administrador.controller';
+import { actualizarLibro, borrarEmpresa,  borrarLibroDeEmpresa,  crarNuevoProducto, crearEmpresa, loginAdmin, motoristaAprobar, motoristaDesAprobado, obtenerEmpresas, obtenerLibrosDeEmpresa } from '../controllers/administrador.controller';
 
 const router = express.Router();
 
 router.post('/login',loginAdmin)
+
+router.get('/',obtenerEmpresas)
+
+router.get('/:id/librosEmpresa',obtenerLibrosDeEmpresa)
 
 router.post('/nuevaEmpresa',crearEmpresa)
 
