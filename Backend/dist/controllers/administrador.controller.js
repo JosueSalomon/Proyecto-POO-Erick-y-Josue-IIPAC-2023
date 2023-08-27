@@ -12,11 +12,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.actualizarLibro = exports.borrarLibroDeEmpresa = exports.borrarEmpresa = exports.crarNuevoProducto = exports.crearEmpresa = exports.loginAdmin = void 0;
+exports.motoristaDesAprobado = exports.motoristaAprobar = exports.actualizarLibro = exports.borrarLibroDeEmpresa = exports.borrarEmpresa = exports.crarNuevoProducto = exports.crearEmpresa = exports.loginAdmin = void 0;
 const administradores_schema_1 = require("../models/administradores.schema");
 const empresas_schema_1 = require("../models/empresas.schema");
 const mongoose_1 = __importDefault(require("mongoose"));
-const libros_schema_1 = require("../models/libros.schema");
+const motoristas_schema_1 = require("../models/motoristas.schema");
 const loginAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const usuario = yield administradores_schema_1.AdministradorSchema.findOne({ correo: req.body.correo, contresana: req.body.contresana }, { contrasena: false });
     if (usuario) {
@@ -91,13 +91,69 @@ const borrarLibroDeEmpresa = (req, res) => __awaiter(void 0, void 0, void 0, fun
     }
 });
 exports.borrarLibroDeEmpresa = borrarLibroDeEmpresa;
-const actualizarLibro = (req, res) => {
-    libros_schema_1.LibrioSchema.updateOne({ _id: req.params.id }, req.body).then((updateResponse) => {
-        res.send({ message: 'Registro actualizado', updateResponse });
-        res.end();
-    }).catch((error) => {
-        res.send({ message: 'Hubo un error al actualizar', error }); // shorthand
-        res.end();
-    });
-};
+const actualizarLibro = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const empresaId = req.params.id; // Obtén el _id de la empresa de los parámetros de la URL
+    const libroId = req.body._id; // Obtén el _id del libro a actualizar del cuerpo de la solicitud
+    try {
+        const empresa = yield empresas_schema_1.EmpresaSchema.findById(empresaId);
+        if (!empresa) {
+            return res.status(404).json({ message: 'Empresa no encontrada' });
+        }
+        const libroToUpdate = empresa.Libros.find(libro => libro._id.toString() === libroId);
+        console.log(libroToUpdate);
+        if (!libroToUpdate) {
+            return res.status(404).json({ message: 'Libro no encontrado en la lista de libros de la empresa' });
+        }
+        // Actualizar los campos del libro
+        libroToUpdate.nombre = req.body.nombre;
+        libroToUpdate.imagen = req.body.imagen;
+        libroToUpdate.precio = req.body.precio;
+        libroToUpdate.categoria = req.body.categoria;
+        libroToUpdate.descripcion = req.body.descripcion;
+        empresa.markModified('Libros');
+        yield empresa.save();
+        ;
+        console.log("la empresa", empresa);
+        return res.status(200).json({ message: 'Libro actualizado con éxito' });
+    }
+    catch (error) {
+        return res.status(500).json({ message: 'Error al procesar la solicitud', error });
+    }
+});
 exports.actualizarLibro = actualizarLibro;
+const motoristaAprobar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const motoristaId = req.params.id;
+        // Verifica si el motorista existe antes de realizar la actualización
+        const motorista = yield motoristas_schema_1.MotoristaSchema.findOne({ _id: motoristaId });
+        if (!motorista) {
+            return res.status(404).send({ status: false, message: "Motorista no encontrado" });
+        }
+        // Cambia el estado de false a true
+        motorista.estado = true;
+        yield motorista.save();
+        res.status(200).send({ status: true, message: "Estado del motorista cambiado a true con éxito" });
+    }
+    catch (error) {
+        res.status(500).send({ status: false, message: "Error al cambiar el estado del motorista", error });
+    }
+});
+exports.motoristaAprobar = motoristaAprobar;
+const motoristaDesAprobado = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const motoristaId = req.params.id;
+        // Verifica si el motorista existe antes de realizar la actualización
+        const motorista = yield motoristas_schema_1.MotoristaSchema.findOne({ _id: motoristaId });
+        if (!motorista) {
+            return res.status(404).send({ status: false, message: "Motorista no encontrado" });
+        }
+        // Cambia el estado de false a true
+        motorista.estado = false;
+        yield motorista.save();
+        res.status(200).send({ status: true, message: "Estado del motorista cambiado a false con éxito" });
+    }
+    catch (error) {
+        res.status(500).send({ status: false, message: "Error al cambiar el estado del motorista", error });
+    }
+});
+exports.motoristaDesAprobado = motoristaDesAprobado;
