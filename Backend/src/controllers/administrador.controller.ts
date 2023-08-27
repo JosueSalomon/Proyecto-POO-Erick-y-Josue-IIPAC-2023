@@ -6,7 +6,7 @@ import { LibrioSchema } from "../models/libros.schema";
 import { MotoristaSchema } from "../models/motoristas.schema";
 
 export const loginAdmin = async (req: Request, res: Response) => {
-    const usuario = await AdministradorSchema.findOne({ correo: req.body.correo, contresana: req.body.contresana }, { contrasena: false });
+    const usuario = await AdministradorSchema.findOne({ correo: req.body.correo, contrasena: req.body.contrasena }, { contrasena: false });
     if (usuario) {
         res.send({ status: true, message: 'Login correcto', usuario });
     }

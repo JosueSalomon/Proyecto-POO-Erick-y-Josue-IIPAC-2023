@@ -18,7 +18,7 @@ const empresas_schema_1 = require("../models/empresas.schema");
 const mongoose_1 = __importDefault(require("mongoose"));
 const motoristas_schema_1 = require("../models/motoristas.schema");
 const loginAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const usuario = yield administradores_schema_1.AdministradorSchema.findOne({ correo: req.body.correo, contresana: req.body.contresana }, { contrasena: false });
+    const usuario = yield administradores_schema_1.AdministradorSchema.findOne({ correo: req.body.correo, contrasena: req.body.contrasena }, { contrasena: false });
     if (usuario) {
         res.send({ status: true, message: 'Login correcto', usuario });
     }

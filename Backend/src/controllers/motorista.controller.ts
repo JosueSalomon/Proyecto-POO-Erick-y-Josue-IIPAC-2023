@@ -17,7 +17,7 @@ export const registrarMotorista = (req: Request, res: Response) =>{
 }
 
 export const loginMotorista = async(req:Request, res:Response)=>{
-    const usuario = await MotoristaSchema.findOne({correo: req.body.correo, contresana: req.body.contresana}, {contrasena: false});
+    const usuario = await MotoristaSchema.findOne({correo: req.body.correo, contrasena: req.body.contrasena}, {contrasena: false});
     if (usuario) {
     res.send({status: true, message: 'Login correcto', usuario});
     res.end();
@@ -41,11 +41,11 @@ export const obtenerMotoristas = (req:Request, res:Response)=>{
 export const obtenerPedidos = (req: Request, res: Response) => {
     MotoristaSchema.findOne({ _id: new mongoose.Types.ObjectId(req.params.id) },{pedidos: true})
         .then(resultado => {
-            res.send({ status: true, message: "Pedidos tomados orde", resultado });
+            res.send({ status: true, message: "Pedidos ", resultado });
             res.end();
         })
         .catch(error => {
-            res.send({ status: false, message: "No se encontraro el usario", error });
+            res.send({ status: false, message: "No se encontraro el Pedidos", error });
             res.end();
         })
 }  
@@ -53,11 +53,11 @@ export const obtenerPedidos = (req: Request, res: Response) => {
 export const obtenerPedidosEntregados = (req: Request, res: Response) => {
     MotoristaSchema.findOne({ _id: new mongoose.Types.ObjectId(req.params.id) },{pedidosEntregados: true})
         .then(resultado => {
-            res.send({ status: true, message: "Pedidos tomados orde", resultado });
+            res.send({ status: true, message: "Pedidos entregados", resultado });
             res.end();
         })
         .catch(error => {
-            res.send({ status: false, message: "No se encontraro el usario", error });
+            res.send({ status: false, message: "No se encontraro el Pedidos", error });
             res.end();
         })
 } 

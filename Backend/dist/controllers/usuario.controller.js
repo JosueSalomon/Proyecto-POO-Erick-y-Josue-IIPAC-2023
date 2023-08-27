@@ -29,7 +29,7 @@ const registrarUsuario = (req, res) => {
 };
 exports.registrarUsuario = registrarUsuario;
 const loginUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const usuario = yield usuarios_schema_1.UsuarioSchema.findOne({ correo: req.body.correo, contresana: req.body.contresana }, { contrasena: false });
+    const usuario = yield usuarios_schema_1.UsuarioSchema.findOne({ correo: req.body.correo, contrasena: req.body.contrasena }, { contrasena: false });
     if (usuario) {
         res.send({ status: true, message: 'Login correcto', usuario });
         res.end();

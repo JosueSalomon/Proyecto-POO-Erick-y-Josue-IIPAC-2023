@@ -18,7 +18,7 @@ export const registrarUsuario = (req: Request, res: Response) => {
 }
 
 export const loginUsuario = async (req: Request, res: Response) => {
-    const usuario = await UsuarioSchema.findOne({ correo: req.body.correo, contresana: req.body.contresana }, { contrasena: false });
+    const usuario = await UsuarioSchema.findOne({ correo: req.body.correo, contrasena: req.body.contrasena }, { contrasena: false });
     if (usuario) {
         res.send({ status: true, message: 'Login correcto', usuario });
         res.end();
