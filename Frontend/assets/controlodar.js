@@ -401,6 +401,7 @@ const ObtenerEmpresasFetch = async () => {
     empresas = await respuesta.json();
     console.log("empresas obtenidas", empresas)
     renderizarEmpresas()
+    //renderizarEmpresasClientes()
 
 };
 
@@ -1331,9 +1332,44 @@ const loginUsuarioFetch = async (usuario) => {
     if (usuarioGuardado.status==true) {
         window.location.href = '/Frontend/clientes.html'
         alert('Acceso concedido')
+        let idmongo = usuarioGuardado._id
         localStorage.setItem("UsuarioIngresado",JSON.stringify(usuarioGuardado))
+        console.log(localStorage.getItem("UsuarioIngresado"))
+        console.log(idmongo)
     }else{
         alert('credenciales incorrectas')
     }
     
 };
+
+
+function renderizarEmpresasClientes(){
+    console.log('Ahahahha')
+    document.getElementById('tiendas').innerHTML=''
+    empresasparaClientes.resultado.forEach(function(empresa){
+        document.getElementById('tiendas').innerHTML+=
+        `
+        <div class="tiendax" onclick="accederTienda('${empresa._id}')">
+        <div class="tiendax_img" ><img src="${empresa.img}" alt="tiendax" class="img_tienda"></div>
+        <div class="tiendax_nombre"><h3 style="margin: 0; color: aliceblue;">${empresa.nombre}</h3></div>        
+        </div>
+        `
+    })
+}
+
+const ObtenerEmpresasParaTiendaFetch = async () => {
+
+    const respuesta = await fetch(`http://localhost:1000/administrador/`, {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+
+    empresasparaClientes = await respuesta.json();
+    console.log("empresas obtenidas estas son otrass", empresasparaClientes)
+    renderizarEmpresasClientes()
+
+};
+
+ObtenerEmpresasParaTiendaFetch()
