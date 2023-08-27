@@ -366,7 +366,10 @@ const loginAdminFetch = async (persona) => {
     console.log("usuario Guardado", adminGuardado);
     if (adminGuardado.status==true) {
         mostrarIndexAdmin()
+        renderizadarAdmin()
     }
+
+
 };
 
 const crearEmpresaFetch = async (empresa) => {
@@ -679,51 +682,67 @@ function desaprobarMotorista(idMotorista){
 }
 
 function renderizarPedidos(){
-    document.getElementById('listaOrdenesAdmin').innerHTML=`
-    <div class="ordenAdminModel" onclick="mostrarInfoPedidoAdmin('inserteIDMongo')">
-    <div class="divHistorialEntrega" style="width: 100%; box-shadow: none;">
-        <div style=" width: 32%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 0 0 15px;">Direccion</h4></div>
-        <div style="width: 25%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Cliente</h4></div>
-        <div style="width: 18%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Precio$</h4></div>
-        <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"><h4>Fecha</h4></div>
-        <div style="width: 7%;; margin-right: 4px; display: flex; justify-content: space-around; align-items: center;">
-            <i class="fa-solid fa-pen" style="color:#06283D; font-size: 15px;"></i>
-        </div>
-
-
-    </div>
-
-    <div class="infoPedidoAdmin" id="inserteIDMongo" style="width: 100%; display: none;">
-        <div style="padding-left: 10px ;"><h4 style="margin: 0 20px;">Telefono: 3100-0032</h4></div>
-        <div style="padding-left: 10px ;"><h4 style="margin: 0 0 10px 20px;">Pedido:</h4></div>
-        <div style="display: flex;">
-            <div style="width: 80%;"><h4 style="margin: 0 70px;">Producto</h4></div>
-            <div style="width: 20%; display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
-        </div>
-        <div style="display: flex;">
-            <div style="width: 80%;"><h4 style="margin: 0 70px;">Producto2</h4></div>
-            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
-        </div>
-        <div style="display: flex;">
-            <div style="width: 80%;"><h4 style="margin: 10px 70px 0 70px;">Total Productos</h4></div>
-            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
-        </div>
-        <div style="display: flex;">
-            <div style="width: 80%;"><h4 style="margin: 0 70px;">ISV</h4></div>
-            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
-        </div>
-        <div style="display: flex;">
-            <div style="width: 80%;"><h4 style="margin: 0 70px;">Comisiones</h4></div>
-            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
-        </div>
-        <div style="display: flex;">
-            <div style="width: 80%;"><h4 style="margin: 10px 70px;">Total a Pagar</h4></div>
-            <div style="width: 20%;  display: flex; align-items:end;"><h4 style="margin: 0 70px;">Precio</h4></div>
-        </div>
-    </div>
+    document.getElementById('listaOrdenesAdmin').innerHTML=""
+    pedidos.resultado.forEach(pedidox => {
+        document.getElementById('listaOrdenesAdmin').innerHTML+=`
+        <div class="ordenAdminModel" onclick="mostrarInfoPedidoAdmin('${pedidox._id}')">
+        <div class="divHistorialEntrega" style="width: 100%; box-shadow: none;">
+            <div style=" width: 32%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 0 0 15px;">${pedidox.direccion}</h4></div>
+            <div style="width: 25%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>${pedidox.nombreCliente}</h4></div>
+            <div style="width: 18%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>${pedidox.precio}$</h4></div>
+            <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"><h4>${pedidox.fecha}</h4></div>
+            <div style="width: 7%;; margin-right: 4px; display: flex; justify-content: space-around; align-items: center;">
+                <i class="fa-solid fa-pen" style="color:#06283D; font-size: 15px;"></i>
+            </div>
     
-</div>
-    `
+    
+        </div>
+    
+        <div class="infoPedidoAdmin" id="${pedidox._id}" style="width: 100%; display: none;">
+            <div style="padding-left: 10px ;"><h4 style="margin: 0 20px;">Telefono: ${pedidox.telefono}</h4></div>
+        </div>
+        
+        `
+    });
+
+}
+
+function renderizadarAdmin(){
+
+    console.log('AdminGuardado a renderizar', adminGuardado)
+
+    // document.getElementById('foto_contenedor').innerHTML=`
+    // <img src="${adminGuardado.usuario.img}" alt="Josue" id="adminJosue">
+
+    // `
+    
+// `    document.getElementsByClassName('nombreAdminitrador').innerHTML=`
+//     ${adminGuardado.usuario.nombre}
+//     ``
+
+    // Obtén todas las etiquetas con la clase especificada
+    var elementos = document.getElementsByClassName('nombreAdminitrador');
+
+// Itera a través de los elementos encontrados
+    for (var i = 0; i < elementos.length; i++) {
+    // Modifica el contenido interno de cada elemento
+    elementos[i].innerHTML = `${adminGuardado.usuario.nombre}`;
+    }
+
+        // Obtén todas las etiquetas con la clase especificada
+        var elementos = document.getElementsByClassName('fotoAdministrador');
+
+        // Itera a través de los elementos encontrados
+            for (var i = 0; i < elementos.length; i++) {
+            // Modifica el contenido interno de cada elemento
+            elementos[i].innerHTML = `<img src="${adminGuardado.usuario.img}" alt="Josue" id="adminJosue">`;
+            }
+
+
+    // document.getElementsByClassName('fotoAdministrador').innerHTML=`
+    // <img src="${adminGuardado.usuario.img}" alt="Josue" id="adminJosue">
+
+    // `
 }
 
 
