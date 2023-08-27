@@ -97,6 +97,8 @@ function mostrarIndexAdmin(){
     document.getElementById('indexAdministradores').style.display ="flex";
     document.getElementById('motoristasAdministradores').style.display ="none";
     document.getElementById('loginAdministradores').style.display ="none";
+    document.getElementById('administradores').style.display ="none";
+    document.getElementById('administradores_productos').style.display ="none";
 }
 function mostrarEmpresas(){
     document.getElementById('empresasAdministradores').style.display ="flex";
@@ -104,6 +106,8 @@ function mostrarEmpresas(){
     document.getElementById('productosAdministradores').style.display ="none";
     document.getElementById('indexAdministradores').style.display ="none";
     document.getElementById('motoristasAdministradores').style.display ="none";
+    document.getElementById('administradores').style.display ="none";
+    document.getElementById('administradores_productos').style.display ="none";
 }
 
 function mostrarMotoristas(){
@@ -112,6 +116,8 @@ function mostrarMotoristas(){
     document.getElementById('productosAdministradores').style.display ="none";
     document.getElementById('indexAdministradores').style.display ="none";
     document.getElementById('motoristasAdministradores').style.display ="flex";
+    document.getElementById('administradores').style.display ="none";
+    document.getElementById('administradores_productos').style.display ="none";
 }
 
 function mostrarOrdenes(){
@@ -120,6 +126,8 @@ function mostrarOrdenes(){
     document.getElementById('productosAdministradores').style.display ="none";
     document.getElementById('indexAdministradores').style.display ="none";
     document.getElementById('motoristasAdministradores').style.display ="none";
+    document.getElementById('administradores').style.display ="none";
+    document.getElementById('administradores_productos').style.display ="none";
 }
 function editarmotoristaAdmin(id){
     document.getElementById(id).innerHTML =`
@@ -287,3 +295,119 @@ function regresarRegistroCliente(){
 }
 
 //Administracion Renderizado
+const loginAdminFetch = async (persona) => {
+    const respuesta = await fetch("http://localhost:1000/administrador/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(persona)
+    });
+
+    adminGuardado = await respuesta.json();
+    console.log("usuario Guardado", adminGuardado);
+    if (adminGuardado.status==true) {
+        mostrarIndexAdmin()
+    }
+};
+
+const crearEmpresaFetch = async (empresa) => {
+    const respuesta = await fetch("http://localhost:1000/administrador/nuevaEmpresa", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(empresa)
+    });
+
+    empresaCreada = await respuesta.json();
+    console.log("empresa Nueva", empresaCreada);
+};
+
+
+const ObtenerEmpresasFetch = async () => {
+
+    const respuesta = await fetch(`http://localhost:1000/administrador/`, {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+
+    empresas = await respuesta.json();
+    console.log("empresas obtenidas", empresas)
+
+};
+
+
+async function verificarLoginAdmin(){
+    document.getElementById('inputlogin1').value
+    document.getElementById('inputlogin2').value
+    let persona = {
+        correo  :document.getElementById('inputlogin1').value,
+        contrasena:document.getElementById('inputlogin2').value,
+    }
+
+    await loginAdminFetch(persona)
+
+}
+
+async function añadirEmpresaColeccion() {
+
+    let imgEmpresa = "https://cdn-icons-png.flaticon.com/512/1916/1916320.png"
+
+        let empresa = {
+        nombre: document.getElementById('admin_nombreEmpresa').value,
+        img: imgEmpresa,
+        Libros: [],
+        review: parseInt(document.getElementById('admin_paginaEmpresa').value)
+    }
+
+    await crearEmpresaFetch(empresa)
+}
+
+async function agregarEmpresaAdmin(){
+    document.getElementById('empresasAdministradores').style.display ="none";
+    document.getElementById('ordenesAdministradores').style.display ="none";
+    document.getElementById('productosAdministradores').style.display ="none";
+    document.getElementById('indexAdministradores').style.display ="none";
+    document.getElementById('motoristasAdministradores').style.display ="none";
+    document.getElementById('loginAdministradores').style.display ="none";
+    document.getElementById('administradores').style.display ="flex";
+
+
+}
+
+
+
+function crearLibro(){
+    document.getElementById('empresasAdministradores').style.display ="none";
+    document.getElementById('ordenesAdministradores').style.display ="none";
+    document.getElementById('productosAdministradores').style.display ="none";
+    document.getElementById('indexAdministradores').style.display ="none";
+    document.getElementById('motoristasAdministradores').style.display ="none";
+    document.getElementById('loginAdministradores').style.display ="none";
+    document.getElementById('administradores').style.display ="none";
+    document.getElementById('administradores_productos').style.display ="flex";
+
+}
+
+function mandarLibroAEmpresa(){
+    let imgLibro = "https://i.pinimg.com/originals/a8/c2/16/a8c216198a1658bce4c0f224ed8ca151.png"
+
+    document.getElementById('admin_nombreEmpresa').value
+    let libro = {
+        nombre: document.getElementById('admin_nombreEmpresaProducto').value,
+        imagen: imgLibro,
+        precio: document.getElementById('admin_PrecioProduco').value,
+        categoria: document.getElementById('admin_tipoProducto').value,
+        descripcion: document.getElementById('admin_descripcionProducto').value
+}
+
+}
+
+function renderizarEmpresas(){
+    
+}
+
+
