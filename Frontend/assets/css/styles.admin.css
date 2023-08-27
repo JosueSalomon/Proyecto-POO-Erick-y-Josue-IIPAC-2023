@@ -315,6 +315,19 @@ h3{
     overflow-y: scroll
 }
 
+#empresasModeloAdminEmpresas{
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 65%;
+    width: 95%;
+    margin: 0 auto;
+    grid-column-gap: 19px;
+    grid-row-gap: 19px;
+    overflow-y: scroll
+}
+
 .tiendax{
     height: 190px;
     background-color:#4F8EC4;
