@@ -15,6 +15,29 @@ export const loginAdmin = async (req: Request, res: Response) => {
     res.end();
 }
 
+export const obtenerEmpresas = (req: Request, res: Response) => {
+    EmpresaSchema.find()
+        .then(resultado => {
+            res.send({ status: true, message: "Empresas encontradas encontrados", resultado });
+            res.end();
+        })
+        .catch(error => {
+            res.send({ status: false, message: "No se encontraron Empresas", error })
+        })
+}
+
+export const obtenerLibrosDeEmpresa = (req: Request, res: Response) => {
+    EmpresaSchema.findOne({ _id: new mongoose.Types.ObjectId(req.params.id) },{ Libros: true })
+        .then(resultado => {
+            res.send({ status: true, message: "libros encontrados de la empresa", resultado });
+            res.end();
+        })
+        .catch(error => {
+            res.send({ status: false, message: "No se encontraro libros en la empresa", error });
+            res.end();
+        })
+}   
+
 export const crearEmpresa = (req: Request, res: Response) => {
     const empresaNueva = new EmpresaSchema(req.body);
     empresaNueva.save().then((empresaNueva: any) => {
@@ -25,7 +48,7 @@ export const crearEmpresa = (req: Request, res: Response) => {
         res.end();
     })
 }
-//
+
 
 export const crarNuevoProducto = (req: Request, res: Response) => {
     EmpresaSchema.updateOne({ _id: req.params.id },

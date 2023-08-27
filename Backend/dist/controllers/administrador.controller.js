@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.motoristaDesAprobado = exports.motoristaAprobar = exports.actualizarLibro = exports.borrarLibroDeEmpresa = exports.borrarEmpresa = exports.crarNuevoProducto = exports.crearEmpresa = exports.loginAdmin = void 0;
+exports.motoristaDesAprobado = exports.motoristaAprobar = exports.actualizarLibro = exports.borrarLibroDeEmpresa = exports.borrarEmpresa = exports.crarNuevoProducto = exports.crearEmpresa = exports.obtenerLibrosDeEmpresa = exports.obtenerEmpresas = exports.loginAdmin = void 0;
 const administradores_schema_1 = require("../models/administradores.schema");
 const empresas_schema_1 = require("../models/empresas.schema");
 const mongoose_1 = __importDefault(require("mongoose"));
@@ -27,6 +27,29 @@ const loginAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     res.end();
 });
 exports.loginAdmin = loginAdmin;
+const obtenerEmpresas = (req, res) => {
+    empresas_schema_1.EmpresaSchema.find()
+        .then(resultado => {
+        res.send({ status: true, message: "Empresas encontradas encontrados", resultado });
+        res.end();
+    })
+        .catch(error => {
+        res.send({ status: false, message: "No se encontraron Empresas", error });
+    });
+};
+exports.obtenerEmpresas = obtenerEmpresas;
+const obtenerLibrosDeEmpresa = (req, res) => {
+    empresas_schema_1.EmpresaSchema.findOne({ _id: new mongoose_1.default.Types.ObjectId(req.params.id) }, { Libros: true })
+        .then(resultado => {
+        res.send({ status: true, message: "libros encontrados de la empresa", resultado });
+        res.end();
+    })
+        .catch(error => {
+        res.send({ status: false, message: "No se encontraro libros en la empresa", error });
+        res.end();
+    });
+};
+exports.obtenerLibrosDeEmpresa = obtenerLibrosDeEmpresa;
 const crearEmpresa = (req, res) => {
     const empresaNueva = new empresas_schema_1.EmpresaSchema(req.body);
     empresaNueva.save().then((empresaNueva) => {
@@ -38,7 +61,6 @@ const crearEmpresa = (req, res) => {
     });
 };
 exports.crearEmpresa = crearEmpresa;
-//
 const crarNuevoProducto = (req, res) => {
     empresas_schema_1.EmpresaSchema.updateOne({ _id: req.params.id }, {
         $push: {
