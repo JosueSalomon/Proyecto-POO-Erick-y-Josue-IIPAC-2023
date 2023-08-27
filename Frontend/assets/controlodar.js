@@ -59,6 +59,7 @@ function mostrarProducto(){
     document.getElementById('clientes2').style.display ="none";
     document.getElementById('clientes2_productos').style.display ="none";
     document.getElementById('detallesCompra').style.display ="flex";
+
 }
 
 function mostrarProductoCategorias(){
@@ -1349,7 +1350,7 @@ function renderizarEmpresasClientes(){
     empresasparaClientes.resultado.forEach(function(empresa){
         document.getElementById('tiendas').innerHTML+=
         `
-        <div class="tiendax" onclick="accederTienda('${empresa._id}')">
+        <div class="tiendax" onclick="accederTienda1('${empresa._id}')">
         <div class="tiendax_img" ><img src="${empresa.img}" alt="tiendax" class="img_tienda"></div>
         <div class="tiendax_nombre"><h3 style="margin: 0; color: aliceblue;">${empresa.nombre}</h3></div>        
         </div>
@@ -1373,3 +1374,50 @@ const ObtenerEmpresasParaTiendaFetch = async () => {
 };
 
 ObtenerEmpresasParaTiendaFetch()
+
+
+async function accederTienda1(id){
+    localStorage.setItem("IdTiendaCliente",id)
+    const respuesta = await fetch(`http://localhost:1000/administrador/${id}/librosEmpresa`, {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+
+    libreriaClientes = await respuesta.json();
+    console.log("libreria de la empresa", libreriaClientes)
+
+    document.getElementById('clientes1').style.display ="none";
+    document.getElementById('clientes2').style.display ="flex";
+    document.getElementById('clientes2_productos').style.display ="none";
+    document.getElementById('detallesCompra').style.display ="none";
+    document.getElementById('Factura').style.display ="none";
+    document.getElementById('confirmarCompra').style.display='none'
+    renderizadarProductosEmpresaClientes()
+}
+
+function renderizadarProductosEmpresaClientes(){
+    document.getElementById('populares').innerHTML=''
+    libreriaClientes.resultado.Libros.forEach(function(libro){
+        document.getElementById('populares').innerHTML+=
+        `
+        <div onclick="mostrarProducto('${libro._id}')" class="popularx">
+        <div class="popularx_img">
+            <img src="${libro.imagen}" class="img_popularx" alt="libro">
+        </div>
+        <div class="popularx_nombre"> <h4 style="color: #4F8EC4; margin-left: 5px;">${libro.nombre}</h4></div>
+        <div class="popularx_precio"> <h4 style="color: aliceblue; margin-left: 5px; margin-top: auto; margin-bottom: 0;">$${libro.precio}</h4></div>
+    </div>
+        `
+    })
+}
+
+function mostrarProducto(id){
+    localStorage.setItem("IDLibroCliente",id)
+    document.getElementById('clientes1').style.display ="none";
+    document.getElementById('clientes2').style.display ="none";
+    document.getElementById('clientes2_productos').style.display ="none";
+    document.getElementById('detallesCompra').style.display ="flex";
+    
+}
