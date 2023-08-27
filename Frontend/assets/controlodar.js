@@ -159,16 +159,17 @@ function confirmareditarmotoristaAdmin(id){
 }
 
 function editarProductoAdmin(id){
+
     document.getElementById(id).innerHTML=`
     <div style=" width: 7%;" ><img style="height: 100%; object-fit: contain;" src="/Frontend/assets/img/libro.png" alt=""></div>
     <div style=" width: 25%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 2px;">
-    <input type="text" placeholder="Nombre" style="border: none; height="20px"">
+    <input id="LibroNIdMongo" type="text" placeholder="Nombre" style="border: none; height:30px;margin-left:7px">
     </div>
     <div style="width: 25%; text-align: center; margin: 0 2px; display: flex; align-items: center;">
-    <input type="text" placeholder="Categoria" style="border: none; height="20px"">
+    <input id="LibroCIdMongo" type="text" placeholder="Categoria" style="border: none; height:30px;">
     </div>
     <div style="width: 18%; text-align: center; margin: 0 2px; display: flex; align-items: center;">
-    <input type="text" placeholder="Precio" style="border: none; height="20px"">
+    <input id="LibroPIdMongo" type="text" placeholder="Precio" style="border: none; height:30px;">
     </div>
     <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"></div>
     <div style="width: 7%;; margin-right: 4px; display: flex; justify-content: space-around; align-items: center;">
@@ -179,6 +180,12 @@ function editarProductoAdmin(id){
 }
 
 function confirmarEditarProductoAdmin(id){
+    let Nombre = document.getElementById('LibroNIdMongo').value;
+    let Categoria = document.getElementById('LibroCIdMongo').value;
+    let Precio = document.getElementById('LibroPIdMongo').value;
+    console.log(Nombre,Categoria,Precio)
+
+
     document.getElementById(id).innerHTML=`
     <div style=" width: 7%;" ><img style="height: 100%; object-fit: contain;" src="/Frontend/assets/img/libro.png" alt=""></div>
     <div style=" width: 25%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 2px;">NombreLibro</h4></div>
@@ -279,3 +286,4 @@ function regresarRegistroCliente(){
     document.getElementById('RegistroCliente').style.display='none'
 }
 
+//Administracion Renderizado
