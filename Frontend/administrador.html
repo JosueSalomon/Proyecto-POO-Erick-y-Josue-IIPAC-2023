@@ -9,6 +9,22 @@
 </head>
 <body>
 
+    <section id="loginAdministradores">
+        <div id="home_azul">
+            <div id="home_titulo"><h2 style="font-size: 60px; margin: 0; text-align: center; font-family: 'Ubuntu'; color: white;">Readigo</h2></div>
+            <div id="home_logo">
+                <img src="assets/img/motoristaowo.png" alt="logo" id="logoImg_home" style="margin-left: -30px;">
+            </div>
+        </div>
+
+        <div id="home_hueso">
+            <div id="hueso_botones" style=" justify-content: space-around; align-items: center; margin-top: -76px;">
+                    <div id="botonhome1" style="width: 100%;"><input id="inputlogin1" type="text" placeholder="Correo electronico" style="border: none; border-radius: 10px; height: 40px; width: 25%;"></div>
+                    <div id="botonhome1" style="width: 100%;"><input id="inputlogin2" type="text" placeholder="Contraseña" style="border: none; border-radius: 10px; height: 40px; width: 25%; margin: 20px;"></div>
+                    <div id="botonhome1" style="width: 100%;"><button onclick="mostrarIndexAdmin()" class="homeBotones" style="width: 25%; height: 40px;  margin-top: 25px;"><h2 class="h2botonesHome" >ingresar</h2></button></div>
+            </div>
+        </div>
+    </section>
 
     <section id="indexAdministradores">
         <div class="admin_menu">
@@ -202,17 +218,18 @@
                 </div>
             </nav>
 
+
             <div><h4>Productos Empresa X</h4></div>
-            <div class="containerAdmin" style="  overflow-y: scroll;  display: flex;flex-direction: column;align-items: center;">
-                <div class="divHistorialEntrega" >
+            <div class="containerAdmin" style="overflow-y: scroll;  display: flex;flex-direction: column;align-items: center;">
+                <div class="divHistorialEntrega" id="IDMongoProducto" >
                     <div style=" width: 7%;" ><img style="height: 100%; object-fit: contain;" src="/Frontend/assets/img/libro.png" alt=""></div>
                     <div style=" width: 25%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 2px;">NombreLibro</h4></div>
                     <div style="width: 25%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Categoria</h4></div>
                     <div style="width: 18%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>Precio$</h4></div>
                     <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"></div>
                     <div style="width: 7%;; margin-right: 4px; display: flex; justify-content: space-around; align-items: center;">
-                        <i class="fa-solid fa-pen" style="color:#06283D; font-size: 15px;"></i>
-                        <i class="fa-solid fa-trash" style="color:#06283D; font-size: 15px;"></i>
+                        <i onclick="editarProductoAdmin('IDMongoProducto')" class="fa-solid fa-pen" style="color:#06283D; font-size: 15px;"></i>
+                        <i onclick="" class="fa-solid fa-trash" style="color:#06283D; font-size: 15px;"></i>
                     </div>
                 </div>
                 <div class="divHistorialEntrega" >
@@ -292,15 +309,15 @@
                 <div style="width: 11%;"> </div>
             </div>
             <div class="containerAdmin" style="  overflow-y: scroll;  display: flex;flex-direction: column;align-items: center;">
-                <div class="divHistorialEntrega"  style="justify-content: left;">
+                <div class="divHistorialEntrega" id="IdmongoMotorista" style="justify-content: left;">
                     <div style=" width: 7%; display: inline-block; border-radius: 50%; overflow: hidden;" ><img style="height: 100%; object-fit: contain;" src="/Frontend/assets/img/adminJosue.jpg" alt=""></div>
                     <div style=" width: 25%; margin: 0px; display: flex; align-items: center; overflow: hidden;"><h4 style="margin: 0 2px;">Josue Isac Salomon Landa</h4></div>
                     <div style="width: 18%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>AAA-0101</h4></div>
                     <div style="width: 21%; text-align: center; margin: 0 2px; display: flex; align-items: center;"><h4>65</h4></div>
                     <div style="width: 18%; text-align: end;margin: 0 4px; display: flex; align-items: center;"><h4>Aprobado</h4></div>
                     <div style="width: 11%;; margin-right: 4px; display: flex; justify-content: space-evenly; align-items: center;">
-                        <i class="fa-solid fa-pen" style="color:#06283D; font-size: 15px;"></i>
-                        <i class="fa-solid fa-trash" style="color:#06283D; font-size: 15px;"></i>
+                        <i onclick="editarmotoristaAdmin('IdmongoMotorista')" class="fa-solid fa-pen" style="color:#06283D; font-size: 15px;"></i>
+                        <!-- <i class="fa-solid fa-trash" style="color:#06283D; font-size: 15px;"></i> -->
                     </div>
                 </div>
             </div>
