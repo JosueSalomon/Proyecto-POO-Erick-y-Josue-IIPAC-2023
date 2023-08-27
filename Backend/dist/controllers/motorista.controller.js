@@ -27,7 +27,7 @@ const registrarMotorista = (req, res) => {
 };
 exports.registrarMotorista = registrarMotorista;
 const loginMotorista = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const usuario = yield motoristas_schema_1.MotoristaSchema.findOne({ correo: req.body.correo, contresana: req.body.contresana }, { contrasena: false });
+    const usuario = yield motoristas_schema_1.MotoristaSchema.findOne({ correo: req.body.correo, contrasena: req.body.contrasena }, { contrasena: false });
     if (usuario) {
         res.send({ status: true, message: 'Login correcto', usuario });
         res.end();
@@ -51,11 +51,11 @@ exports.obtenerMotoristas = obtenerMotoristas;
 const obtenerPedidos = (req, res) => {
     motoristas_schema_1.MotoristaSchema.findOne({ _id: new mongoose_1.default.Types.ObjectId(req.params.id) }, { pedidos: true })
         .then(resultado => {
-        res.send({ status: true, message: "Pedidos tomados orde", resultado });
+        res.send({ status: true, message: "Pedidos ", resultado });
         res.end();
     })
         .catch(error => {
-        res.send({ status: false, message: "No se encontraro el usario", error });
+        res.send({ status: false, message: "No se encontraro el Pedidos", error });
         res.end();
     });
 };
@@ -63,11 +63,11 @@ exports.obtenerPedidos = obtenerPedidos;
 const obtenerPedidosEntregados = (req, res) => {
     motoristas_schema_1.MotoristaSchema.findOne({ _id: new mongoose_1.default.Types.ObjectId(req.params.id) }, { pedidosEntregados: true })
         .then(resultado => {
-        res.send({ status: true, message: "Pedidos tomados orde", resultado });
+        res.send({ status: true, message: "Pedidos entregados", resultado });
         res.end();
     })
         .catch(error => {
-        res.send({ status: false, message: "No se encontraro el usario", error });
+        res.send({ status: false, message: "No se encontraro el Pedidos", error });
         res.end();
     });
 };

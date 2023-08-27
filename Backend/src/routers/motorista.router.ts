@@ -11,7 +11,7 @@ router.post('/registo',registrarMotorista)
 //Obtener todos los motoristas
 router.get('/',obtenerMotoristas) //Chque
 
-router.get('/:id/pedidos',obtenerPedidos)
+router.get('/:id/Motoristapedidos',obtenerPedidos)
 
 router.get('/:id/pedidosEntregados',obtenerPedidosEntregados)
 
