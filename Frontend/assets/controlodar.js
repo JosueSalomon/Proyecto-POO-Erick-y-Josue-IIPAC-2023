@@ -311,10 +311,25 @@ function salirHomeMotorista(){
 
 //Parte login-registro
 function registroCliente(){
-    alert('Se ha registrado el cliente')
-    document.getElementById('RegistroCliente').style.display='none'
-    document.getElementById('InicioSesionCliente').style.display='none'
-    document.getElementById('Landing-page-clientes').style.display='block'
+    let contrasena = document.getElementById('inputContrasena').value;
+    let confirmarContrasena = document.getElementById('inputConfirmarContrasena').value;
+
+    if (contrasena !== confirmarContrasena) {
+        console.log("Las contraseñas no coinciden");
+        alert('La contraseña no coincide')
+        return; 
+    }
+
+    let usuario = {
+        "nombre": document.getElementById('inputnombre').value,
+        "correo": document.getElementById('inputemail').value,
+        "contrasena": contrasena,
+        "telefono": document.getElementById('inputtelefono').value,
+        "img": "https://mx.web.img3.acsta.net/c_310_420/pictures/16/05/17/17/28/208580.jpg",
+        "carrito": []
+    };
+    
+    registrarUsuarioFetch(usuario);
 }
 
 function IngresarInicioSesionClientes(){
@@ -710,3 +725,612 @@ function renderizarPedidos(){
 </div>
     `
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Parte de Josue
+//Parte del cliente
+
+async function mandarRegistroUsuario() {
+    let contrasena = document.getElementById('inputContrasena').value;
+    let confirmarContrasena = document.getElementById('inputConfirmarContrasena').value;
+
+    if (contrasena !== confirmarContrasena) {
+        console.log("Las contraseñas no coinciden");
+        return; 
+    }
+
+    let usuario = {
+        "nombre": document.getElementById('inputnombre').value,
+        "correo": document.getElementById('inputemail').value,
+        "contrasena": contrasena,
+        "telefono": document.getElementById('inputtelefono').value,
+        "img": "https://mx.web.img3.acsta.net/c_310_420/pictures/16/05/17/17/28/208580.jpg",
+        "carrito": []
+    };
+    
+    await registrarUsuarioFetch(usuario);
+}
+
+const registrarUsuarioFetch = async (usuario) => {
+    const respuesta = await fetch(`http://localhost:1000/usuario/registo`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(usuario)
+    });
+
+    usuarioRegistrado = await respuesta.json();
+    console.log("Usuario registrado", usuarioRegistrado);
+    alert('Se ha registrado el cliente')
+    document.getElementById('RegistroCliente').style.display='none'
+    document.getElementById('InicioSesionCliente').style.display='none'
+    document.getElementById('Landing-page-clientes').style.display='block'
+};
+
+async function verificarLoginUsuario(){
+    document.getElementById('inputCorreo').value
+    document.getElementById('inputContrasena').value
+    let usuario = {
+        correo  :document.getElementById('inputCorreo').value,
+        contrasena:document.getElementById('inputContrasena').value,
+    }
+
+    await loginUsuarioFetch(usuario)
+
+}
+
+const loginUsuarioFetch = async (usuario) => {
+    const respuesta = await fetch("http://localhost:1000/usuario/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(usuario)
+    });
+
+    usuarioGuardado = await respuesta.json();
+    console.log("usuario Guardado", usuarioGuardado);
+    if (usuarioGuardado.status==true) {
+        window.location.href = '/Frontend/clientes.html'
+        alert('Acceso concedido')
+        localStorage.setItem("UsuarioIngresado",JSON.stringify(usuarioGuardado))
+    }else{
+        alert('credenciales incorrectas')
+    }
+    
+};

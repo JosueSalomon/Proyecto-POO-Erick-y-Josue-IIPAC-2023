@@ -32,12 +32,12 @@
         </div>
 
         <div id="formularioInicioSesionClientes">
-            <div class="ContenedorInputsClientes"><input class="inputsInicioSesionClientes" type="text"placeholder="Usuario"></div>
-            <div class="ContenedorInputsClientes"><input class="inputsInicioSesionClientes" type="password"placeholder="Contraseña"></div>
+            <div class="ContenedorInputsClientes"><input id="inputCorreo" class="inputsInicioSesionClientes" type="text"placeholder="Usuario"></div>
+            <div class="ContenedorInputsClientes"><input id="inputContrasena" class="inputsInicioSesionClientes" type="password"placeholder="Contraseña"></div>
         </div>
 
         <div style="margin-top: 15%; display: flex; justify-content: center;">
-            <button style="border: 0;border-radius: 20px; width: 250px; background-color: #4F8EC4; height: 45px; font-size: 25px; font-weight: 700;"><a href="/Frontend/clientes.html" style="text-decoration: none;">Ingresar</a></button>
+            <button onclick="verificarLoginUsuario()" style="border: 0;border-radius: 20px; width: 250px; background-color: #4F8EC4; height: 45px; font-size: 25px; font-weight: 700;">Ingresar</button>
         </div>
 
         <hr>
@@ -60,11 +60,11 @@
         </div>
 
         <div id="formularioRegistro">
-            <input class="inputsRegistroClientes" type="text" placeholder="Nombre">
-            <input class="inputsRegistroClientes" type="email" placeholder="Email">
-            <input class="inputsRegistroClientes" type="text" placeholder="telefono">
-            <input class="inputsRegistroClientes" type="password" placeholder="Contraseña">
-            <input class="inputsRegistroClientes" type="text" placeholder="Vuelva a ingresar la contraseña">
+            <input id="inputnombre" class="inputsRegistroClientes" type="text" placeholder="Nombre">
+            <input id="inputemail" class="inputsRegistroClientes" type="email" placeholder="Email">
+            <input id="inputtelefono" class="inputsRegistroClientes" type="text" placeholder="telefono">
+            <input id="inputContrasena" class="inputsRegistroClientes" type="password" placeholder="Contraseña">
+            <input id="inputConfirmarContrasena" class="inputsRegistroClientes" type="password" placeholder="Vuelva a ingresar la contraseña">
         </div>
 
         <div style="margin-top: 15%; display: flex; justify-content: center;">
